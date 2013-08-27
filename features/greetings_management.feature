@@ -4,7 +4,7 @@ Feature: Greeting cards management
   So users can use them to send greetings to other users
 
   Scenario: An administrator user
-    Given following categories are predefined:
+    Given the following categories are predefined:
       |category name|
       |love         |
       |ownership    |
