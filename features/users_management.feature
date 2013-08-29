@@ -3,8 +3,15 @@ Feature: Users management
   I want to be able to manage users
   So other administrator users can collaborate
 
+  Background:
+    Given the host application has the following user:
+      |email          |name    |
+      |test@test.com  |Ledi    |
+
   Scenario: The first logged in user becomes the administrator
-    Given I sign up
+    Given there are no administrator users in the kiitos application
+    And I am signed in on the host application
+    When I sign in on the kiitos application
     Then I should become an administrator
     And land in the administrator panel
 

@@ -18,11 +18,12 @@ Gem::Specification.new do |s|
   s.test_files = Dir['test/**/*']
 
   s.add_dependency 'rails', '~> 4.0.0'
+  s.add_dependency "pg"
 
-  s.add_development_dependency 'sqlite3'
   s.add_development_dependency 'gitnesse'
   s.add_development_dependency 'capybara'
-  s.add_development_dependency 'cucumber'
+  s.add_development_dependency 'cucumber-rails'
   s.add_development_dependency 'launchy'
+  s.add_development_dependency 'database_cleaner'
   s.add_development_dependency 'poltergeist'
 end
