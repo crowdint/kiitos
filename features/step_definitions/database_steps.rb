@@ -30,5 +30,5 @@ Then /^land in the administrator panel$/ do
 end
 
 Then /^I should land in my user's dashboard$/ do
-  page.current_path.must_equal '/dashboard'
+  page.current_path.must_equal '/kiitos/dashboard'
 end

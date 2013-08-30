@@ -8,7 +8,12 @@ require 'minitest/rails'
 
 Rails.backtrace_cleaner.remove_silencers!
 
-/bin/bash: :q: command not found
+module Minitest::Expectations
+  infect_an_assertion :assert_redirected_to, :must_redirect_to
+  infect_an_assertion :assert_template, :must_render_template
+  infect_an_assertion :assert_response, :must_respond_with
+end
+
 Dir["#{File.dirname(__FILE__)}/support/**/*.rb"].each { |f| require f }
 
 # Load fixtures from the engine
