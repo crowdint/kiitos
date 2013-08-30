@@ -101,9 +101,20 @@ GEM
       treetop (~> 1.4.8)
     mime-types (1.24)
     minitest (4.7.5)
+    minitest-capybara (0.4.1)
+      capybara (~> 2.0)
+      minitest (~> 4.0)
+      rake
+    minitest-metadata (0.4.0)
+      minitest (~> 4.7)
     minitest-rails (0.9.2)
       minitest (~> 4.7)
       rails (>= 3.0)
+    minitest-rails-capybara (0.10.0)
+      capybara (~> 2.0)
+      minitest-capybara (~> 0.4)
+      minitest-metadata (~> 0.4)
+      minitest-rails (~> 0.9.1)
     multi_json (1.7.9)
     mustache (0.99.4)
     nokogiri (1.5.10)
@@ -184,4 +195,5 @@ DEPENDENCIES
   kiitos!
   launchy
   minitest-rails
+  minitest-rails-capybara
   poltergeist

@@ -5,7 +5,7 @@ module Kiitos
         redirect_to user_dashboard_path
       else
         Kiitos::Administrator.create user_id: 1
-        redirect_to administrator_panel_path
+        redirect_to admin_panel_path
       end
     end
 

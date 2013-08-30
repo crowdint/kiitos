@@ -23,10 +23,10 @@ Feature: Users management
     Then the user "user2@test.com" should not become an administrator
     And I should land in my user's dashboard
 
-  #Scenario: An administrator adds more users from the host application users pool
-    #Given I am an administrator
-    #And I am signed in
-    #When I go to the users management panel
-    #Then I should be able to see the host application users pool
-    #And I should be able to promote a user to admin
-    #And I should be able to degrade a user from admin
+  Scenario: An administrator adds more users from the host application users pool
+    Given The user "user1@test.com" is an administrator in the kiitos application
+    When I sign in on the kiitos application as "user2@test.com"
+    And I go to the users management panel
+    Then I should be able to see the host application users pool
+    And I should be able to promote a user to admin
+    And I should be able to degrade a user from admin

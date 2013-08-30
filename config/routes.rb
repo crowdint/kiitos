@@ -1,5 +1,10 @@
 Kiitos::Engine.routes.draw do
   root to: 'home#show'
-  get '/admin', to: 'administrator_panel#index', as: 'administrator_panel'
+
+  namespace :admin do
+    root to: 'panel#index', as: 'panel'
+    get '/users', to: 'users_panel#index', as: 'users'
+  end
+
   get '/dashboard', to: 'user_dashboard#index', as: 'user_dashboard'
 end
