@@ -9,7 +9,7 @@ describe Kiitos::HomeController do
     context 'when successfully logged in and is the first user' do
       it 'redirects to admin panel' do
         get :show
-        must_redirect_to administrator_panel_path
+        must_redirect_to admin_panel_path
       end
     end
 
