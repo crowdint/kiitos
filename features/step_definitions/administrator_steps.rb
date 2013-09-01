@@ -3,11 +3,9 @@ When(/^I go to the users management panel$/) do
 end
 
 Then(/^I should be able to see the host application users pool$/) do
-  User.create email: 'user1@test.com'
-  User.create email: 'user2@test.com'
   users = User.all
-  page.has_content? users.first.email
-  page.has_content? users.last.email
+  assert page.has_content?(users.first.email), 'The user is not present'
+  assert page.has_content?(users.last.email), 'The user is not present'
 end
 
 Then(/^I should be able to promote a user to admin$/) do
