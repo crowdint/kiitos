@@ -1,7 +1,9 @@
-When /^I sign in on the kiitos application as "(.*?)"$/ do |email|
-  visit '/kiitos'
+When(/^I sign in as "(.*?)"$/) do |arg1|
+  ApplicationController.stub :current_user, arg1 do
+    assert true, 'iwano'
+  end
 end
 
-Given /^I am signed in on the host application as "(.*?)"$/ do |email|
-
+When /^I sign in on the kiitos application as "(.*?)"$/ do |email|
+  visit '/kiitos'
 end

@@ -1,3 +1,33 @@
+Given(/^the following kiitos were sent:$/) do |table|
+  table.hashes.each do |value|
+    from = User.where(email: value['From Email']).first
+    to = User.where(email: value['To Email']).first
+    kiito = Kiitos::Kiito.where(title: value['Greeting Card Title']).first
+    message = Kiitos::Message.create from: from, to: to, kiitos_kiito: kiito, message: value[:Message]
+  end
+end
+Given(/^the following categories are predefined:$/) do |table|
+  table.hashes.each do |value|
+    Kiitos::Category.create name: value['category name']
+  end
+end
+
+Given(/^the following users exist:$/) do |table|
+  table.hashes.each do |value|
+    User.create email: value['User Email']
+  end
+end
+
+Given(/^an administrator user exists$/) do
+  Kiitos::Administrator.create user_id: 1
+end
+
+Given(/^the following kiitos exist:$/) do |table|
+  table.hashes.each do |value|
+    Kiitos::Kiito.create title: value[:title], kiito_category_id: value[:category], description: value[:description], state: value[:state], image: value[:image]
+  end
+end
+
 Given /^the host application has the following user:$/ do |table|
   table.hashes.each do |user_info|
     Kiitos.user_class.create email: user_info['email'], name: user_info['name']

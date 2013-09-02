@@ -10,9 +10,9 @@ Feature: User Dashboard
       |joy          |
       |endurance    |
     And the following kiitos exist:
-      |title               |category   |description|state    |image name|
-      |I'm grateful        |joy        |blablabla  |enabled  |test1     |
-      |You are a gentleman |endurance  |           |disabled |test2     |
+      |title               |category   |description|state    |image     |
+      |I'm grateful        |1          |blablabla  |enabled  |test1     |
+      |You are a gentleman |2          |           |disabled |test2     |
     And the following users exist:
       | User Email   |
       |hugo@test.com |
