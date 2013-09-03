@@ -10,11 +10,11 @@ module Kiitos
       private
 
       def users
-        Kiitos.user_class.all
+        ::Kiitos.user_class.all
       end
 
       def is_admin?(user)
-        Kiitos::Administrator.all.any? do |a|
+        Administrator.all.any? do |a|
           a.user_id == user.id
         end
       end

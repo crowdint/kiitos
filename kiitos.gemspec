@@ -18,7 +18,7 @@ Gem::Specification.new do |s|
   s.test_files = Dir['test/**/*']
 
   s.add_dependency 'rails', '~> 4.0.0'
-  s.add_dependency "pg"
+  s.add_dependency 'pg'
 
   s.add_development_dependency 'capybara'
   s.add_development_dependency 'cucumber-rails'
@@ -29,4 +29,5 @@ Gem::Specification.new do |s|
   s.add_development_dependency 'minitest-rails'
   s.add_development_dependency 'minitest-rails-capybara'
   s.add_development_dependency 'poltergeist'
+  s.add_development_dependency 'mocha'
 end

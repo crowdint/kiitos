@@ -3,7 +3,7 @@ Given(/^the following kiitos were sent:$/) do |table|
     from = User.where(email: value['From Email']).first
     to = User.where(email: value['To Email']).first
     kiito = Kiitos::Kiito.where(title: value['Greeting Card Title']).first
-    message = Kiitos::Message.create from: from, to: to, kiitos_kiito: kiito, message: value[:Message]
+    message = Kiitos::Message.create from: from.id, to: to.id, kiitos_kiito: kiito, message: value[:Message], created_at: eval(value[:When?])
   end
 end
 Given(/^the following categories are predefined:$/) do |table|

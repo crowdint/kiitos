@@ -20,10 +20,10 @@ Feature: User Dashboard
       |luis@test.com |
     And the following kiitos were sent:
       |From Email    |To Email      | Greeting Card Title        |Message                 | When?        |
-      |hugo@test.com |paco@test.com | I'm grateful               |My customized message 1 | Today        |
-      |luis@test.com |paco@test.com | You are a gentleman        |My customized message 2 | 1 day ago    |
-      |luis@test.com |hugo@test.com | You are a gentleman        |My customized message 3 | Today        |
-      |luis@test.com |hugo@test.com | I'm grateful               |My customized message 4 | 2 months ago |
+      |hugo@test.com |paco@test.com | I'm grateful               |My customized message 1 | 1.day.ago    |
+      |luis@test.com |paco@test.com | You are a gentleman        |My customized message 2 | 1.day.ago    |
+      |luis@test.com |hugo@test.com | You are a gentleman        |My customized message 3 | 1.day.ago    |
+      |luis@test.com |hugo@test.com | I'm grateful               |My customized message 4 | 2.months.ago |
 
     When I sign in as "luis@test.com"
     Then I should have "0" kiitos

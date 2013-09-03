@@ -7,6 +7,7 @@ describe Kiitos::UserDashboardController do
 
   describe 'GET :index' do
     it 'renders the index template' do
+      User.create
       get :index
       must_render_template :index
     end
