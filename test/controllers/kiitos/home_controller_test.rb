@@ -3,6 +3,7 @@ require 'test_helper'
 describe Kiitos::HomeController do
   before do
     @routes = Kiitos::Engine.routes
+    User.create name: 'test', email: 'test@example.com'
   end
 
   describe 'GET :show' do

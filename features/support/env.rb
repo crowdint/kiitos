@@ -25,9 +25,4 @@ Before do
   DatabaseCleaner.start
 end
 
-After do |scenario|
-  DatabaseCleaner.clean
-  Kiitos::UserDashboardController.any_instance.unstub(:current_user)
-end
-
 Cucumber::Rails::Database.javascript_strategy = :truncation

@@ -5,14 +5,17 @@ Then(/^I should have "(.*?)" kiitos$/) do |count|
 end
 
 Then(/^I should have the following ordered kiitos:$/) do |table|
+  count = table.hashes.length
   within '#received-kiitos' do
-    page.assert_selector('li', count: 1)
-    assert page.has_content?(table.hashes.first['Greeting Card Title'])
+    page.assert_selector('li', count: count)
+    table.hashes.each do |kiito|
+      assert page.has_content?(kiito['Greeting Card Title'])
+    end
   end
 end
 
 When(/^I increase the search span to "(.*?)" months$/) do |arg1|
-  pending # express the regexp above with the code you wish you had
+  click_button '2 months'
 end
 
 Then(/^I should see my user's dashboard$/) do

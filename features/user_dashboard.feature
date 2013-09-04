@@ -40,8 +40,7 @@ Feature: User Dashboard
       | 2     | I'm grateful               |
 
     When I sign in as "paco@test.com"
-    Then I should see my user's dashboard
-    And I should have the following ordered kiitos:
+    Then I should have the following ordered kiitos:
       | Order | Greeting Card Title        |
       | 1     | I'm grateful               |
       | 2     | You are a gentleman        |

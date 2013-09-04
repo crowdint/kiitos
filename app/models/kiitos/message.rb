@@ -4,11 +4,7 @@ module Kiitos
     belongs_to :receiver, class_name: Kiitos.user_class.to_s, foreign_key: :to
     belongs_to :sender, class_name: Kiitos.user_class.to_s, foreign_key: :from
 
-    default_scope :default_scope
-
-    private
-
-    def self.default_scope
+    def self.a_month_ago
       self.where('created_at > ?', 1.month.ago)
     end
   end

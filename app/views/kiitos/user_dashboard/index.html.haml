@@ -1,4 +1,6 @@
-
+= form_tag user_dashboard_path, method: :get do
+  %button{name: 'search_span'}
+    2 months
 %ul#received-kiitos
   - @messages.each do |message|
     %li= message.kiitos_kiito.title
