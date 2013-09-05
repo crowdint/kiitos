@@ -1,0 +1,19 @@
+#new-kiito
+  = form_for [:admin, @kiito] do |f|
+    = f.label :title, 'Title'
+    = f.text_field :title
+    = f.label :kiitos_category_id, 'Category'
+    = f.select :kiitos_category_id, Kiitos::Category.all.map { |c| [c.name, c.id] }
+    = f.label :description, 'Description'
+    = f.text_area :description
+    = f.label :image, 'Image'
+    = f.text_field :image
+    = f.label :state, 'State'
+    = f.select :state, [['Enabled', 'enabled'], ['Disabled', 'disabled']]
+    = f.submit 'Create Kiito'
+
+%ul#kiitos
+  - @kiitos.each do |kiito|
+    %li
+      = kiito.title
+      = link_to 'Edit', edit_admin_kiito_path(kiito), class: 'edit-kiito'
