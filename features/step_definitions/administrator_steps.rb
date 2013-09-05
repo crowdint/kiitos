@@ -1,3 +1,8 @@
+Given(/^I am an administrator "(.*?)"$/) do |email|
+  user = User.create email: email, name: 'admin'
+  Kiitos::Administrator.create user_id: user.id
+end
+
 When(/^I go to the users management panel$/) do
   visit kiitos.admin_users_path
 end
