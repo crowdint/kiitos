@@ -17,7 +17,3 @@ end
 When(/^I increase the search span to "(.*?)" months$/) do |search_span|
   click_button "#{search_span} months"
 end
-
-Then(/^I should see my user's dashboard$/) do
-  pending # express the regexp above with the code you wish you had
-end
