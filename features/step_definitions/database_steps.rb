@@ -1,14 +1,6 @@
-Given(/^the following kiitos were sent:$/) do |table|
-  table.hashes.each do |value|
-    from = User.where(email: value['From Email']).first
-    to = User.where(email: value['To Email']).first
-    kiito = Kiitos::Kiito.where(title: value['Greeting Card Title']).first
-    message = Kiitos::Message.create from: from.id, to: to.id, kiitos_kiito: kiito, message: value[:Message], created_at: eval(value[:When?])
-  end
-end
 Given(/^the following categories are predefined:$/) do |table|
   table.hashes.each do |value|
-    Kiitos::Category.create name: value['category name']
+    Kiitos::Category.create(name: value['category name'])
   end
 end
 
@@ -24,7 +16,7 @@ end
 
 Given(/^the following kiitos exist:$/) do |table|
   table.hashes.each do |value|
-    Kiitos::Kiito.create title: value[:title], kiito_category_id: value[:category], description: value[:description], state: value[:state], image: value[:image]
+    Kiitos::Kiito.create title: value[:title], kiitos_category_id: value[:category], description: value[:description], state: value[:state], image: value[:image]
   end
 end
 

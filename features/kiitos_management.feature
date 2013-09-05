@@ -9,26 +9,26 @@ Feature: Greeting cards management
       |love         |
       |ownership    |
       |honor        |
-    And I am an administrator
-    And I am signed in
+    And I am an administrator "admin@test.com"
+    And I sign in as "admin@test.com"
     When I go to kiitos management panel
     Then I should be able to create the following valid kiitos:
       |title               |category   |description|state    |image name|
-      |I'm grateful        |love       |blablabla  |enabled  |test1     |
-      |You are a gentleman |honor      |           |disabled |test2     |
-      |Mr Lieutenant       |honor      |           |enabled  |test2     |
-      |You are the man     |ownership  |Boooom!    |enabled  |test3     |
+      |I am grateful       |love       |blablabla  |Enabled  |test1     |
+      |You are a gentleman |honor      |           |Disabled |test2     |
+      |Mr Lieutenant       |honor      |           |Enabled  |test2     |
+      |You are the man     |ownership  |Boooom!    |Enabled  |test3     |
     And I should not be able to create the following invalid kiitos:
       |title               |category   |description|state    |image name|
-      |                    |love       |blablabla  |enabled  |test1     |
-      |You are a gentleman |           |           |disabled |test2     |
-      |You are the man     |ownership  |Boooom!    |enabled  |          |
+      |                    |love       |blablabla  |Enabled  |test1     |
+      |You are a gentleman |           |           |Disabled |test2     |
+      |You are the man     |ownership  |Boooom!    |Enabled  |          |
     And I should be able to modify the "You are a gentleman" kiito with:
-      |title                      |category   |description|state    |image name|
-      |You are a honorable leader |honor      |           |disabled |test2     |
+      |title                       |category   |description|state    |image name|
+      |You are an honorable leader |honor      |           |Disabled |test2     |
     And I should enable/disable following cards:
-      |title               |state    |
-      |I'm grateful        |disable  |
-      |You are a gentleman |enabled  |
+      |title                       |state    |
+      |I am grateful               |Disabled |
+      |You are an honorable leader |Enabled  |
 
 

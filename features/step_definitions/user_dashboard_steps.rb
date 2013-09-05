@@ -14,8 +14,8 @@ Then(/^I should have the following ordered kiitos:$/) do |table|
   end
 end
 
-When(/^I increase the search span to "(.*?)" months$/) do |arg1|
-  click_button '2 months'
+When(/^I increase the search span to "(.*?)" months$/) do |search_span|
+  click_button "#{search_span} months"
 end
 
 Then(/^I should see my user's dashboard$/) do
