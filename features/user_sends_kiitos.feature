@@ -21,4 +21,4 @@ Feature: A user sends kiitos
     When I fill in the send kiito form with:
       |to               |message                         |kiito       |
       |user2@test.com   |Thanks for being the way you are|I'm grateful|
-    Then The user "user2@test.com" should have the kiito in his received messages
+    Then The user "user2@test.com" should have the "I'm grateful" kiito in his received messages
