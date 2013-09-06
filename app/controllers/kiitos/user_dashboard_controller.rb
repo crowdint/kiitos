@@ -6,6 +6,7 @@ module Kiitos
       else
         @messages = current_user.received_messages.a_month_ago
       end
+      @message = Message.new
     end
   end
 end
