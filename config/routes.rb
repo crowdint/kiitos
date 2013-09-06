@@ -8,5 +8,6 @@ Kiitos::Engine.routes.draw do
     resources :kiitos, only: [:index, :create, :edit, :update]
   end
 
+  resources :messages, only: [:create]
   get '/dashboard', to: 'user_dashboard#index', as: 'user_dashboard'
 end

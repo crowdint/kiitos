@@ -215,5 +215,6 @@ DEPENDENCIES
   minitest-rails
   minitest-rails-capybara
   mocha
+  pg
   poltergeist
   pry
