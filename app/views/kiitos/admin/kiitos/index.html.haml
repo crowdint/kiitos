@@ -13,7 +13,4 @@
     = f.submit 'Create Kiito'
 
 %ul#kiitos
-  - @kiitos.each do |kiito|
-    %li
-      = kiito.title
-      = link_to 'Edit', edit_admin_kiito_path(kiito), class: 'edit-kiito'
+  = render partial: 'kiito', collection: @kiitos

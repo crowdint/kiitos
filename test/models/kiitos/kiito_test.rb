@@ -2,11 +2,12 @@ require 'test_helper'
 
 describe Kiitos::Kiito do
   before do
-    @subject = Kiitos::Kiito.new
-    @subject.title = 'Title'
-    @subject.kiitos_category_id = 1
-    @subject.description = 'Description'
-    @subject.image = 'image'
+    @subject = Kiitos::Kiito.new(
+      title:  'Title',
+      kiitos_category_id: 1,
+      description: 'Description',
+      image: 'image'
+    )
   end
 
   it 'is invalid without a title' do
