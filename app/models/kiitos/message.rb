@@ -12,7 +12,7 @@ module Kiitos
 
     private
     def send_email
-      Kiitos::KiitosMailer.received_kiito_notification(self.to, self).deliver
+      KiitosMailer.received_kiito_notification(self.to, self).deliver
     end
   end
 end
