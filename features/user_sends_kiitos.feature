@@ -6,7 +6,7 @@ Feature: A user sends kiitos
   Scenario: A user sends a kiito to another user from the host application users pool
     Given an administrator user exists
     And the following users exist:
-      |User Email            |name      |
+      |User Email       |name      |
       |user1@test.com   |User1     |
       |user2@test.com   |User2     |
     And the following kiitos exist:
