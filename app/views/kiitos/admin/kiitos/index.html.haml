@@ -8,8 +8,8 @@
     = f.text_area :description
     = f.label :image, t('.image')
     = f.text_field :image
-    = f.label :state, t('.state')
-    = f.select :state, [[t('.enabled'), t('.enabled').downcase], [t('.disabled'), t('.disabled').downcase]]
+    = f.label :state
+    = f.select :state, [[t('kiitos.enabled'), t('kiitos.enabled').downcase], [t('kiitos.disabled'), t('kiitos.disabled').downcase]]
     = f.submit
 
 %ul#kiitos

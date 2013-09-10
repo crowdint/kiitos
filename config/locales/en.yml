@@ -12,10 +12,6 @@ en:
     edit: 'Edit'
 
     admin:
-      kiitos:
-        kiito:
-          disabled: 'Disabled'
-          enabled: 'Enabled'
       users_panel:
         index:
           demote: 'Demote from Admin'
