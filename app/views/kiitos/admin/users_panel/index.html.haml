@@ -1,0 +1,8 @@
+%ul
+  - users.each do |u|
+    %li
+      = u.email
+      - if is_admin? u
+        = button_to 'Demote from Admin', admin_administrator_path(id: u.id), method: :delete
+      - else
+        = button_to 'Promote to Admin', admin_administrators_path(id: u.id), method: :post
