@@ -1,13 +1,17 @@
 #edit-kiito
   = form_for [:admin, @kiito] do |f|
-    = f.label :title, 'Title'
+    = f.label :title, t('.title')
     = f.text_field :title
-    = f.label :kiitos_category_id, 'Category'
+    = f.label :kiitos_category_id, t('.category')
     = f.select :kiitos_category_id, Kiitos::Category.all.map { |c| [c.name, c.id] }
-    = f.label :description, 'Description'
+    = f.label :description, t('.description')
+
     = f.text_area :description
-    = f.label :image, 'Image'
+    = f.label :image, t('.image')
+
     = f.text_field :image
-    = f.label :state, 'State'
-    = f.select :state, [['Enabled', 'enabled'], ['Disabled', 'disabled']]
-    = f.submit 'Save Kiito'
+    = f.label :state, t('.state')
+
+    = f.select :state, [[t('.enabled'), t('.enabled').downcase], [t('.disabled'), t('.disabled').downcase]]
+    = f.submit t('.submit')
+

@@ -2,7 +2,7 @@ module Kiitos
   module Admin
     class AdministratorsController < ApplicationController
       def create
-        Administrator.create user_id: params[:user_id]
+        Administrator.create user_id: params[:id]
         redirect_to admin_users_path
       end
 
