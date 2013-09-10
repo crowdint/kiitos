@@ -11,7 +11,7 @@ Then(/^I should be able to modify the "(.*?)" kiito with:$/) do |title, table|
     fill_in 'Description', with: kiito[:description]
     fill_in 'Image', with: kiito["image name"]
     select kiito[:state], from: 'State'
-    click_button 'Save Kiito'
+    click_button 'Update Kiito'
   end
 end
 
@@ -20,7 +20,7 @@ Then(/^I should enable\/disable following cards:$/) do |table|
     visit kiitos.admin_kiitos_path
     page.find(:xpath, "//li[contains(., '#{value[:title]}')]/a[@class='edit-kiito']").click
     select value[:state], from: 'State'
-    click_button 'Save Kiito'
+    click_button 'Update Kiito'
   end
 end
 
