@@ -2,7 +2,7 @@ module Kiitos
   class MessagesController < ApplicationController
     def create
       @message = Message.new message_params
-      @message.from = current_user.email
+      @message.from = current_user.id
       if @message.save
         redirect_to user_dashboard_path
       else
@@ -12,7 +12,7 @@ module Kiitos
     end
 
     def index
-      @kiitos = Message.a_month_ago
+      @messages = Message.a_month_ago
     end
 
     private
