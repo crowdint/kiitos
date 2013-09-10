@@ -11,6 +11,10 @@ module Kiitos
       end
     end
 
+    def index
+      @kiitos = Message.a_month_ago
+    end
+
     private
 
     def message_params

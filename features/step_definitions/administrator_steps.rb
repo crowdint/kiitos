@@ -16,14 +16,12 @@ end
 Then(/^I should be able to promote a user to admin$/) do
   user = User.last
   assert Kiitos::Administrator.last.user_id != user.id, 'User is already an admin'
-  assert page.has_content?('Promote to Admin'), "Cannot find the 'Promote to Admin' link"
-  click_link 'Promote to Admin'
+  click_button 'Promote to Admin'
   assert Kiitos::Administrator.last.user_id.must_equal(user.id), 'User is already an admin'
 end
 
 Then(/^I should be able to degrade a user from admin$/) do
   assert Kiitos::Administrator.count.must_equal(2), "There are no Administrators"
-  assert page.has_content?('Demote from Admin'), "Cannot find the 'Demote from Admin' link"
-  first('li').click_link 'Demote from Admin'
+  first('li').click_button 'Demote from Admin'
   assert Kiitos::Administrator.count.must_equal(1), "Administrator wasn't removed"
 end

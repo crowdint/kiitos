@@ -1,0 +1,36 @@
+en:
+  kiitos:
+    admin:
+      kiitos:
+        kiito:
+          edit: 'Edit'
+        edit:
+          category: 'Category'
+          description: 'Description'
+          disabled: 'Disabled'
+          enabled: 'Enabled'
+          image: 'Image'
+          submit: 'Save Kiito'
+          state: 'State'
+          title: 'Title'
+        index:
+          category: 'Category'
+          description: 'Description'
+          disabled: 'Disabled'
+          enabled: 'Enabled'
+          image: 'Image'
+          submit: 'Create Kiito'
+          state: 'State'
+          title: 'Title'
+      users_panel:
+        index:
+          demote: 'Demote from Admin'
+          promote: 'Promote to Admin'
+
+    user_dashboard:
+      index:
+        message: 'Message'
+        months_2: '2 months'
+        select_kiito: 'Select a Kiito'
+        submit: 'Send Kiito'
+        to: 'To'

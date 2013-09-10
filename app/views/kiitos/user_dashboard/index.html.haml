@@ -1,16 +1,16 @@
 = form_tag user_dashboard_path, method: :get do
   %button{name: 'search_span'}
-    2 months
+    = t('.months_2')
 %ul#received-kiitos
   - @messages.each do |message|
     %li= message.kiitos_kiito.title
 
 
 = form_for @message, html: { id: 'send-kiito' } do |f|
-  = f.label :to
+  = f.label :to, t('.to')
   = f.select :to, Kiitos.user_class.all.map { |u| [u.email, u.id] }
-  = f.label :kiitos_kiito_id
+  = f.label :kiitos_kiito_id, t('.select_kiito')
   = f.select :kiitos_kiito_id, Kiitos::Kiito.all.map { |k| [k.title, k.id] }
-  = f.label :message
+  = f.label :message, t('.message')
   = f.text_area :message
-  = f.submit 'Send Kiito'
+  = f.submit t('.submit')
