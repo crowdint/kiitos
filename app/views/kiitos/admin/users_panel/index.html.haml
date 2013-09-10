@@ -3,6 +3,6 @@
     %li
       = u.email
       - if is_admin? u
-        = button_to 'Demote from Admin', admin_administrator_path(id: u.id), method: :delete
+        = button_to t('.demote'), admin_administrator_path(id: u.id), method: :delete
       - else
-        = button_to 'Promote to Admin', admin_administrators_path(id: u.id), method: :post
+        = button_to t('.promote'), admin_administrators_path(id: u.id), method: :post
