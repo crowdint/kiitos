@@ -1,4 +1,4 @@
-require "kiitos/engine"
+require 'kiitos/engine'
 
 module Kiitos
   mattr_accessor :user_class, :avatar_method, :sign_in_path
