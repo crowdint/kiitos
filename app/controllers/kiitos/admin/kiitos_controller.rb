@@ -5,11 +5,11 @@ module Kiitos
       before_filter :kiitos, only: [:create, :index]
 
       def index
-        @kiito = Kiitos::Kiito.new
+        @kiito = Kiito.new
       end
 
       def create
-        @kiito = Kiitos::Kiito.new kiito_params
+        @kiito = Kiito.new kiito_params
         if @kiito.save
           redirect_to action: :index
         else
@@ -18,11 +18,11 @@ module Kiitos
       end
 
       def edit
-        @kiito = Kiitos::Kiito.find(params[:id])
+        @kiito = Kiito.find(params[:id])
       end
 
       def update
-        @kiito = Kiitos::Kiito.find(params[:id])
+        @kiito = Kiito.find(params[:id])
         if @kiito.update kiito_params
           redirect_to action: :edit
         else
@@ -33,7 +33,7 @@ module Kiitos
       private
 
       def kiitos
-        @kiitos = Kiitos::Kiito.all
+        @kiitos = Kiito.all
       end
 
       def kiito_params

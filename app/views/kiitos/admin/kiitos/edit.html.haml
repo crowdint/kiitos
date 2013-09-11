@@ -13,5 +13,7 @@
     = f.label :state, t('.state')
 
     = f.select :state, [[t('.enabled'), t('.enabled').downcase], [t('.disabled'), t('.disabled').downcase]]
+    %br
+    = link_to t('kiitos.cancel'), admin_kiitos_path
     = f.submit t('.submit')
 
