@@ -4,7 +4,7 @@
 %ul#received-kiitos
   - @messages.each do |message|
     %li
-      = "#{message.anonymous ? 'Anonymous' : message.sender.email} => #{message.kiitos_kiito.title}"
+      = "#{message.sender_email} => #{message.kiitos_kiito.title}"
 
 
 = form_for @message, html: { id: 'send-kiito' } do |f|

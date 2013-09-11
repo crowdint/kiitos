@@ -10,6 +10,10 @@ module Kiitos
       self.where('created_at > ?', 1.month.ago)
     end
 
+    def sender_email
+      self.anonymous ? 'Anonymous' : self.sender.email
+    end
+
     private
     def send_email
       KiitosMailer.received_kiito_notification(self.to, self).deliver
