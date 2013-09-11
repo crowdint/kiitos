@@ -1,4 +1,8 @@
 en:
+  activerecord:
+    attributes:
+      kiitos/message:
+        anonymous: 'Send Anonymously'
   kiitos:
     admin:
       kiitos:

@@ -3,7 +3,7 @@ Feature: A user sends kiitos
   I want to send kiitos to other users
   So they feel good about their daily jobs
 
-  Scenario: A user sends a kiito to another user from the host application users pool
+  Background:
     Given an administrator user exists
     And the following users exist:
       |User Email       |name      |
@@ -17,8 +17,17 @@ Feature: A user sends kiitos
       |category name|
       |joy          |
       |endurance    |
+
+  Scenario: A user sends a kiito to another user from the host application users pool
     When I sign in as "user1@test.com"
     When I fill in the send kiito form with:
       |to               |message                         |kiito       |
       |user2@test.com   |Thanks for being the way you are|I'm grateful|
     Then The user "user2@test.com" should have the "I'm grateful" kiito in his received messages
+
+  Scenario: A user can send a kiito anonymously
+    When I sign in as "user1@test.com"
+    When I fill in the send kiito form anonymously with:
+      |to               |message                         |kiito       |
+      |user2@test.com   |Thanks for being the way you are|I'm grateful|
+    Then The user "user2@test.com" should not see the sender name "user1@test.com" for the "I'm grateful" kiito
