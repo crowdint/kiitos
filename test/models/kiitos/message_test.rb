@@ -19,4 +19,24 @@ describe Kiitos::Message do
       kiitos.first.message.must_equal '3 weeks ago'
     end
   end
+
+  describe '#sender_email' do
+    before do
+      @user = User.create name: 'test', email: '1@example.com'
+    end
+
+    context 'when anonymous' do
+      it 'does not return the sender email' do
+        user = @kiito = Kiitos::Message.create from: @user.id, to: 2, kiitos_kiito_id: 1, message: '3 weeks ago', created_at: 3.weeks.ago, anonymous: true
+        user.sender_email.must_equal 'Anonymous'
+      end
+    end
+
+    context 'when not anonymous' do
+      it 'returns the sender email' do
+        user = @kiito = Kiitos::Message.create from: @user.id, to: 2, kiitos_kiito_id: 1, message: '3 weeks ago', created_at: 3.weeks.ago
+        user.sender_email.must_equal user.sender.email
+      end
+    end
+  end
 end
