@@ -22,20 +22,20 @@ describe Kiitos::Message do
 
   describe '#sender_email' do
     before do
-      @user = User.create name: 'test', email: '1@example.com'
+      user = User.create name: 'test', email: '1@example.com'
+      @message = @kiito = Kiitos::Message.create from: user.id, to: 2, kiitos_kiito_id: 1, message: '3 weeks ago', created_at: 3.weeks.ago
     end
 
     context 'when anonymous' do
       it 'does not return the sender email' do
-        user = @kiito = Kiitos::Message.create from: @user.id, to: 2, kiitos_kiito_id: 1, message: '3 weeks ago', created_at: 3.weeks.ago, anonymous: true
-        user.sender_email.must_equal 'Anonymous'
+        @message.anonymous = true
+        @message.sender_email.must_equal 'Anonymous'
       end
     end
 
     context 'when not anonymous' do
       it 'returns the sender email' do
-        user = @kiito = Kiitos::Message.create from: @user.id, to: 2, kiitos_kiito_id: 1, message: '3 weeks ago', created_at: 3.weeks.ago
-        user.sender_email.must_equal user.sender.email
+        @message.sender_email.must_equal @message.sender.email
       end
     end
   end
