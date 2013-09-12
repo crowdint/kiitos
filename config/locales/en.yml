@@ -1,28 +1,18 @@
 en:
+  activerecord:
+    attributes:
+      kiitos/kiito:
+        kiitos_category_id: 'Category'
+      kiitos/message:
+        kiitos_kiito_id: 'Select a Kiito'
+
   kiitos:
     cancel: 'Cancel'
+    disabled: 'Disabled'
+    enabled: 'Enabled'
+    edit: 'Edit'
+
     admin:
-      kiitos:
-        kiito:
-          edit: 'Edit'
-        edit:
-          category: 'Category'
-          description: 'Description'
-          disabled: 'Disabled'
-          enabled: 'Enabled'
-          image: 'Image'
-          submit: 'Save Kiito'
-          state: 'State'
-          title: 'Title'
-        index:
-          category: 'Category'
-          description: 'Description'
-          disabled: 'Disabled'
-          enabled: 'Enabled'
-          image: 'Image'
-          submit: 'Create Kiito'
-          state: 'State'
-          title: 'Title'
       users_panel:
         index:
           demote: 'Demote from Admin'
@@ -30,8 +20,6 @@ en:
 
     user_dashboard:
       index:
-        message: 'Message'
         months_2: '2 months'
-        select_kiito: 'Select a Kiito'
         submit: 'Send Kiito'
         to: 'To'

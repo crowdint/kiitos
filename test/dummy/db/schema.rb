@@ -14,48 +14,48 @@
 ActiveRecord::Schema.define(version: 20130904204550) do
 
   # These are extensions that must be enabled in order to support this database
-  enable_extension "plpgsql"
+  enable_extension 'plpgsql'
 
-  create_table "kiitos_administrators", force: true do |t|
-    t.integer "user_id"
+  create_table 'kiitos_administrators', force: true do |t|
+    t.integer 'user_id'
   end
 
-  add_index "kiitos_administrators", ["user_id"], name: "index_kiitos_administrators_on_user_id", using: :btree
+  add_index 'kiitos_administrators', ['user_id'], name: 'index_kiitos_administrators_on_user_id', using: :btree
 
-  create_table "kiitos_categories", force: true do |t|
-    t.string   "name"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+  create_table 'kiitos_categories', force: true do |t|
+    t.string   'name'
+    t.datetime 'created_at'
+    t.datetime 'updated_at'
   end
 
-  create_table "kiitos_kiitos", force: true do |t|
-    t.string   "title"
-    t.integer  "kiitos_category_id"
-    t.string   "description"
-    t.string   "state"
-    t.string   "image"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+  create_table 'kiitos_kiitos', force: true do |t|
+    t.string   'title'
+    t.integer  'kiitos_category_id'
+    t.string   'description'
+    t.string   'state'
+    t.string   'image'
+    t.datetime 'created_at'
+    t.datetime 'updated_at'
   end
 
-  add_index "kiitos_kiitos", ["kiitos_category_id"], name: "index_kiitos_kiitos_on_kiitos_category_id", using: :btree
+  add_index 'kiitos_kiitos', ['kiitos_category_id'], name: 'index_kiitos_kiitos_on_kiitos_category_id', using: :btree
 
-  create_table "kiitos_messages", force: true do |t|
-    t.integer  "to"
-    t.integer  "from"
-    t.integer  "kiitos_kiito_id"
-    t.string   "message"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+  create_table 'kiitos_messages', force: true do |t|
+    t.integer  'to'
+    t.integer  'from'
+    t.integer  'kiitos_kiito_id'
+    t.string   'message'
+    t.datetime 'created_at'
+    t.datetime 'updated_at'
   end
 
-  add_index "kiitos_messages", ["kiitos_kiito_id"], name: "index_kiitos_messages_on_kiitos_kiito_id", using: :btree
+  add_index 'kiitos_messages', ['kiitos_kiito_id'], name: 'index_kiitos_messages_on_kiitos_kiito_id', using: :btree
 
-  create_table "users", force: true do |t|
-    t.string   "name"
-    t.string   "email"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+  create_table 'users', force: true do |t|
+    t.string   'name'
+    t.string   'email'
+    t.datetime 'created_at'
+    t.datetime 'updated_at'
   end
 
 end

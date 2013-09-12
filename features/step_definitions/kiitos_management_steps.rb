@@ -9,9 +9,9 @@ Then(/^I should be able to modify the "(.*?)" kiito with:$/) do |title, table|
     fill_in 'Title', with: kiito[:title]
     select kiito[:category], from: 'Category'
     fill_in 'Description', with: kiito[:description]
-    fill_in 'Image', with: kiito["image name"]
+    fill_in 'Image', with: kiito['image name']
     select kiito[:state], from: 'State'
-    click_button 'Save Kiito'
+    click_button 'Update Kiito'
   end
 end
 
@@ -20,7 +20,7 @@ Then(/^I should enable\/disable following cards:$/) do |table|
     visit kiitos.admin_kiitos_path
     page.find(:xpath, "//li[contains(., '#{value[:title]}')]/a[@class='edit-kiito']").click
     select value[:state], from: 'State'
-    click_button 'Save Kiito'
+    click_button 'Update Kiito'
   end
 end
 
@@ -30,7 +30,7 @@ Then(/^I should be able to create the following valid kiitos:$/) do |table|
       fill_in 'Title', with: value[:title]
       select value[:category], from: 'Category'
       fill_in 'Description', with: value[:description]
-      fill_in 'Image', with: value["image name"]
+      fill_in 'Image', with: value['image name']
       select value[:state], from: 'State'
       click_button 'Create Kiito'
     end
@@ -40,7 +40,13 @@ end
 Then(/^I should not be able to create the following invalid kiitos:$/) do |table|
   count = Kiitos::Kiito.count
   table.hashes.each do |value|
-    Kiitos::Kiito.create title: value[:title], kiitos_category_id: value[:category], description: value[:description], state: value[:state], image: value["image name"]
+    Kiitos::Kiito.create(
+      title: value[:title],
+      kiitos_category_id: value[:category],
+      description: value[:description],
+      state: value[:state],
+      image: value['image name']
+    )
   end
   assert count == Kiitos::Kiito.count, 'Invalid kiitos were created'
 end
@@ -50,6 +56,12 @@ Given(/^the following kiitos were sent:$/) do |table|
     from = User.where(email: value['From Email']).first
     to = User.where(email: value['To Email']).first
     kiito = Kiitos::Kiito.where(title: value['Greeting Card Title']).first
-    message = Kiitos::Message.create from: from.id, to: to.id, kiitos_kiito: kiito, message: value[:Message], created_at: eval(value[:When?])
+    Kiitos::Message.create(
+      from: from.id,
+      to: to.id,
+      kiitos_kiito: kiito,
+      message: value[:Message],
+      created_at: eval(value[:When?])
+    )
   end
 end
