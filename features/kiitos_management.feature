@@ -31,4 +31,18 @@ Feature: Greeting cards management
       |I am grateful               |Disabled |
       |You are an honorable leader |Enabled  |
 
-
+  Scenario: Cancel kiito edition
+    Given the following categories are predefined:
+      |category name|
+      |love         |
+    And I am an administrator "admin@test.com"
+    And I sign in as "admin@test.com"
+    When I go to kiitos management panel
+    Then I should be able to create the following valid kiitos:
+      |title               |category   |description|state    |image name|
+      |I am grateful       |love       |blablabla  |Enabled  |test1     |
+    And I should be able to modify the "I am grateful" kiito with:
+      |title                       |category   |description|state    |image name|
+      |I am grateful       |love       |blablabla  |Enabled  |test1     |
+    When I click on the cancel button
+    Then I should end up in the kiitos management panel
