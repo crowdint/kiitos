@@ -32,3 +32,9 @@ Then(/^The user "(.*?)" should not see the sender name "(.*?)" for the "(.*?)" k
     assert page.has_content?(from) == false, 'The kiito is not anonymous'
   end
 end
+
+Then(/^I should not see the user "(.*?)"$/) do |user|
+  within '#send-kiito' do
+    assert page.has_content?(user) == false, 'The user was found'
+  end
+end

@@ -31,3 +31,7 @@ Feature: A user sends kiitos
       |to               |message                         |kiito       |
       |user2@test.com   |Thanks for being the way you are|I'm grateful|
     Then The user "user2@test.com" should not see the sender name "user1@test.com" for the "I'm grateful" kiito
+
+  Scenario: A user cannot send a kiito to self
+    When I sign in as "user1@test.com"
+    Then I should not see the user "user1@test.com"
