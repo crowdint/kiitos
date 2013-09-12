@@ -8,7 +8,7 @@
 
 = form_for @message, html: { id: 'send-kiito' } do |f|
   = f.label :to, t('.to')
-  = f.select :to, all_users_but_current
+  = f.select :to, all_users_except_current
   = f.label :kiitos_kiito_id, t('.select_kiito')
   = f.select :kiitos_kiito_id, Kiitos::Kiito.all.map { |k| [k.title, k.id] }
   = f.label :message, t('.message')
