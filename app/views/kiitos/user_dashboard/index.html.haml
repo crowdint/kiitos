@@ -6,14 +6,5 @@
     %li
       = "#{message.sender_email} => #{message.kiitos_kiito.title}"
 
-
-= form_for @message, html: { id: 'send-kiito' } do |f|
-  = f.label :to
-  = f.select :to, all_users_except_current
-  = f.label :kiitos_kiito_id
-  = f.select :kiitos_kiito_id, Kiitos::Kiito.all.map { |k| [k.title, k.id] }
-  = f.label :message
-  = f.text_area :message
-  = f.label :anonymous
-  = f.check_box :anonymous
-  = f.submit t('.submit')
+#new-kiito
+  = render 'kiitos/user_dashboard/form', message: @message
