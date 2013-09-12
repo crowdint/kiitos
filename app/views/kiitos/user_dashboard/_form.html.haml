@@ -1,6 +1,6 @@
 = form_for message, html: { id: 'send-kiito' } do |f|
   = f.label :to
-  = f.select :to, all_users_except_current
+  = f.select :to, all_users_except_current, {}, class: 'chosen-select'
   = f.label :kiitos_kiito_id
   = f.select :kiitos_kiito_id, Kiitos::Kiito.all.map { |k| [k.title, k.id] }
   = f.label :message
@@ -8,3 +8,9 @@
   = f.label :anonymous
   = f.check_box :anonymous
   = f.submit t('.submit')
+
+  :coffee
+    $(".chosen-select").chosen
+      allow_single_deselect: true
+      no_results_text: 'No results matched'
+      width: '200px'
