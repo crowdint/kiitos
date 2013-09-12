@@ -10,6 +10,10 @@ module Kiitos
       where('created_at > ?', 1.month.ago)
     end
 
+    def sender_email
+      self.anonymous ? 'Anonymous' : self.sender.email
+    end
+
     private
 
     def send_email
