@@ -7,12 +7,13 @@ module Kiitos
 
     validates :to, :from, :kiitos_kiito_id, :message, presence: true
     def self.a_month_ago
-      self.where('created_at > ?', 1.month.ago)
+      where('created_at > ?', 1.month.ago)
     end
 
     private
+
     def send_email
-      KiitosMailer.received_kiito_notification(self.to, self).deliver
+      KiitosMailer.received_kiito_notification(to, self).deliver
     end
   end
 end

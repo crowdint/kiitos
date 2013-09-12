@@ -21,7 +21,7 @@ Then(/^I should be able to promote a user to admin$/) do
 end
 
 Then(/^I should be able to degrade a user from admin$/) do
-  assert Kiitos::Administrator.count.must_equal(2), "There are no Administrators"
+  assert Kiitos::Administrator.count.must_equal(2), 'There are no Administrators'
   first('li').click_button 'Demote from Admin'
   assert Kiitos::Administrator.count.must_equal(1), "Administrator wasn't removed"
 end

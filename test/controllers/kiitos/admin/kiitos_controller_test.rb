@@ -22,14 +22,26 @@ describe Kiitos::Admin::KiitosController do
   describe 'POST :create' do
     context 'with valid information' do
       it 'redirects to index' do
-        post :create, kiito: { title: 'test', kiitos_category_id: 1, description: 'test', image: 'test_image.png', state: 'enabled'}
+        post :create, kiito: {
+          title: 'test',
+          kiitos_category_id: 1,
+          description: 'test',
+          image: 'test_image.png',
+          state: 'enabled'
+        }
         response.must_redirect_to admin_kiitos_path
       end
 
       it 'creates a new Kiito' do
         count = Kiitos::Kiito.count
-        post :create, kiito: { title: 'test', kiitos_category_id: 1, description: 'test', image: 'test_image.png', state: 'enabled'}
-        assert Kiitos::Kiito.count == count + 1, "A kiito was not created"
+        post :create, kiito: {
+          title: 'test',
+          kiitos_category_id: 1,
+          description: 'test',
+          image: 'test_image.png',
+          state: 'enabled'
+        }
+        assert Kiitos::Kiito.count == count + 1, 'A kiito was not created'
       end
     end
 
@@ -37,14 +49,20 @@ describe Kiitos::Admin::KiitosController do
       it 'should not create a new kiito' do
         count = Kiitos::Kiito.count
         post :create, kiito: { title: '' }
-        assert Kiitos::Kiito.count == count, "A kiito was created"
+        assert Kiitos::Kiito.count == count, 'A kiito was created'
       end
     end
   end
 
   describe 'GET :edit' do
     it 'renders the edit template' do
-      kiito = Kiitos::Kiito.create title: 'test', kiitos_category_id: 1, description: 'test', image: 'test_image.png', state: 'enabled'
+      kiito = Kiitos::Kiito.create(
+        title: 'test',
+        kiitos_category_id: 1,
+        description: 'test',
+        image: 'test_image.png',
+        state: 'enabled'
+      )
       get :edit, id: kiito.id
       response.must_render_template :edit
     end
@@ -52,11 +70,23 @@ describe Kiitos::Admin::KiitosController do
 
   describe 'PUT :update' do
     before do
-      @kiito = Kiitos::Kiito.create title: 'test', kiitos_category_id: 1, description: 'test', image: 'test_image.png', state: 'enabled'
+      @kiito = Kiitos::Kiito.create(
+        title: 'test',
+        kiitos_category_id: 1,
+        description: 'test',
+        image: 'test_image.png',
+        state: 'enabled'
+      )
     end
     context 'valid information' do
       it 'redirects to edit page' do
-        put :update, id: @kiito.id, kiito: { title: 'test', kiitos_category_id: 1, description: 'test', image: 'test_image.png', state: 'enabled'}
+        put :update, id: @kiito.id, kiito: {
+          title: 'test',
+          kiitos_category_id: 1,
+          description: 'test',
+          image: 'test_image.png',
+          state: 'enabled'
+        }
         response.must_redirect_to edit_admin_kiito_path(@kiito)
       end
     end
