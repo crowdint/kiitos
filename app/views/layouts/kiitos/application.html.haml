@@ -1,0 +1,9 @@
+!!!
+%html
+  %head
+    %title Kiitos
+    = stylesheet_link_tag    "kiitos/application", media: "all"
+    = javascript_include_tag "kiitos/application"
+    = csrf_meta_tags
+  %body
+    = yield
