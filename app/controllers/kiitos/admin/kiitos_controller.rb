@@ -33,7 +33,7 @@ module Kiitos
       private
 
       def kiitos
-        @kiitos = Kiitos::Kiito.all
+        @kiitos = Kiito.all
       end
 
       def kiito_params
