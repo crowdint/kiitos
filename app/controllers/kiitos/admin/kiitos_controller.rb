@@ -37,7 +37,13 @@ module Kiitos
       end
 
       def kiito_params
-        params.require(:kiito).permit(:title, :kiitos_category_id, :description, :image, :state)
+        params.require(:kiito).permit(
+          :title,
+          :kiitos_category_id,
+          :description,
+          :image,
+          :state
+        )
       end
     end
   end

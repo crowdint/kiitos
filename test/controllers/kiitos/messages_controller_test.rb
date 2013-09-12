@@ -15,7 +15,13 @@ describe Kiitos::MessagesController do
 
   describe 'POST :create' do
     context 'valid params' do
-      params = { message: { to: 'user1@example.com', kiitos_kiito_id: 1, message: 'Example Message' } }
+      params = {
+        message: {
+          to: 'user1@example.com',
+          kiitos_kiito_id: 1,
+          message: 'Example Message'
+        }
+      }
 
       it 'redirects to users dashboard' do
         post :create, params
