@@ -1,8 +1,7 @@
 module Kiitos
   module Admin
     class UsersPanelController < ApplicationController
-
-      helper_method :users, :is_admin?
+      helper_method :users
 
       def index
       end
@@ -11,12 +10,6 @@ module Kiitos
 
       def users
         ::Kiitos.user_class.all
-      end
-
-      def is_admin?(user)
-        Administrator.all.any? do |a|
-          a.user_id == user.id
-        end
       end
     end
   end

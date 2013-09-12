@@ -14,3 +14,9 @@ Then(/^The user "(.*?)" should have the "(.*?)" kiito in his received messages$/
     assert page.has_content?(kiito), 'The kiito is not there'
   end
 end
+
+Then(/^I should not see the user "(.*?)"$/) do |user|
+  within '#send-kiito' do
+    assert page.has_content?(user) == false, 'The user was found'
+  end
+end
