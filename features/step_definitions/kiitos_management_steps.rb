@@ -53,11 +53,3 @@ Given(/^the following kiitos were sent:$/) do |table|
     message = Kiitos::Message.create from: from.id, to: to.id, kiitos_kiito: kiito, message: value[:Message], created_at: eval(value[:When?])
   end
 end
-
-When(/^I click on the cancel button$/) do
-  click_link 'Cancel'
-end
-
-Then(/^I should end up in the kiitos management panel$/) do
-  assert current_url == kiitos.admin_kiitos_url, 'Not in the kiitos management panel'
-end
