@@ -1,5 +1,7 @@
 module Kiitos
   class UserDashboardController < ApplicationController
+    helper_method :current_user
+
     def index
       if params[:search_span]
         @messages = current_user.received_messages
