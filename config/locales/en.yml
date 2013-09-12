@@ -4,8 +4,8 @@ en:
       kiitos/kiito:
         kiitos_category_id: 'Category'
       kiitos/message:
+        anonymous: 'Send Anonymously'
         kiitos_kiito_id: 'Select a Kiito'
-
   kiitos:
     disabled: 'Disabled'
     enabled: 'Enabled'
