@@ -11,6 +11,7 @@ PATH
   specs:
     kiitos (0.0.1)
       chosen-rails
+      fivemat
       jquery-rails
       pg
       rails (~> 4.0.0)
