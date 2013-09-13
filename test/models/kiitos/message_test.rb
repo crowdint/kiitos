@@ -1,6 +1,38 @@
 require 'test_helper'
 
 describe Kiitos::Message do
+  before do
+    @subject = Kiitos::Message.new(
+      from: 1,
+      to: 2,
+      kiitos_kiito_id: 1,
+      message: '2 weeks ago',
+      created_at: 2.weeks.ago
+    )
+  end
+
+  describe 'validations' do
+    it 'is valid without a to' do
+      @subject.to = nil
+      @subject.valid?.must_equal true
+    end
+
+    it 'is invalid without a from' do
+      @subject.from = nil
+      @subject.valid?.must_equal false
+    end
+
+    it 'is invalid without a kiitos_kiito_id' do
+      @subject.kiitos_kiito_id = nil
+      @subject.valid?.must_equal false
+    end
+
+    it 'is invalid without a message' do
+      @subject.message = nil
+      @subject.valid?.must_equal false
+    end
+  end
+
   describe 'after create' do
     it 'sends an email' do
       ActionMailer::Base.deliveries = []
