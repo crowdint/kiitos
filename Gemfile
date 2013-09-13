@@ -8,6 +8,7 @@ gemspec
 
 gem 'compass-rails', github: 'milgner/compass-rails', branch: 'rails4'
 gem 'chosen-rails'
+gem 'fivemat'
 gem 'haml-rails'
 gem 'jquery-rails'
 gem 'pg'

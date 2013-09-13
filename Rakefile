@@ -1,3 +1,5 @@
+require 'cucumber/rake/task'
+
 begin
   require 'bundler/setup'
 rescue LoadError
@@ -32,4 +34,8 @@ end
 
 require "gitnesse/tasks"
 
-task default: :test
+Cucumber::Rake::Task.new(:features) do |t|
+  t.cucumber_opts = "features --format Fivemat"
+end
+
+task default: [:test, :features]
