@@ -3,9 +3,8 @@ language: ruby
 rvm:
   - 2.0.0
 
-bundler_args: --gemfile
-
 before_script:
-  - psql -c 'create database crowd-portal_test;' -U postgres
-  - bundle install
-  - RAILS_ENV=test bundle exec rake app:db:create app:db:migrate
+  - "export DISPLAY=:99.0"
+  - "sh -e /etc/init.d/xvfb start"
+  - "bundle exec rake db:migrate > /dev/null 2>&1"
+  - "RAILS_ENV=test bundle exec rake db:migrate > /dev/null 2>&1"
