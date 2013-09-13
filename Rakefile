@@ -35,7 +35,7 @@ end
 require "gitnesse/tasks"
 
 Cucumber::Rake::Task.new(:features) do |t|
-  t.cucumber_opts = "features --format pretty"
+  t.cucumber_opts = "features --format progress"
 end
 
 task default: [:test, :features]
