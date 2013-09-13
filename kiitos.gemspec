@@ -28,6 +28,7 @@ Gem::Specification.new do |s|
   s.add_development_dependency 'cucumber-rails'
   s.add_development_dependency 'database_cleaner'
   s.add_development_dependency 'debugger'
+  s.add_development_dependency 'fivemat'
   s.add_development_dependency 'gitnesse'
   s.add_development_dependency 'launchy'
   s.add_development_dependency 'minitest-rails'
