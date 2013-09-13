@@ -10,8 +10,11 @@ PATH
   remote: .
   specs:
     kiitos (0.0.1)
+      chosen-rails
+      jquery-rails
       pg
       rails (~> 4.0.0)
+      sass-rails
 
 GEM
   remote: https://rubygems.org/

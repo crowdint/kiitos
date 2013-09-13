@@ -19,19 +19,19 @@ Gem::Specification.new do |s|
 
   s.add_dependency 'rails', '~> 4.0.0'
   s.add_dependency 'pg'
+  s.add_dependency 'chosen-rails'
+  s.add_dependency 'sass-rails'
+  s.add_dependency 'jquery-rails'
 
   s.add_development_dependency 'capybara'
-  s.add_development_dependency 'chosen-rails'
   s.add_development_dependency 'coffee-rails'
   s.add_development_dependency 'cucumber-rails'
   s.add_development_dependency 'database_cleaner'
   s.add_development_dependency 'debugger'
   s.add_development_dependency 'gitnesse'
-  s.add_development_dependency 'jquery-rails'
   s.add_development_dependency 'launchy'
   s.add_development_dependency 'minitest-rails'
   s.add_development_dependency 'minitest-rails-capybara'
   s.add_development_dependency 'poltergeist'
-  s.add_development_dependency 'sass-rails'
   s.add_development_dependency 'mocha'
 end
