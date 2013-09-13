@@ -4,6 +4,6 @@ rvm:
   - 2.0.0
 
 before_script:
-  - psql -c 'create database crowd-portal_test;' -U postgres
+  - psql -c 'create database crowd_portal_test;' -U postgres
   - bundle install
   - RAILS_ENV=test bundle exec rake app:db:create app:db:migrate

@@ -11,7 +11,7 @@ development:
 test:
   adapter: postgresql
   encoding: unicode
-  database: crowd-portal_test
+  database: crowd_portal_test
   pool: 5
   host: localhost
 
