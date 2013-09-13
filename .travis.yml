@@ -1,0 +1,12 @@
+language: ruby
+
+rvm:
+  - 2.0.0
+
+before_install:
+  - gem install bundler --pre
+
+before_script:
+  - psql -c 'create database crowd-portal_test;' -U postgres
+  - bundle install
+  - RAILS_ENV=test bundle exec rake app:db:create app:db:migrate
