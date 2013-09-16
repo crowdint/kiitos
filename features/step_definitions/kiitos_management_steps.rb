@@ -30,8 +30,9 @@ Then(/^I should be able to create the following valid kiitos:$/) do |table|
       fill_in 'Title', with: value[:title]
       select value[:category], from: 'Category'
       fill_in 'Description', with: value[:description]
-      fill_in 'Image', with: value['image name']
       select value[:state], from: 'State'
+      path = File.join(::Rails.root, "public/ci_logo.jpeg")
+      attach_file("kiito_image", path)
       click_button 'Create Kiito'
     end
   end
