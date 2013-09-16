@@ -1,7 +1,9 @@
 module Kiitos
   module ApplicationHelper
     def all_users_except_current
-      ::Kiitos.user_class.all.map { |u| [u.email, u.id] unless u == current_user }.compact
+      ::Kiitos.user_class.all.inject([['All', 'all']]) do |k, u|
+        u != current_user ? k << [u.email, u.id] : k
+      end
     end
   end
 end

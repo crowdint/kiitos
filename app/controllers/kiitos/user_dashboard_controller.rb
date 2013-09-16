@@ -4,9 +4,9 @@ module Kiitos
 
     def index
       if params[:search_span]
-        @messages = current_user.received_messages
+        @messages = Message.user_messages(current_user)
       else
-        @messages = current_user.received_messages.a_month_ago
+        @messages = Message.user_messages(current_user).a_month_ago
       end
       @message = Message.new
     end
