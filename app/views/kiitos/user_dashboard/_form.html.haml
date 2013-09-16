@@ -1,13 +1,23 @@
 = form_for message, html: { id: 'send-kiito' } do |f|
-  = f.label :to
-  = f.select :to, all_users_except_current, {}, class: 'chosen-select'
-  = f.label :kiitos_kiito_id
-  = f.select :kiitos_kiito_id, Kiitos::Kiito.all.map { |k| [k.title, k.id] }
+  .selects
+    = f.label :to
+    = f.select :to, all_users_except_current, {}, class: 'chosen-select'
+    = f.label :kiitos_kiito_id
+    = f.select :kiitos_kiito_id, Kiitos::Kiito.all.map { |k| [k.title, k.id] }
+
+  .receiver-pic
+  %h3 Kiito
   = f.label :message
-  = f.text_area :message
+  = f.text_area :message, placeholder: 'Your comment here!'
+  %br
+  %span
+    by:
+    = current_user.name
+  %br
   = f.label :anonymous
   = f.check_box :anonymous
-  = f.submit t('.submit')
+  %br
+  = f.submit t('.submit'), class: 'btn'
 
   :coffee
     $(".chosen-select").chosen
