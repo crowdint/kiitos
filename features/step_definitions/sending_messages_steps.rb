@@ -38,10 +38,3 @@ Then(/^I should not see the user "(.*?)"$/) do |user|
     assert page.has_content?(user) == false, 'The user was found'
   end
 end
-
-Then(/^All the users should receive the kiito$/) do
-  user = Kiitos.user_class.where(email: 'user2@test.com').first
-  user2 = Kiitos.user_class.where(email: 'user3@test.com').first
-  assert user.received_messages.count == 1, 'The user did not receive the kiito'
-  assert user2.received_messages.count == 1, 'The user did not receive the kiito'
-end

@@ -42,5 +42,4 @@ Feature: A user sends kiitos
     When I fill in the send kiito form with:
       |to               |message                         |kiito       |
       |All              |Broadcast kiito                 |I'm grateful|
-    Then All the users should receive the kiito
-
+    Then The user "user2@test.com" should have the "I'm grateful" kiito in his received messages
