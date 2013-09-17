@@ -1,8 +1,86 @@
 @import '../base/colors';
 
+#new-kiito {
+  .receiver-pic {
+    float: left;
+  }
+}
+
 #received-kiitos{
   background: $container-secondary;
+  padding: 60px;
+  position: relative;
+  -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+  -moz-box-sizing: border-box;    /* Firefox, other Gecko */
+  box-sizing: border-box;
+  h1 {
+    margin: 0;
+  }
   li{
     border-bottom: 1px solid #fff;
+  }
+  &:after {
+    background: #ededdf;
+    border-radius: 35px;
+    content: '';
+    display: inline-block;
+    height: 70px;
+    left: -35px;
+    position: absolute;
+    top: 75px;
+    width: 70px;
+  }
+}
+
+#scene {
+  text-align: center;
+}
+
+#user-dashboard{
+  padding-top: 60px;
+  .wrapper{
+    float: right;
+    max-width: 560px;
+  }
+}
+
+#header-text {
+  color: $header-text;
+  text-align: center;
+  h4 {
+    font-size: 14px;
+    font-weight: 300;
+    margin: 0;
+  }
+  h2 {
+    font-size: 32px;
+    font-weight: 400;
+    margin: 0;
+  }
+}
+
+#user-widget {
+  min-height: 250px;
+  .user-pic{
+    display: block;
+    position: absolute;
+    right: 33%;
+    text-align: center;
+    top: 0;
+    width: 190px;
+    &:after {
+      content: image-url('kiitos/PNG/shadow.png');
+      position: absolute;
+      right: 0;
+      top: 0;
+    }
+    img{
+      border-radius: 95px;
+      position: absolute;
+      right: 0;
+      top: 0;
+      width: 190px;
+      z-index: 1;
+    }
   }
 }

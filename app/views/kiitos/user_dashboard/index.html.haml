@@ -1,16 +1,32 @@
-.pure-u-3-5
-  #user-info
-    %h1 Kiitos
-    %p 
-      You only have 1 Kiito to give each day
-      %strong
-        Who deserves it?
-    .user-pic
-    %p
-      Welcome Back
-      = current_user.name
-  #new-kiito
-    = render 'kiitos/user_dashboard/form', message: @message
+#user-dashboard.pure-u-3-5
+  .wrapper
+    #user-info
+      %h1#logo Kiitos
+      #header-text
+        %h4
+          You only have 1 Kiito to give each day
+        %h2
+          Who deserves it?
+      #user-widget
+        %ul#scene
+          %li{ class: 'layer', 'data-depth' => '-2.30' }
+            = image_tag 'kiitos/svg/orange.svg'
+          %li{ class: 'layer', 'data-depth' => '-5.60' }
+            = image_tag 'kiitos/svg/blue.svg'
+          %li{ class: 'layer', 'data-depth' => '1.50' }
+            = image_tag 'kiitos/svg/green.svg'
+          %li{ class: 'user-pic' }
+            / temporary
+            %img{ src: 'https://0.gravatar.com/avatar/8a71280e755d248af1c0d2591181bb3f?d=https%3A%2F%2Fidenticons.github.com%2F15ee2ac7af61bc72dff12627421ecd56.png&s=420', class: 'badge'}
+        = javascript_include_tag 'parallax'
+        :coffee
+          scene = document.getElementById 'scene'
+          parallax = new Parallax(scene)
+      %p
+        Welcome Back
+        = current_user.name
+    #new-kiito
+      = render 'kiitos/user_dashboard/form', message: @message
 
 #received-kiitos.pure-u-2-5
   %h1 Kiitos Received
