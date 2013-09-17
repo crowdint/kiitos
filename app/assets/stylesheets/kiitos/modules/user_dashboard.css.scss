@@ -1,5 +1,7 @@
+@import '../base/colors';
+
 #received-kiitos{
-  background: #EDEDDF;
+  background: $container-secondary;
   li{
     border-bottom: 1px solid #fff;
   }

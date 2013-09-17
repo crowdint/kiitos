@@ -1,5 +1,5 @@
 = form_for message, html: { id: 'send-kiito' } do |f|
-  .selects
+  .dialog-inverted
     = f.label :to
     = f.select :to, all_users_except_current, {}, class: 'chosen-select'
     = f.label :kiitos_kiito_id
