@@ -1,0 +1,81 @@
+@import '../base/colors';
+
+.nav-tabs{
+  font-family: 'Oswald';
+  border-top: 1px solid $h1;
+  margin: 20px 0;
+  overflow: hidden;
+  padding: 10px 0;
+  ul{
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  }
+  a, button{
+    color: $paragraph;
+    padding: 0;
+    text-transform: uppercase;
+  }
+  li{
+    border-left: 1px solid $h1;
+    float: left;
+    padding: 0 10px;
+    &:first-child{
+      border: none;
+      padding-left: 0;
+    }
+    a, a:hover, a:visited {
+      text-decoration: none;
+    }
+  }
+  button{
+    background: none;
+    border: none;
+  }
+}
+.separator-colors{
+  margin-top: 30px;
+  > div{
+    float: left;
+    height: 4px;
+    width: 10%;
+  }
+  .color-1{
+    background-color: #2074BB;
+  }
+  .color-2{
+    background-color: #8FC754;
+  }
+  .color-3{
+    background-color: #008074;
+  }
+  .color-4{
+    background-color: #7CC3C2;
+  }
+  .color-5{
+    background-color: #DBDBBF;
+  }
+  .color-6{
+    background-color: #F0911F;
+  }
+  .color-7{
+    background-color: #D54927;
+  }
+  .color-8{
+    background-color: #D06C27;
+  }
+  .color-9{
+    background-color: #402716;
+  }
+  .color-10{
+    background-color: #272727;
+  }
+}
+.list-group{
+  padding: 0;
+  li{
+    border-bottom: 1px solid #fff;
+    list-style-type: none;
+    padding-top: 15px;
+  }
+}

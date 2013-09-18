@@ -4,6 +4,9 @@
   .receiver-pic {
     float: left;
   }
+  .message-info{
+    display: inline-block;
+  }
 }
 
 #received-kiitos{
@@ -13,11 +16,13 @@
   -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
   -moz-box-sizing: border-box;    /* Firefox, other Gecko */
   box-sizing: border-box;
-  h1 {
-    margin: 0;
+  .badge{
+    margin-right: 15px;
   }
-  li{
-    border-bottom: 1px solid #fff;
+  h1 {
+    color: $h1;
+    font-size: 30px;
+    margin: 0;
   }
   &:after {
     background: #ededdf;
@@ -29,6 +34,19 @@
     position: absolute;
     top: 75px;
     width: 70px;
+  }
+  .message-info {
+    display: inline-block;
+    p {
+      margin: 0 0 10px 0;
+      &.title {
+        color: $secondary;
+        font-size: 20px;
+      }
+      &.sender {
+        font-size: 12px;
+      }
+    }
   }
 }
 
@@ -48,13 +66,12 @@
   color: $header-text;
   text-align: center;
   h4 {
+    color: $primary-light;
     font-size: 14px;
-    font-weight: 300;
     margin: 0;
   }
   h2 {
     font-size: 32px;
-    font-weight: 400;
     margin: 0;
   }
 }

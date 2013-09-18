@@ -21,5 +21,7 @@ en:
     user_dashboard:
       index:
         months_2: '2 months'
+        all: 'All'
+        recent: 'Recent'
       form:
         submit: 'Send Kiito'

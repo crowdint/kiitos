@@ -6,16 +6,16 @@
     = f.select :kiitos_kiito_id, Kiitos::Kiito.all.map { |k| [k.title, k.id] }
 
   .receiver-pic.badge
-  %h3 Kiito
-  = f.label :message
-  = f.text_area :message, placeholder: 'Your comment here!'
-  %br
-  %span
-    by:
-    = current_user.name
-  %br
-  = f.label :anonymous
-  = f.check_box :anonymous
+  .message-info
+    %h3 Kiito
+    = f.text_area :message, placeholder: 'Your comment here!'
+    %br
+    %span
+      by:
+      = current_user.name
+    %br
+    = f.label :anonymous
+    = f.check_box :anonymous
   %br
   = f.submit t('.submit'), class: 'btn'
 

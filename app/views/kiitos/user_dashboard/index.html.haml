@@ -24,23 +24,31 @@
           parallax = new Parallax(scene)
       %p
         Welcome Back
-        = current_user.name
+        %span.current_user
+          = current_user.name
     #new-kiito
       = render 'kiitos/user_dashboard/form', message: @message
 
+    = render 'shared/separator'
+
 #received-kiitos.pure-u-2-5
   %h1 Kiitos Received
-  = form_tag user_dashboard_path, method: :get do
-    %button{name: 'search_span'}
-      = t('.months_2')
-  %ul
+  = form_tag user_dashboard_path, method: :get, class: 'nav-tabs' do
+    %ul
+      %li
+        %button{name: 'search_span'}
+          = t('.all')
+      %li
+        = link_to t('.recent'), user_dashboard_path
+  %ul.list-group
     - @messages.each do |message|
       %li
         .badge
           = message.kiitos_kiito.image
-        = message.kiitos_kiito.title
-        %br
-        .dialog
-          = message.message
-        %br
-        = message.sender_email
+        .message-info
+          %p.title
+            = message.kiitos_kiito.title
+          .dialog
+            = message.message
+          %p.sender
+            = message.sender_email
