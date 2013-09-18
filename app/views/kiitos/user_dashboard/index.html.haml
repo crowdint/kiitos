@@ -21,7 +21,9 @@
         = javascript_include_tag 'parallax'
         :coffee
           scene = document.getElementById 'scene'
-          parallax = new Parallax(scene)
+          parallax = new Parallax(scene,
+            scalarY: 15
+          )
       %p
         Welcome Back
         %span.current_user
