@@ -52,6 +52,10 @@
 
 #scene {
   text-align: center;
+  z-index: 50;
+  li{
+    pointer-events: none;
+  }
 }
 
 #user-dashboard{
