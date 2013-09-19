@@ -22,11 +22,12 @@
         :coffee
           scene = document.getElementById 'scene'
           parallax = new Parallax(scene,
-            scalarY: 15
+            scalarY: 30
           )
-      %p
-        Welcome Back
-        %span.current_user
+      .welcome-back
+        %p
+          Welcome back
+        %span.current-user
           = current_user.name
     #new-kiito
       = render 'kiitos/user_dashboard/form', message: @message
@@ -52,5 +53,8 @@
             = message.kiitos_kiito.title
           .dialog
             = message.message
-          %p.sender
-            = message.sender_email
+          %span.sender
+            by
+            = message.sender_name
+          %span.message-date
+            = pretty_date(message.created_at)

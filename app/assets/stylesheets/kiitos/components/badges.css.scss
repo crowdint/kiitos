@@ -1,11 +1,15 @@
 @import '../base/colors';
 
-.badge{
+.badge, .badge-inverted{
   border: 4px solid $badge;
   border-radius: 40px;
   float: left;
   height: 75px;
   width: 75px;
+}
+
+.badge-inverted{
+  background: $dialog-inverted;
 }
 
 #logo{

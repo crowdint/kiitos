@@ -23,14 +23,16 @@
 .dialog-dark{
   background-color: $dialog-dark;
   padding: 0;
+  width: 250px;
   textarea{
     background: $dialog-dark;
     border: none;
     color: $paragraph;
+    font-size: 15px;
     height: 20px;
     padding: 10px;
     resize: none;
-    width: 100%;
+    width: 230px;
   }
   &:after {
     border-color: $dialog-dark transparent transparent transparent;
