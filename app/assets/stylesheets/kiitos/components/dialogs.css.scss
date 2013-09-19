@@ -41,8 +41,8 @@
 
 .dialog-inverted{
   background: $dialog-dark;
+  height: 99px;
   margin-bottom: 20px;
-  padding: 15px 80px;
   position: relative;
   &:after {
     border-style: solid;

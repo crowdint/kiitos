@@ -26,6 +26,44 @@
     margin: 20px 0 0 30px;
     vertical-align: top;
   }
+  .kiitos-list {
+    display: inline-block;
+    right: 0;
+    overflow: hidden;
+    position: absolute;
+    top: 0;
+    width: 50%;
+    .choose {
+      border-radius: 40px;
+      content: '+';
+      float: left;
+      height: 75px;
+      width: 75px;
+    }
+    ul {
+      background: #fff;
+      display: none;
+      width: 280px;
+      li {
+        display: block;
+        height: 84px;
+        input[type='radio'] {
+          display: none;
+        }
+      }
+      .badge{
+        border-width: 2px;
+      }
+    }
+  }
+  .users-list {
+    display: inline-block;
+    left: 0;
+    padding: 37px 0;
+    position: absolute;
+    top: 0;
+    width: 50%;
+  }
 }
 
 #received-kiitos{
@@ -89,7 +127,7 @@
   padding-top: 60px;
   .wrapper{
     float: right;
-    max-width: 560px;
+    width: 560px;
   }
 }
 
