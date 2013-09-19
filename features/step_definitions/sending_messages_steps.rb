@@ -3,7 +3,7 @@ When(/^I fill in the send kiito form with:$/) do |table|
   within '#send-kiito' do
     select value[:to], from: 'message_to'
     select value[:kiito], from: 'message_kiitos_kiito_id'
-    fill_in 'Message', with: value[:message]
+    fill_in 'message_message', with: value[:message]
     click_button 'Send Kiito'
   end
 end
@@ -20,7 +20,7 @@ When(/^I fill in the send kiito form anonymously with:$/) do |table|
   within '#send-kiito' do
     select value[:to], from: 'message_to'
     select value[:kiito], from: 'message_kiitos_kiito_id'
-    fill_in 'Message', with: value[:message]
+    fill_in 'message_message', with: value[:message]
     check 'Send Anonymously'
     click_button 'Send Kiito'
   end

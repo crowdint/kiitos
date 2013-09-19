@@ -1,6 +1,6 @@
 @import '../base/colors';
 
-.dialog {
+.dialog, .dialog-dark {
   background-color: $dialog-light;
   margin-bottom: 15px;
   padding: 10px;
@@ -17,6 +17,23 @@
     left: 65%;
     position: absolute;
     width: 0;
+  }
+}
+
+.dialog-dark{
+  background-color: $dialog-dark;
+  padding: 0;
+  textarea{
+    background: $dialog-dark;
+    border: none;
+    color: $paragraph;
+    height: 20px;
+    padding: 10px;
+    resize: none;
+    width: 100%;
+  }
+  &:after {
+    border-color: $dialog-dark transparent transparent transparent;
   }
 }
 
