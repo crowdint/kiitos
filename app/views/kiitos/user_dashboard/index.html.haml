@@ -1,12 +1,12 @@
 #user-dashboard.pure-u-3-5
   .wrapper
     #user-info
-      %h1#logo Kiitos
+      %h1#logo t('kiitos.title')
       #header-text
         %h4
-          You only have 1 Kiito to give each day
+          = t('.instructions')
         %h2
-          Who deserves it?
+          = t('.instructions_2')
       #user-widget
         %ul#scene
           %li{ class: 'layer', 'data-depth' => '-2.30' }
@@ -26,7 +26,7 @@
           )
         .welcome-back
           %p
-            Welcome back
+            = t('.welcome_back')
           %span.current-user
             = current_user.name
     #new-kiito
@@ -35,7 +35,8 @@
     = render 'shared/separator'
 
 #received-kiitos.pure-u-2-5
-  %h1 Kiitos Received
+  %h1
+    = t('.received_kiitos')
   = form_tag user_dashboard_path, method: :get, class: 'nav-tabs' do
     %ul
       %li
