@@ -1,8 +1,10 @@
 When(/^I fill in the send kiito form with:$/) do |table|
   value = table.hashes.first
   within '#send-kiito' do
-    select value[:to], from: 'message_to'
-    select value[:kiito], from: 'message_kiitos_kiito_id'
+    find('.chosen-single').click
+    find(:xpath, "//li[text()='#{value[:to]}']").click
+    find('.kiitos-list .choose').click
+    find(:xpath, "//label[text()='#{value[:kiito]}']").click
     fill_in 'message_message', with: value[:message]
     click_button 'Send Kiito'
   end
@@ -18,8 +20,9 @@ end
 When(/^I fill in the send kiito form anonymously with:$/) do |table|
   value = table.hashes.first
   within '#send-kiito' do
-    select value[:to], from: 'message_to'
-    select value[:kiito], from: 'message_kiitos_kiito_id'
+    find('.chosen-single').click
+    find('.kiitos-list .choose').click
+    find(:xpath, "//label[text()='#{value[:kiito]}']").click
     fill_in 'message_message', with: value[:message]
     check 'Send Anonymously'
     click_button 'Send Kiito'

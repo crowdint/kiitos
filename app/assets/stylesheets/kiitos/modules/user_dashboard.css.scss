@@ -70,9 +70,35 @@
   }
   .users-list {
     display: inline-block;
-    padding: 37px 0;
+    padding: 17px 30px;
     vertical-align: top;
     width: 280px;
+    .choose-secondary {
+      float: right;
+    }
+    .who {
+      display: inline-block;
+      float: right;
+      font-family: 'Oswald';
+      font-size: 15px;
+      margin: 25px 20px 0 0;
+      padding-right: 20px;
+      position: relative;
+      text-transform: uppercase;
+      .arrow-right{
+        right: 0;
+        position: absolute;
+        top: 0;
+      }
+    }
+    .optional{
+      color: $special;
+      font: 300 8px 'Roboto';
+      vertical-align: top;
+    }
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
   }
 }
 

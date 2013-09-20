@@ -1,11 +1,16 @@
 = form_for message, html: { id: 'send-kiito' } do |f|
   .dialog-inverted
     .users-list
+      %span.choose-secondary
+        +
+      .who
+        To Who?
+        %br
+        %span.optional
+          optional
+        %span.arrow-right
       = f.label :to
       = f.select :to, all_users_except_current, {}, class: 'chosen-select'
-      /- all_users_except_current.each do |email, id|
-      /  = f.label :to, email
-      /  = f.radio_button :to, id
     .kiitos-list
       %span.choose
         +
@@ -18,8 +23,8 @@
             %li
               %span.badge
                 = image
-              = f.label "to_#{id}", title
-              = f.radio_button :to, id
+              = f.label "kiitos_kiito_id_#{id}", title
+              = f.radio_button :kiitos_kiito_id, id
 
   .receiver-pic.badge-inverted
   .message-info

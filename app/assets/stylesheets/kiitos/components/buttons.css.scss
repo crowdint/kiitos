@@ -12,7 +12,7 @@
   box-shadow: -9px 11px 3px 1px rgba(224, 224, 211, .7);
 }
 
-.choose {
+.choose, .choose-secondary{
   background: $secondary;
   border: 2px solid #fff;
   border-radius: 40px;
@@ -24,4 +24,8 @@
   cursor: pointer;
   text-align: center;
   width: 60px;
+}
+
+.choose-secondary{
+  background: $special;
 }
