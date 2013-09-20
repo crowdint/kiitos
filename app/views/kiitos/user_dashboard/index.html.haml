@@ -24,11 +24,11 @@
           parallax = new Parallax(scene,
             scalarY: 30
           )
-      .welcome-back
-        %p
-          Welcome back
-        %span.current-user
-          = current_user.name
+        .welcome-back
+          %p
+            Welcome back
+          %span.current-user
+            = current_user.name
     #new-kiito
       = render 'kiitos/user_dashboard/form', message: @message
 

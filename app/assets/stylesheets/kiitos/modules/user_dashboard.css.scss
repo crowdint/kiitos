@@ -1,6 +1,9 @@
 @import '../base/colors';
 
 #new-kiito {
+  .dialog-inverted{
+    font-size: 0;
+  }
   h3 {
     color: $secondary;
     font-size: 20px;
@@ -28,11 +31,8 @@
   }
   .kiitos-list {
     display: inline-block;
-    right: 0;
     overflow: hidden;
-    position: absolute;
-    top: 0;
-    width: 50%;
+    width: 280px;
     .choose {
       border-radius: 40px;
       content: '+';
@@ -58,11 +58,8 @@
   }
   .users-list {
     display: inline-block;
-    left: 0;
     padding: 37px 0;
-    position: absolute;
-    top: 0;
-    width: 50%;
+    width: 280px;
   }
 }
 
@@ -127,7 +124,7 @@
   padding-top: 60px;
   .wrapper{
     float: right;
-    width: 560px;
+    max-width: 560px;
   }
 }
 
@@ -147,6 +144,7 @@
 
 #user-widget {
   min-height: 250px;
+  position: relative;
   .user-pic{
     display: block;
     position: absolute;
@@ -173,10 +171,9 @@
 
 .welcome-back{
   display: inline-block;
-  float: right;
-  position: relative;
+  position: absolute;
   right: 50px;
-  top: -190px;
+  top: 65px;
   p{
     color: $h1;
     margin: 0 0 -10px;
