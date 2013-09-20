@@ -1,0 +1,17 @@
+.arrow-left {
+  background: image-url('kiitos/PNG/arrows.png');
+  background-position: -11px 0px;
+  display: inline-block;
+  height: 19px;
+  margin-right: 10px;
+  width: 11px;
+}
+
+.arrow-right {
+  background: image-url('kiitos/PNG/arrows.png');
+  display: inline-block;
+  height: 19px;
+  margin-left: 10px;
+  vertical-align: top;
+  width: 11px;
+}
