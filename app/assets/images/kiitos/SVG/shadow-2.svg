@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 16.2.1, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 width="190.747px" height="60.896px" viewBox="229.595 603.247 190.747 60.896"
+	 enable-background="new 229.595 603.247 190.747 60.896" xml:space="preserve">
+<defs>
+	<filter id="Adobe_OpacityMaskFilter" filterUnits="userSpaceOnUse" x="229.595" y="603.247" width="190.747" height="60.896">
+		<feColorMatrix  type="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 1 0"/>
+	</filter>
+</defs>
+<mask maskUnits="userSpaceOnUse" x="229.595" y="603.247" width="190.747" height="60.896" id="SVGID_3_">
+	<g filter="url(#Adobe_OpacityMaskFilter)">
+		
+			<linearGradient id="SVGID_1_" gradientUnits="userSpaceOnUse" x1="835.5039" y1="-715.9282" x2="592.3251" y2="-1102.3492" gradientTransform="matrix(1 0 0 -1 -331.7949 -366.2598)">
+			<stop  offset="0" style="stop-color:#FFFFFF"/>
+			<stop  offset="0.1006" style="stop-color:#FBFBFB"/>
+			<stop  offset="0.2008" style="stop-color:#EFEFEF"/>
+			<stop  offset="0.3009" style="stop-color:#DBDBDB"/>
+			<stop  offset="0.401" style="stop-color:#BFBFBF"/>
+			<stop  offset="0.5011" style="stop-color:#9B9B9B"/>
+			<stop  offset="0.6013" style="stop-color:#6E6E6E"/>
+			<stop  offset="0.6995" style="stop-color:#3B3B3B"/>
+			<stop  offset="0.7976" style="stop-color:#000000"/>
+		</linearGradient>
+		<polygon fill="url(#SVGID_1_)" points="244.517,603.247 229.595,622.203 229.595,664.144 405.421,664.144 420.342,645.188 
+			420.342,603.247 		"/>
+	</g>
+</mask>
+<polygon opacity="0.3" mask="url(#SVGID_3_)" enable-background="new    " points="244.517,603.247 229.595,622.203 
+	229.595,664.144 405.421,664.144 420.342,645.188 420.342,603.247 "/>
+</svg>

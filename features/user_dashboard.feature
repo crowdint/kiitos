@@ -33,7 +33,7 @@ Feature: User Dashboard
       | Order | Greeting Card Title        |
       | 1     | You are a gentleman        |
 
-    When I increase the search span to "2" months
+    When I increase the search span to "All"
     Then I should have the following ordered kiitos:
       | Order | Greeting Card Title        |
       | 1     | You are a gentleman        |

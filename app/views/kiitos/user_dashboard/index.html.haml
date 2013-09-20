@@ -1,10 +1,61 @@
-= form_tag user_dashboard_path, method: :get do
-  %button{name: 'search_span'}
-    = t('.months_2')
-%ul#received-kiitos
-  - @messages.each do |message|
-    %li
-      = "#{message.sender_email} => #{message.kiitos_kiito.title}"
+#user-dashboard.pure-u-3-5
+  .wrapper
+    #user-info
+      %h1#logo t('kiitos.title')
+      #header-text
+        %h4
+          = t('.instructions')
+        %h2
+          = t('.instructions_2')
+      #user-widget
+        %ul#scene
+          %li{ class: 'layer', 'data-depth' => '-2.30' }
+            = image_tag 'kiitos/SVG/orange.svg'
+          %li{ class: 'layer', 'data-depth' => '-5.60' }
+            = image_tag 'kiitos/SVG/blue.svg'
+          %li{ class: 'layer', 'data-depth' => '1.50' }
+            = image_tag 'kiitos/SVG/green.svg'
+          %li{ class: 'user-pic' }
+            / temporary
+            %img{ src: 'https://0.gravatar.com/avatar/8a71280e755d248af1c0d2591181bb3f?d=https%3A%2F%2Fidenticons.github.com%2F15ee2ac7af61bc72dff12627421ecd56.png&s=420', class: 'badge'}
+        = javascript_include_tag 'parallax'
+        :coffee
+          scene = document.getElementById 'scene'
+          parallax = new Parallax(scene,
+            scalarY: 30
+          )
+        .welcome-back
+          %p
+            = t('.welcome_back')
+          %span.current-user
+            = current_user.name
+    #new-kiito
+      = render 'kiitos/user_dashboard/form', message: @message
 
-#new-kiito
-  = render 'kiitos/user_dashboard/form', message: @message
+    = render 'shared/separator'
+
+#received-kiitos.pure-u-2-5
+  %h1
+    = t('.received_kiitos')
+  = form_tag user_dashboard_path, method: :get, class: 'nav-tabs' do
+    %ul
+      %li
+        %button{name: 'search_span'}
+          = t('.all')
+      %li
+        = link_to t('.recent'), user_dashboard_path
+  %ul.list-group
+    - @messages.each do |message|
+      %li
+        .badge
+          = message.kiitos_kiito.image
+        .message-info
+          %p.title
+            = message.kiitos_kiito.title
+          .dialog
+            = message.message
+          %span.sender
+            by
+            = message.sender_name
+          %span.message-date
+            = pretty_date(message.created_at)

@@ -9,8 +9,10 @@ en:
   kiitos:
     cancel: 'Cancel'
     disabled: 'Disabled'
-    enabled: 'Enabled'
     edit: 'Edit'
+    enabled: 'Enabled'
+    kiito: 'Kiito'
+    title: 'Kiitos'
 
     admin:
       users_panel:
@@ -20,6 +22,17 @@ en:
 
     user_dashboard:
       index:
+        instructions: 'You only have 1 Kiito to give each day'
+        instructions_2: 'Who deserves it?'
         months_2: '2 months'
+        all: 'All'
+        by: 'by'
+        optional: 'Optional'
+        recent: 'Recent'
+        received_kiitos: 'Kiitos Received'
+        to_who: 'To Who?'
+        welcome_back: 'Welcome Back'
+        which: 'Which?'
+        your_comment: 'Your comment here!'
       form:
         submit: 'Send Kiito'
