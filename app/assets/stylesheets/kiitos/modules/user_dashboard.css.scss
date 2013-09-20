@@ -31,34 +31,47 @@
   }
   .kiitos-list {
     display: inline-block;
+    font: 15px 'Oswald';
     overflow: hidden;
+    padding: 17px 30px;
+    text-transform: uppercase;
     width: 280px;
-    .choose {
-      border-radius: 40px;
-      content: '+';
-      float: left;
-      height: 75px;
-      width: 75px;
-    }
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
     ul {
       background: #fff;
-      display: none;
+      max-height: 500px;
+      overflow-y: scroll;
+      padding: 0;
       width: 280px;
       li {
+        border-bottom: 1px solid #eee;
+        color: $secondary;
         display: block;
+        font-family: 'Roboto';
         height: 84px;
+        text-transform: none;
         input[type='radio'] {
           display: none;
+        }
+        &:last-child {
+          border: none;
         }
       }
       .badge{
         border-width: 2px;
       }
     }
+    .which {
+      display: inline-block;
+      margin: 25px 0 0 20px;
+    }
   }
   .users-list {
     display: inline-block;
     padding: 37px 0;
+    vertical-align: top;
     width: 280px;
   }
 }

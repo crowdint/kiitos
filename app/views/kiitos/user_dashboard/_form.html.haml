@@ -8,13 +8,18 @@
       /  = f.radio_button :to, id
     .kiitos-list
       %span.choose
-      %ul
-        - Kiitos::Kiito.all.map { |k| [k.title, k.id, k.image] }.each do |title, id, image|
-          %li
-            %span.badge
-              = image
-            = f.label "to_#{id}", title
-            = f.radio_button :to, id
+        +
+      .which
+        %span.arrow-left
+        Which?
+      .list-wrapper.hidden
+        %ul
+          - Kiitos::Kiito.all.map { |k| [k.title, k.id, k.image] }.each do |title, id, image|
+            %li
+              %span.badge
+                = image
+              = f.label "to_#{id}", title
+              = f.radio_button :to, id
 
   .receiver-pic.badge-inverted
   .message-info
@@ -36,3 +41,5 @@
       allow_single_deselect: true
       no_results_text: 'No results matched'
       width: '200px'
+    $('.kiitos-list').delegate '.choose', 'click', ->
+      $('.kiitos-list .list-wrapper').toggleClass 'hidden'
