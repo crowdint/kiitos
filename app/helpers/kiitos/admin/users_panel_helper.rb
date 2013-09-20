@@ -6,6 +6,7 @@ module Kiitos
           a.user_id == user.id
         end
       end
+
     end
   end
 end

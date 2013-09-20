@@ -4,6 +4,13 @@ ENV['RAILS_ROOT'] ||= File.dirname(__FILE__) + '../../../test/dummy'
 
 require 'debugger'
 require 'minitest/spec'
+require 'capybara/poltergeist'
+
+Capybara.javascript_driver = :poltergeist
+
+Capybara.register_driver :poltergeist do |app|
+  Capybara::Poltergeist::Driver.new(app, js_errors: false)
+end
 
 World(MiniTest::Assertions)
 MiniTest::Spec.new(nil)
