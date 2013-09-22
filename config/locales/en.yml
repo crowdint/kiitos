@@ -33,6 +33,6 @@ en:
         to_who: 'To Who?'
         welcome_back: 'Welcome Back'
         which: 'Which?'
-        your_comment: 'Your comment here!'
       form:
         submit: 'Send Kiito'
+        your_comment: 'Your comment here!'
