@@ -13,6 +13,11 @@
   background: $dialog-inverted;
 }
 
+.list-wrapper .badge {
+  height: 60px;
+  width: 60px;
+}
+
 #logo{
   background-image: image-url("kiitos/SVG/logo.svg");
   height: 48px;
