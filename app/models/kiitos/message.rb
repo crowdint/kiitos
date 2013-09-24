@@ -32,7 +32,7 @@ module Kiitos
 
         if messages.count > 0
           unless messages.last.created_at.strftime('%Y%j') < Time.now.strftime('%Y%j')
-            errors.add(:one_kiito_per_day, 'You can only send one kiito per day')
+            errors.add(:one_kiito_per_day, I18n.t('kiitos.one_kiito_per_day'))
           end
         end
       end

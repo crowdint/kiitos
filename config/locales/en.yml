@@ -12,6 +12,7 @@ en:
     edit: 'Edit'
     enabled: 'Enabled'
     kiito: 'Kiito'
+    one_kiito_per_day: 'You can only send one Kiito per day'
     title: 'Kiitos'
 
     admin:
