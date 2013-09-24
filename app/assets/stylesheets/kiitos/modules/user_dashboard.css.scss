@@ -18,6 +18,19 @@
       font-size: 13px;
       font-weight: 300;
     }
+    .by {
+      display: inline-block;
+      width: 125px;
+    }
+    .count {
+      color: $secondary;
+      &:after {
+        content: ')';
+      }
+      &:before {
+        content: '(';
+      }
+    }
     .date-now{
       float: right;
     }
