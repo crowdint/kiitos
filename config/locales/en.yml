@@ -26,7 +26,6 @@ en:
         instructions_2: 'Who deserves it?'
         months_2: '2 months'
         all: 'All'
-        by: 'by'
         optional: 'Optional'
         recent: 'Recent'
         received_kiitos: 'Kiitos Received'
@@ -36,3 +35,4 @@ en:
       form:
         submit: 'Send Kiito'
         your_comment: 'Your comment here!'
+        by: 'by'
