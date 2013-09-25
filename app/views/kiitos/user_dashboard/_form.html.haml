@@ -3,14 +3,22 @@
     .users-list
       %span.choose-secondary
         +
+      .who-selection
+        .user-search
+          .user-select
+            = f.text_field :to, placeholder: 'Search here!'
+            /%span.name
+            /  Haro
+            /%span.email
+            /  jesus.haro@crowdint.com
+        .add
+        .remove
       .who
         = t('.to_who')
         %br
         %span.optional
           = t('.optional')
         %span.arrow-right
-      = f.label :to
-      = f.select :to, all_users_except_current, {}, class: 'chosen-select'
     .kiitos-list
       %span.choose
         +
@@ -42,9 +50,5 @@
   = f.submit t('.submit'), class: 'btn'
 
   :coffee
-    $(".chosen-select").chosen
-      allow_single_deselect: true
-      no_results_text: 'No results matched'
-      width: '200px'
     $('.kiitos-list').delegate '.choose', 'click', ->
       $('.kiitos-list .list-wrapper').toggleClass 'hidden'
