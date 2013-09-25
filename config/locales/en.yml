@@ -4,7 +4,7 @@ en:
       kiitos/kiito:
         kiitos_category_id: 'Category'
       kiitos/message:
-        anonymous: 'Send Anonymously'
+        anonymous: 'Post as anonymous'
         kiitos_kiito_id: 'Select a Kiito'
   kiitos:
     cancel: 'Cancel'
@@ -34,5 +34,5 @@ en:
         welcome_back: 'Welcome Back'
         which: 'Which?'
       form:
-        submit: 'Send Kiito'
+        submit: 'Post it'
         your_comment: 'Your comment here!'

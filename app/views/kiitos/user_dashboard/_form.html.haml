@@ -44,10 +44,11 @@
       = current_user.name
     %span.date-now
       = pretty_date Time.now
-    %br
-    = f.label :anonymous
-    = f.check_box :anonymous
-  = f.submit t('.submit'), class: 'btn'
+  .send
+    = f.submit t('.submit'), class: 'btn'
+    .anonymous
+      = f.check_box :anonymous
+      = f.label :anonymous
 
   :coffee
     $('.kiitos-list').delegate '.choose', 'click', ->
