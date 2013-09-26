@@ -1,12 +1,13 @@
 = form_for message, html: { id: 'send-kiito' } do |f|
+  = hidden_field_tag 'message[to]'
   .dialog-inverted
     .users-list
       %span.choose-secondary
         +
-      .who-selection
+      .who-selection.hidden
         .user-search
           .user-select
-            = f.text_field :to, placeholder: 'Search here!'
+            = text_field_tag :search_to, nil, placeholder: 'Search here!'
             /%span.name
             /  Haro
             /%span.email
@@ -53,3 +54,17 @@
   :coffee
     $('.kiitos-list').delegate '.choose', 'click', ->
       $('.kiitos-list .list-wrapper').toggleClass 'hidden'
+      $('.kiitos-list .choose').toggleClass 'btn-active'
+
+    $('.users-list').delegate '.choose-secondary', 'click', ->
+      $('.users-list .who-selection').toggleClass 'hidden'
+      $('.users-list .choose-secondary').toggleClass 'btn-active'
+
+    $('#search_to').typeahead
+      name: 'users'
+      prefetch:
+        url: '/kiitos/users'
+        ttl: 5000
+
+    $('#search_to').on 'typeahead:autocompleted typeahead:selected', (e, data)->
+      $('#message_to').val data.id

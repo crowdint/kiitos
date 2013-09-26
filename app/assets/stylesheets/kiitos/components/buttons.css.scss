@@ -12,6 +12,7 @@
   box-shadow: -9px 11px 3px 1px rgba(224, 224, 211, .7);
 }
 
+
 .choose, .choose-secondary{
   background: $secondary;
   border: 2px solid #fff;
@@ -28,4 +29,8 @@
 
 .choose-secondary{
   background: $special;
+}
+
+.btn-active {
+  background: #eee;
 }

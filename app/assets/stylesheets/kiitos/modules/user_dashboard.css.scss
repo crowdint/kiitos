@@ -175,6 +175,13 @@
           height: 16px;
           padding: 6px 10px;
           width: 174px;
+          .tt-dropdown-menu {
+            background: #fafafa;
+            font-size: 12px;
+            left: -10px !important;
+            width: 174px;
+            padding: 0px 10px;
+          }
         }
         .name {
           font-size: 12px;

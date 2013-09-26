@@ -1,8 +1,9 @@
 When(/^I fill in the send kiito form with:$/) do |table|
   value = table.hashes.first
   within '#send-kiito' do
-    find('.chosen-single').click
-    find(:xpath, "//li[text()='#{value[:to]}']").click
+    find('.users-list .choose-secondary').click
+    fill_in 'search_to', with: value[:to]
+    find(:xpath, "//div[@class='tt-suggestion']/p[text()='#{value[:to]}']", visible: false).click
     find('.kiitos-list .choose').click
     find(:xpath, "//label[text()='#{value[:kiito]}']").click
     fill_in 'message_message', with: value[:message]

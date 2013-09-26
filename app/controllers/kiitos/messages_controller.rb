@@ -8,7 +8,7 @@ module Kiitos
       if @message.save
         redirect_to user_dashboard_path
       else
-        @messages = current_user.received_messages
+        @messages = Message.user_messages(current_user).a_month_ago
         render 'kiitos/user_dashboard/index'
       end
     end
