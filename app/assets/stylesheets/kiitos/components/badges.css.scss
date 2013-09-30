@@ -5,11 +5,21 @@
   border-radius: 40px;
   float: left;
   height: 75px;
+  overflow: hidden;
   width: 75px;
 }
 
 .badge-inverted{
   background: $dialog-inverted;
+}
+
+.list-wrapper .badge {
+  height: 60px;
+  left: 0;
+  pointer-events: none;
+  position: absolute;
+  top: 10px;
+  width: 60px;
 }
 
 #logo{
