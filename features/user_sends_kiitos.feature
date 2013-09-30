@@ -24,7 +24,7 @@ Feature: A user sends kiitos
     When I sign in as "user1@test.com"
     When I fill in the send kiito form with:
       |to               |message                         |kiito       |
-      |user2@test.com   |Thanks for being the way you are|I am grateful|
+      |User2            |Thanks for being the way you are|I am grateful|
     Then The user "user2@test.com" should have the "I am grateful" kiito in his received messages
 
   @javascript
@@ -32,7 +32,7 @@ Feature: A user sends kiitos
     When I sign in as "user1@test.com"
     When I fill in the send kiito form anonymously with:
       |to               |message                         |kiito       |
-      |user2@test.com   |Thanks for being the way you are|I am grateful|
+      |User2            |Thanks for being the way you are|I am grateful|
     Then The user "user2@test.com" should not see the sender name "user1@test.com" for the "I am grateful" kiito
 
   Scenario: A user cannot send a kiito to self

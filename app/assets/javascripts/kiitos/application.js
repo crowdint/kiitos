@@ -13,4 +13,4 @@
 //= require_tree .
 //= require jquery
 //= require jquery_ujs
-//= require chosen-jquery
+//= require typeahead.min

@@ -1,12 +1,17 @@
 When(/^I fill in the send kiito form with:$/) do |table|
   value = table.hashes.first
   within '#send-kiito' do
-    find('.chosen-single').click
-    find(:xpath, "//li[text()='#{value[:to]}']").click
+    unless value[:to] == 'All'
+      find('.users-list .choose-secondary').click
+      fill_in 'search_to', with: value[:to]
+      # we are using this line to avoid poltergeist breaks
+      page.execute_script("$('.tt-dropdown-menu').show()")
+      find(:xpath, "//div[@class='tt-suggestion']/p[text()='#{value[:to]}']").click
+    end
     find('.kiitos-list .choose').click
     find(:xpath, "//label[text()='#{value[:kiito]}']").click
     fill_in 'message_message', with: value[:message]
-    click_button 'Send Kiito'
+    click_button 'Post it'
   end
 end
 
@@ -20,12 +25,18 @@ end
 When(/^I fill in the send kiito form anonymously with:$/) do |table|
   value = table.hashes.first
   within '#send-kiito' do
-    find('.chosen-single').click
+    find('.users-list .choose-secondary').click
+    fill_in 'search_to', with: value[:to]
+    # we are using this line to avoid poltergeist breaks
+    page.execute_script("$('.tt-dropdown-menu').show()")
+    find(:xpath, "//div[@class='tt-suggestion']/p[text()='#{value[:to]}']").click
     find('.kiitos-list .choose').click
     find(:xpath, "//label[text()='#{value[:kiito]}']").click
     fill_in 'message_message', with: value[:message]
-    check 'Send Anonymously'
-    click_button 'Send Kiito'
+    # we are using this line to avoid poltergeist breaks
+    page.execute_script("$('#message_anonymous').show()")
+    find(:css, "#message_anonymous").set(true)
+    click_button 'Post it'
   end
 end
 

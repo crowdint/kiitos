@@ -21,7 +21,7 @@ module Kiitos
     end
 
     def self.user_messages(user)
-      where("kiitos_messages.to = #{user.id} OR kiitos_messages.to = 0")
+      where('kiitos_messages.to is NULL OR kiitos_messages.to = ?', user.id)
     end
 
     private
@@ -39,7 +39,7 @@ module Kiitos
     end
 
     def send_email
-      KiitosMailer.received_kiito_notification(to, self).deliver
+      KiitosMailer.received_kiito_notification(to, self).deliver unless self.to == nil
     end
   end
 end
