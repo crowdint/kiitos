@@ -31,7 +31,7 @@
           - Kiitos::Kiito.all.map { |k| [k.title, k.id, k.image] }.each do |title, id, image|
             %li
               %span.badge
-                = image
+                = image_tag 'kiitos/PNG/category.png'
               = f.label "kiitos_kiito_id_#{id}", title
               = f.radio_button :kiitos_kiito_id, id
 
@@ -40,9 +40,10 @@
     %h3= t('kiitos.kiito')
     .dialog-dark
       = f.text_area :message, placeholder: "#{t('.your_comment')}"
-    %span
+    %span.by
       = t('.by')
       = current_user.name
+    %span.count
     %span.date-now
       = pretty_date Time.now
   .send
@@ -68,3 +69,12 @@
 
     $('#search_to').on 'typeahead:autocompleted typeahead:selected', (e, data)->
       $('#message_to').val data.id
+
+    count = ->
+      length = $('#message_message').val().length
+      $('.count').text(140 - length)
+
+    count()
+
+    $('#message_message').keyup ->
+      count()

@@ -12,6 +12,7 @@ en:
     edit: 'Edit'
     enabled: 'Enabled'
     kiito: 'Kiito'
+    one_kiito_per_day: 'You can only send one Kiito per day'
     title: 'Kiitos'
 
     admin:
@@ -26,7 +27,6 @@ en:
         instructions_2: 'Who deserves it?'
         months_2: '2 months'
         all: 'All'
-        by: 'by'
         optional: 'Optional'
         recent: 'Recent'
         received_kiitos: 'Kiitos Received'
@@ -36,3 +36,4 @@ en:
       form:
         submit: 'Post it'
         your_comment: 'Your comment here!'
+        by: 'by'

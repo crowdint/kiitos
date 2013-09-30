@@ -2,8 +2,9 @@ require 'test_helper'
 
 describe Kiitos::Message do
   before do
+    @user = User.create name: 'Test User', email: 'test@example.com'
     @subject = Kiitos::Message.new(
-      from: 1,
+      from: @user.id,
       to: 2,
       kiitos_kiito_id: 1,
       message: '2 weeks ago',
@@ -29,6 +30,17 @@ describe Kiitos::Message do
 
     it 'is invalid without a message' do
       @subject.message = nil
+      @subject.valid?.must_equal false
+    end
+
+    it 'is invalid if created on the same day as previous message' do
+      Kiitos::Message.create(
+        from: @user.id,
+        to: 2,
+        kiitos_kiito_id: 1,
+        message: '2 weeks ago',
+      )
+      @subject.created_at = Date.today
       @subject.valid?.must_equal false
     end
   end
@@ -113,7 +125,7 @@ describe Kiitos::Message do
       end
     end
   end
-  
+
   describe '#sender_name' do
     before do
       user = User.create name: 'test', email: '1@example.com'
