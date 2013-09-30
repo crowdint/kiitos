@@ -22,7 +22,7 @@
           - Kiitos::Kiito.all.map { |k| [k.title, k.id, k.image] }.each do |title, id, image|
             %li
               %span.badge
-                = image
+                = image_tag 'kiitos/PNG/category.png'
               = f.label "kiitos_kiito_id_#{id}", title
               = f.radio_button :kiitos_kiito_id, id
 
