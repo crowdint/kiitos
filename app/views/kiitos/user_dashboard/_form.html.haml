@@ -31,9 +31,10 @@
     %h3= t('kiitos.kiito')
     .dialog-dark
       = f.text_area :message, placeholder: "#{t('.your_comment')}"
-    %span
+    %span.by
       = t('.by')
       = current_user.name
+    %span.count
     %span.date-now
       = pretty_date Time.now
     %br
@@ -46,5 +47,15 @@
       allow_single_deselect: true
       no_results_text: 'No results matched'
       width: '200px'
+
     $('.kiitos-list').delegate '.choose', 'click', ->
       $('.kiitos-list .list-wrapper').toggleClass 'hidden'
+
+    count = ->
+      length = $('#message_message').val().length
+      $('.count').text(140 - length)
+
+    count()
+
+    $('#message_message').keyup ->
+      count()
