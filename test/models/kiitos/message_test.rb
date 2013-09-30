@@ -70,7 +70,7 @@ describe Kiitos::Message do
     end
   end
 
-  describe '.users_messages' do
+  describe '.user_messages' do
     it 'returns all the users messages plus the broadcasted ones' do
       user = User.create name: 'test', email: 'test@gmail.com'
       Kiitos::Message.create(
@@ -81,7 +81,6 @@ describe Kiitos::Message do
       )
       Kiitos::Message.create(
         from: 1,
-        to: 0,
         kiitos_kiito_id: 1,
         message: '3 weeks ago',
       )
