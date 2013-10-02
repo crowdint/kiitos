@@ -12,6 +12,7 @@ PATH
     kiitos (0.0.1)
       chosen-rails
       fivemat
+      haml-rails
       jquery-rails
       pg
       rails (~> 4.0.0)

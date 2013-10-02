@@ -37,3 +37,25 @@ en:
         submit: 'Post it'
         your_comment: 'Your comment here!'
         by: 'by'
+
+    installer:
+      messages:
+        title: "\n\t\tKiitos Engine\n\n"
+        copying_migrations: 'Copying over Kiitos migrations'
+        user_name_class: 'What is your user class called? [User]'
+        kiitos_current_user_helper: "What is the kiitos_current_user helper called in your app? [kiitos_current_user]"
+        user_logged_helper: 'What is the user_logged? helper called in your app? [user_logged?]'
+        defining_kiitos: "\nDefining kiitos_user method inside ApplicationController...\n"
+        skipping_initializer: "Skipping config/initializers/kiitos.rb creation, as file already exists!\n"
+        adding_initializer: "Adding kiitos initializer (config/initializers/kiitos.rb)...\n"
+        running_migrations: "Running rake:db:migrate\n"
+        mounting_kiitos: "Mounting Kiitos engine at '/kiitos' in config/routes.rb ...\n\n"
+        review: "Kiitos has been successfully installed. :D Here's what happened:\n\n"
+        step1: "Kiitos's migrations were copied over into db/migrate.\n"
+        step2: "A new method called `kiitos_user` was inserted into your ApplicationController. This lets Kiitos know what the current user of your application is.\n"
+        step3: "A new file was created at config/initializers/kiitos.rb This is where you put Kiitos's configuration settings.\n"
+        step4: "`rake db:migrate` was run, running all the migrations against your database.\n"
+        step5: "Seed forum and topic were loaded into your database.\n"
+        step6: "The engine was mounted in your config/routes.rb file using this line:\n\tmount Kiitos::Engine, at: 'kiitos' \n\tIf you want to change where the kiitos are located, just change the '/kiitos' path at the end of this line to whatever you want.\n"
+        step7: "We told you that Kiitos has been successfully installed and walked you through the steps.\n\n"
+        thanks: "Thanks for using Kiitos! :)"

@@ -42,7 +42,7 @@
       = f.text_area :message, placeholder: "#{t('.your_comment')}"
     %span.by
       = t('.by')
-      = current_user.name
+      = kiitos_current_user.name
     %span.count
     %span.date-now
       = pretty_date Time.now
