@@ -1,3 +1,5 @@
+require_dependency 'kiitos/application_controller'
+
 module Kiitos
   class UserDashboardController < ApplicationController
     helper_method :kiitos_current_user
