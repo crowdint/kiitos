@@ -41,7 +41,6 @@ module Kiitos
           before: "protected")
       end
 
-
       def add_kiitos_initializer
         path = "#{Rails.root}/config/initializers/kiitos.rb"
 
