@@ -1,5 +1,3 @@
-require_dependency 'kiitos/application_controller'
-
 module Kiitos
   class HomeController < ApplicationController
     def show
