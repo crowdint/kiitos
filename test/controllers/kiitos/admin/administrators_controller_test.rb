@@ -6,10 +6,13 @@ describe Kiitos::Admin::AdministratorsController  do
   end
 
   describe 'POST :create' do
+    before do
+      @user = User.create name: 'User Name', email: 'test@example.com'
+    end
+
     it 'turns a user into an admin' do
-      user = User.create name: 'User Name', email: 'test@example.com'
       Kiitos::Administrator.all.count.must_equal 0
-      post :create, user_id: user.id
+      post :create, user_id: @user.id
       Kiitos::Administrator.all.count.must_equal 1
     end
     it 'redirects to the users management panel' do
