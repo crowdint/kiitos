@@ -1,7 +1,7 @@
 development:
   adapter: postgresql
   encoding: unicode
-  database: crowd-portal_development
+  database: kiitos_development
   pool: 5
   host: localhost
 
@@ -11,13 +11,13 @@ development:
 test:
   adapter: postgresql
   encoding: unicode
-  database: crowd_portal_test
+  database: kiitos_test
   pool: 5
   host: localhost
 
 production:
   adapter: postgresql
   encoding: unicode
-  database: crowd-portal_production
+  database: kiitos_production
   pool: 5
   host: localhost

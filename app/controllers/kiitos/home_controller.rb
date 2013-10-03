@@ -4,7 +4,7 @@ module Kiitos
       if Administrator.count > 0
         redirect_to user_dashboard_path
       else
-        Administrator.create user_id: current_user.id
+        Administrator.create user_id: kiitos_current_user.id
         redirect_to admin_panel_path
       end
     end

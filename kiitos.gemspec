@@ -19,6 +19,7 @@ Gem::Specification.new do |s|
 
   s.add_dependency 'chosen-rails'
   s.add_dependency 'fivemat'
+  s.add_dependency 'haml-rails'
   s.add_dependency 'jquery-rails'
   s.add_dependency 'pg'
   s.add_dependency 'rails', '~> 4.0.0'
