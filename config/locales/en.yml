@@ -27,16 +27,16 @@ en:
         instructions_2: 'Who deserves it?'
         months_2: '2 months'
         all: 'All'
-        optional: 'Optional'
         recent: 'Recent'
         received_kiitos: 'Kiitos Received'
-        to_who: 'To Who?'
         welcome_back: 'Welcome Back'
         which: 'Which?'
       form:
-        submit: 'Post it'
-        your_comment: 'Your comment here!'
         by: 'by'
+        optional: 'Optional'
+        submit: 'Post it'
+        to_who: 'To Who?'
+        your_comment: 'Your comment here!'
 
     installer:
       messages:
