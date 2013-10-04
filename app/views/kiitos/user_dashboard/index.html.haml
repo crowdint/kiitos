@@ -16,8 +16,7 @@
           %li{ class: 'layer', 'data-depth' => '1.50' }
             = image_tag 'kiitos/SVG/green.svg'
           %li{ class: 'user-pic' }
-            / temporary
-            %img{ src: 'https://0.gravatar.com/avatar/8a71280e755d248af1c0d2591181bb3f?d=https%3A%2F%2Fidenticons.github.com%2F15ee2ac7af61bc72dff12627421ecd56.png&s=420', class: 'badge'}
+            = avatar
         = javascript_include_tag 'parallax'
         :coffee
           scene = document.getElementById 'scene'
@@ -27,8 +26,7 @@
         .welcome-back
           %p
             = t('.welcome_back')
-          %span.current-user
-            = kiitos_current_user.name
+          = format_user_name kiitos_current_user
     #new-kiito
       = render 'kiitos/user_dashboard/form', message: @message
 
