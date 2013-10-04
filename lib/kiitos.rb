@@ -1,8 +1,9 @@
 require 'kiitos/engine'
 require 'haml'
+require 'gravatar_image_tag'
 
 module Kiitos
-  mattr_accessor :user_class, :avatar_method, :sign_in_path
+  mattr_accessor :user_class, :sign_in_path
 
   class << self
     def user_class
