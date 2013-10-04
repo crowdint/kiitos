@@ -6,7 +6,7 @@ module Kiitos
 
     def avatar
       if kiitos_current_user.picture.present?
-        image_tag kiitos_current_user.picture, height: '190px', width: '190px'
+        image_tag kiitos_current_user.picture
       else
         gravatar_image_tag kiitos_current_user.email, gravatar: { size: 190 }
       end
