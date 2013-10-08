@@ -11,9 +11,9 @@ describe Kiitos::UsersController do
       get :index
     end
 
-    it 'returns JSON of existing users' do
+    it 'returns JSON of existing users except kiitos_current_user' do
       json = JSON.parse(response.body)
-      json.length.must_equal 4
+      json.length.must_equal 3
     end
   end
 end
