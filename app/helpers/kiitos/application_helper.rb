@@ -17,5 +17,9 @@ module Kiitos
       name = content_tag(:span, content_tag(:p, full_name[0]), :class => "current-user")
       name + content_tag(:span, content_tag(:p, full_name[1]), :class => "last_name") if full_name[1]
     end
+
+    def can_send?
+      kiitos_current_user.allow_send_message? ? 'form-enabled' : 'form-disabled'
+    end
   end
 end
