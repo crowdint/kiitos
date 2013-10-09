@@ -23,8 +23,12 @@ en:
 
     user_dashboard:
       index:
-        instructions: 'You only have 1 Kiito to give each day'
-        instructions_2: 'Who deserves it?'
+        instructions:
+          form-enabled: 'You only have 1 Kiito to give each day'
+          form-disabled: "You don't have <strong> anymore Kiitos </strong> to give today"
+        instructions_2:
+          form-enabled: 'Who deserves it?'
+          form-disabled: 'Think about it tomorrow!'
         months_2: '2 months'
         all: 'All'
         recent: 'Recent'
