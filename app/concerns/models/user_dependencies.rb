@@ -7,7 +7,7 @@ module Models::UserDependencies
       if sent_messages.empty?
         true
       else
-        sent_messages.last.created_at.strftime('%Y%j') < Time.now.strftime('%Y%j')
+        sent_messages.last.created_at < Date.today
       end
     end
   end
