@@ -10,5 +10,9 @@ module Models::UserDependencies
         sent_messages.last.created_at < Date.today
       end
     end
+
+    def self.all_except_user(user)
+      where('email <> ?', user.email)
+    end
   end
 end

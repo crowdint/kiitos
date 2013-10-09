@@ -12,8 +12,8 @@
             /  Haro
             /%span.email
             /  jesus.haro@crowdint.com
-        .add
-        .remove
+        -#.add
+        -#.remove
       .who
         = t('.to_who')
         %br
@@ -63,6 +63,7 @@
 
     $('#search_to').typeahead
       name: 'users'
+      valueKey: 'name'
       prefetch:
         url: '/kiitos/users'
         ttl: 5000
