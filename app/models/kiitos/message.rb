@@ -1,6 +1,5 @@
 module Kiitos
   class Message < ActiveRecord::Base
-    include Kiitos::Concerns::Models::UserDependencies
     belongs_to :kiitos_kiito, class_name: 'Kiitos::Kiito'
     belongs_to :receiver, class_name: Kiitos.user_class.to_s, foreign_key: :to
     belongs_to :sender, class_name: Kiitos.user_class.to_s, foreign_key: :from
@@ -29,7 +28,7 @@ module Kiitos
 
     def one_message_per_day
       if sender
-        messages = sender.sent_messages
+        messages = Kiitos::UserQuery.sent_messages(sender)
 
         if messages.count > 0
           unless messages.last.created_at < Date.today
