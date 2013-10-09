@@ -326,6 +326,7 @@
 
 #user-dashboard{
   padding-top: 60px;
+  position: relative;
   .wrapper{
     float: right;
     max-width: 560px;
@@ -397,4 +398,36 @@
 .last_name {
   @extend .welcome_back;
   text-transform: uppercase;
+}
+#new-kiito.form-disabled {
+  .btn {
+    background: $dialog-dark;
+    color: #bbb;
+    pointer-events: none;
+  }
+  .choose {
+    background: none;
+    pointer-events: none;
+  }
+  .choose-secondary {
+    background: none;
+    pointer-events: none;
+  }
+  h3 {
+    color: #b2b2b2;
+  }
+  label {
+    pointer-events: none;
+  }
+  .message-info {
+    .count {
+      color: #000;
+    }
+  }
+  .optional {
+    color: #bbb;
+  }
+  textarea {
+    pointer-events: none;
+  }
 }

@@ -4,9 +4,9 @@
       %h1#logo t('kiitos.title')
       #header-text
         %h4
-          = t('.instructions')
+          = raw t(can_send?, scope: 'kiitos.user_dashboard.index.instructions')
         %h2
-          = t('.instructions_2')
+          = raw t(can_send?, scope: 'kiitos.user_dashboard.index.instructions_2')
       #user-widget
         %ul#scene
           %li{ class: 'layer', 'data-depth' => '-2.30' }
@@ -27,10 +27,12 @@
           %p
             = t('.welcome_back')
           = format_user_name kiitos_current_user
-    #new-kiito
+    #new-kiito{class: (can_send?)}
       = render 'kiitos/user_dashboard/form', message: @message
 
     = render 'shared/separator'
+
+    = render 'shared/footer'
 
 #received-kiitos.pure-u-2-5
   %h1

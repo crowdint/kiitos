@@ -7,7 +7,7 @@ module Kiitos
     after_create :send_email
 
     validates :from, :kiitos_kiito_id, :message, presence: true
-    validate :one_kiito_per_day, on: :create
+    validate :one_message_per_day, on: :create
 
     def self.a_month_ago
       where('created_at > ?', 1.month.ago)
@@ -27,12 +27,12 @@ module Kiitos
 
     private
 
-    def one_kiito_per_day
+    def one_message_per_day
       if sender
         messages = sender.sent_messages
 
         if messages.count > 0
-          unless messages.last.created_at.strftime('%Y%j') < Time.now.strftime('%Y%j')
+          unless messages.last.created_at < Date.today
             errors.add(:one_kiito_per_day, I18n.t('kiitos.one_kiito_per_day'))
           end
         end
