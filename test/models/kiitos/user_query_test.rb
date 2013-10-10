@@ -1,6 +1,12 @@
 require 'test_helper'
 
 describe Kiitos::UserQuery do
+  before do
+    DatabaseCleaner.start
+  end
+  after do
+    DatabaseCleaner.clean
+  end
 
   let(:current_user) { User.create name: 'Test1 Name', email: 'test1@example.com' }
 

@@ -1,5 +1,5 @@
 module Kiitos
-  class UserQuery < ActiveRecord::Base
+  class UserQuery
     def self.allow_send_message?(user)
       if sent_messages(user).empty?
         true
