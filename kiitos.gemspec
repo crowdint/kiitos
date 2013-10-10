@@ -14,10 +14,9 @@ Gem::Specification.new do |s|
   s.description = 'Crowd Interactive internal tool to allow its employees to create, send and collect greeting cards'
 
 
-  s.files = Dir['{app,config,db,lib}/**/*', 'MIT-LICENSE', 'Rakefile', 'README.rdoc']
+  s.files = Dir['{app,config,db,lib,vendor}/**/*', 'MIT-LICENSE', 'Rakefile', 'README.rdoc']
   s.test_files = Dir['test/**/*']
 
-  s.add_dependency 'chosen-rails'
   s.add_dependency 'fivemat'
   s.add_dependency 'gravatar_image_tag'
   s.add_dependency 'haml-rails'
