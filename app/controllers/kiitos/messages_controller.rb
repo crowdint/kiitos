@@ -1,14 +1,14 @@
 module Kiitos
   class MessagesController < ApplicationController
-    helper_method :current_user
+    helper_method :kiitos_current_user
 
     def create
       @message = Message.new message_params
-      @message.from = current_user.id
+      @message.from = kiitos_current_user.id
       if @message.save
         redirect_to user_dashboard_path
       else
-        @messages = current_user.received_messages
+        @messages = Message.user_messages(kiitos_current_user).a_month_ago
         render 'kiitos/user_dashboard/index'
       end
     end

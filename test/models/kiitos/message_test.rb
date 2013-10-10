@@ -2,8 +2,9 @@ require 'test_helper'
 
 describe Kiitos::Message do
   before do
+    @user = User.create name: 'Test User', email: 'test@example.com'
     @subject = Kiitos::Message.new(
-      from: 1,
+      from: @user.id,
       to: 2,
       kiitos_kiito_id: 1,
       message: '2 weeks ago',
@@ -29,6 +30,17 @@ describe Kiitos::Message do
 
     it 'is invalid without a message' do
       @subject.message = nil
+      @subject.valid?.must_equal false
+    end
+
+    it 'is invalid if created on the same day as previous message' do
+      Kiitos::Message.create(
+        from: @user.id,
+        to: 2,
+        kiitos_kiito_id: 1,
+        message: '2 weeks ago',
+      )
+      @subject.created_at = Date.today
       @subject.valid?.must_equal false
     end
   end
@@ -70,7 +82,7 @@ describe Kiitos::Message do
     end
   end
 
-  describe '.users_messages' do
+  describe '.user_messages' do
     it 'returns all the users messages plus the broadcasted ones' do
       user = User.create name: 'test', email: 'test@gmail.com'
       Kiitos::Message.create(
@@ -81,7 +93,6 @@ describe Kiitos::Message do
       )
       Kiitos::Message.create(
         from: 1,
-        to: 0,
         kiitos_kiito_id: 1,
         message: '3 weeks ago',
       )
@@ -111,6 +122,26 @@ describe Kiitos::Message do
     context 'when not anonymous' do
       it 'returns the sender email' do
         @message.sender_email.must_equal @message.sender.email
+      end
+    end
+  end
+
+  describe '#sender_name' do
+    before do
+      user = User.create name: 'test', email: '1@example.com'
+      @message = @kiito = Kiitos::Message.create from: user.id, to: 2, kiitos_kiito_id: 1, message: '3 weeks ago', created_at: 3.weeks.ago
+    end
+
+    context 'when anonymous' do
+      it 'does not return the sender name' do
+        @message.anonymous = true
+        @message.sender_name.must_equal 'Anonymous'
+      end
+    end
+
+    context 'when not anonymous' do
+      it 'returns the sender name' do
+        @message.sender_name.must_equal @message.sender.name
       end
     end
   end

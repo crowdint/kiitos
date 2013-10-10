@@ -1,6 +1,6 @@
 When(/^I sign in as "(.*?)"$/) do |user|
   u = User.where(email: user).first
-  Kiitos::UserDashboardController.any_instance.stubs(:current_user).returns(u)
+  Kiitos::UserDashboardController.any_instance.stubs(:kiitos_current_user).returns(u)
   visit '/kiitos'
 end
 

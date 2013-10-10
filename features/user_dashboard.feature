@@ -14,10 +14,10 @@ Feature: User Dashboard
       |I'm grateful        |1          |blablabla  |enabled  |test1     |
       |You are a gentleman |2          |           |disabled |test2     |
     And the following users exist:
-      | User Email   |
-      |hugo@test.com |
-      |paco@test.com |
-      |luis@test.com |
+      | User Email   |name      |
+      |hugo@test.com |Hugo Test |
+      |paco@test.com |Paco Test |
+      |luis@test.com |luis      |
     And the following kiitos were sent:
       |From Email    |To Email      | Greeting Card Title        |Message                 | When?        |
       |hugo@test.com |paco@test.com | I'm grateful               |My customized message 1 | 1.day.ago    |
@@ -33,7 +33,7 @@ Feature: User Dashboard
       | Order | Greeting Card Title        |
       | 1     | You are a gentleman        |
 
-    When I increase the search span to "2" months
+    When I increase the search span to "All"
     Then I should have the following ordered kiitos:
       | Order | Greeting Card Title        |
       | 1     | You are a gentleman        |
