@@ -1,0 +1,36 @@
+@import '../base/colors';
+
+.btn{
+  background: $primary;
+  border: none;
+  color: $btn-primary-color;
+  font-size: 22px;
+  padding: 5px 50px;
+  text-transform: uppercase;
+  -moz-box-shadow: -9px 11px 3px 1px rgba(224, 224, 211, .7);
+  -webkit-box-shadow: -9px 11px 3px 1px rgba(224, 224, 211, .7);
+  box-shadow: -9px 11px 3px 1px rgba(224, 224, 211, .7);
+}
+
+
+.choose, .choose-secondary{
+  background: $secondary;
+  border: 2px solid #fff;
+  border-radius: 40px;
+  color: #fff;
+  float: left;
+  font: 300 45px 'Roboto';
+  height: 60px;
+  line-height: 60px;
+  cursor: pointer;
+  text-align: center;
+  width: 60px;
+}
+
+.choose-secondary{
+  background: $special;
+}
+
+.btn-active {
+  background: #eee;
+}

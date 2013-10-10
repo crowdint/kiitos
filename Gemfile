@@ -6,8 +6,6 @@ source "https://rubygems.org"
 
 gemspec
 
-gem 'compass-rails', github: 'milgner/compass-rails', branch: 'rails4'
-gem 'chosen-rails'
 gem 'fivemat'
 gem 'haml-rails'
 gem 'jquery-rails'
@@ -16,6 +14,7 @@ gem 'pry'
 gem 'rails_best_practices'
 gem 'rubocop'
 gem 'sass-rails'
+gem 'selenium-webdriver', '~> 2.35.1'
 
 # Declare any dependencies that are still in development here instead of in
 # your gemspec. These might include edge Rails or gems from your path or
