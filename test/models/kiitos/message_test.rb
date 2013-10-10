@@ -55,7 +55,7 @@ describe Kiitos::Message do
         message: '3 weeks ago',
         created_at: 3.weeks.ago
       )
-      assert ActionMailer::Base.deliveries.count == 1, "Email wasn't sent"
+      ActionMailer::Base.deliveries.count.must_equal 1
     end
   end
 
@@ -102,7 +102,7 @@ describe Kiitos::Message do
         kiitos_kiito_id: 1,
         message: '3 weeks ago',
       )
-      assert Kiitos::Message.user_messages(user).count == 2, 'The messages count doesnt match'
+      Kiitos::Message.user_messages(user).count.must_equal 2
     end
   end
 

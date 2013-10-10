@@ -9,7 +9,7 @@ describe Kiitos::KiitosMailer do
     end
 
     it 'sends a received kiito notification email' do
-      assert ActionMailer::Base.deliveries.count == 1, "Email wasn't sent"
+      ActionMailer::Base.deliveries.count.must_equal 1, "Email wasn't sent"
     end
 
     it 'sends message details' do
