@@ -153,6 +153,8 @@ GEM
       capybara (~> 2.0)
       minitest (~> 4.0)
       rake
+    minitest-colorize (0.0.5)
+      minitest (>= 2.0)
     minitest-focus (1.0.0)
       minitest (~> 4.4)
     minitest-metadata (0.4.0)
@@ -282,6 +284,7 @@ DEPENDENCIES
   jquery-rails
   kiitos!
   launchy
+  minitest-colorize
   minitest-focus
   minitest-rails
   minitest-rails-capybara

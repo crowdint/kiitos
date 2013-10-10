@@ -33,6 +33,7 @@ Gem::Specification.new do |s|
   s.add_development_dependency 'debugger'
   s.add_development_dependency 'gitnesse'
   s.add_development_dependency 'launchy'
+  s.add_development_dependency 'minitest-colorize'
   s.add_development_dependency 'minitest-focus'
   s.add_development_dependency 'minitest-rails'
   s.add_development_dependency 'minitest-rails-capybara'
