@@ -6,8 +6,13 @@ require 'rails/test_help'
 require 'minitest/autorun'
 require 'minitest/rails'
 require 'minitest/rails/capybara'
+require 'minitest/focus'
+require 'database_cleaner'
 
 Rails.backtrace_cleaner.remove_silencers!
+
+DatabaseCleaner.clean_with :truncation
+DatabaseCleaner.strategy = :truncation
 
 module Minitest::Expectations
   infect_an_assertion :assert_redirected_to, :must_redirect_to
@@ -22,7 +27,7 @@ if ActiveSupport::TestCase.method_defined?(:fixture_path=)
   ActiveSupport::TestCase.fixture_path = File.expand_path('../fixtures', __FILE__)
 end
 
-class ActiveSupport::TestCase
+class Minitest::Unit::TestCase
   class << self
     alias_method :context, :describe
   end
