@@ -1,10 +1,16 @@
 require 'test_helper'
 
-describe User do
+describe Kiitos::UserQuery do
+  before do
+    DatabaseCleaner.start
+  end
+  after do
+    DatabaseCleaner.clean
+  end
+
+  let(:current_user) { User.create name: 'Test1 Name', email: 'test1@example.com' }
 
   describe '::all_except_user' do
-
-    let(:current_user) { User.create name: 'Test1 Name', email: 'test1@example.com' }
 
     before do
       User.create name: 'Test2 Name', email: 'test2@example.com'
@@ -13,7 +19,7 @@ describe User do
     end
 
     it 'returns all users except the user passed as a paramater' do
-      users = User.all_except_user current_user
+      users = Kiitos::UserQuery.all_except_user current_user
       refute_includes users, current_user
     end
   end
@@ -21,8 +27,6 @@ describe User do
   describe '::allow_send_message?' do
 
     context 'when the user already sent a message today' do
-
-      let(:current_user) { User.create name: 'Test1 Name', email: 'test1@example.com' }
 
       before do
         Kiitos::Message.create(
@@ -34,14 +38,12 @@ describe User do
       end
 
       it 'should returns false'do
-        allow_send_message_status = current_user.allow_send_message?
+        allow_send_message_status = Kiitos::UserQuery.allow_send_message? current_user
         refute allow_send_message_status
       end
     end
 
     context 'when the user already sent a message yesterday' do
-
-      let(:current_user) { User.create name: 'Test1 Name', email: 'test1@example.com' }
 
       before do
         Kiitos::Message.create(
@@ -54,19 +56,17 @@ describe User do
       end
 
       it 'should returns true'do
-        allow_send_message_status = current_user.allow_send_message?
+        allow_send_message_status = Kiitos::UserQuery.allow_send_message? current_user
         assert allow_send_message_status
       end
     end
 
     context "when the user didn't send a message" do
 
-      let(:current_user) { User.create name: 'Test1 Name', email: 'test1@example.com' }
-
       it 'should return true' do
-        allow_send_message_status = current_user.allow_send_message?
+        allow_send_message_status = Kiitos::UserQuery.allow_send_message? current_user
         assert allow_send_message_status
       end
     end
-  end 
+  end
 end
