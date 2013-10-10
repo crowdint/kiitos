@@ -4,7 +4,7 @@ module Kiitos
     helper_method :kiitos_current_user
 
     def authenticate_user!
-      redirect_to Kiitos.sign_in_path unless kiitos_current_user
+      redirect_to Kiitos.sign_in_path unless kiitos_user_logged?
     end
   end
 end

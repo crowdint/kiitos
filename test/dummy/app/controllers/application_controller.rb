@@ -7,4 +7,8 @@ class ApplicationController < ActionController::Base
     @user ||= User.first
   end
 
+  def kiitos_user_logged?
+    true
+  end
+
 end
