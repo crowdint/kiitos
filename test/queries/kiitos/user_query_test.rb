@@ -20,7 +20,7 @@ describe Kiitos::UserQuery do
 
     it 'returns all users except the user passed as a paramater' do
       users = Kiitos::UserQuery.all_except_user current_user
-      refute_includes users, current_user
+      users.wont_include current_user
     end
   end
 
@@ -39,7 +39,7 @@ describe Kiitos::UserQuery do
 
       it 'should returns false'do
         allow_send_message_status = Kiitos::UserQuery.allow_send_message? current_user
-        refute allow_send_message_status
+        allow_send_message_status.must_equal false
       end
     end
 
@@ -57,7 +57,7 @@ describe Kiitos::UserQuery do
 
       it 'should returns true'do
         allow_send_message_status = Kiitos::UserQuery.allow_send_message? current_user
-        assert allow_send_message_status
+        allow_send_message_status.must_equal true
       end
     end
 
@@ -65,7 +65,7 @@ describe Kiitos::UserQuery do
 
       it 'should return true' do
         allow_send_message_status = Kiitos::UserQuery.allow_send_message? current_user
-        assert allow_send_message_status
+        allow_send_message_status.must_equal true
       end
     end
   end

@@ -32,9 +32,19 @@ module Kiitos
       end
 
       def determine_current_user_helper
+        current_user_helper = options['current-user-helper'].presence ||
+          ask(translate :kiitos_current_user_helper).presence || :current_user
+
+        user_logged_helper = options['user-logged-helper'].presence ||
+          ask(translate :user_logged_helper).presence || :user_logged?
+
         puts translate :defining_kiitos
 
-        text = "\talias_method :kiitos_current_user, :current_identity\n\n"
+        template = File.expand_path('../templates', __FILE__)
+        text = File.read(template + '/application_controller.rb')
+
+        text.gsub!(/\"\#{current_user_helper}\"/, ":#{current_user_helper}")
+        text.gsub!(/\"\#{user_logged_helper}\"/, ":#{user_logged_helper}")
 
         inject_into_file(
           "#{Rails.root}/app/controllers/application_controller.rb", text,
