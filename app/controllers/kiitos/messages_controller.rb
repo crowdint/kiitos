@@ -1,7 +1,5 @@
 module Kiitos
   class MessagesController < ApplicationController
-    helper_method :kiitos_current_user
-
     def create
       @message = Message.new message_params
       @message.from = kiitos_current_user.id

@@ -42,7 +42,7 @@ describe Kiitos::Admin::KiitosController do
           image: 'test_image.png',
           state: 'enabled'
         }
-        assert Kiitos::Kiito.count == count + 1, 'A kiito was not created'
+        Kiitos::Kiito.count.must_equal count + 1, 'A kiito was not created'
       end
     end
 
@@ -50,7 +50,7 @@ describe Kiitos::Admin::KiitosController do
       it 'should not create a new kiito' do
         count = Kiitos::Kiito.count
         post :create, kiito: { title: '' }
-        assert Kiitos::Kiito.count == count, 'A kiito was created'
+        assert Kiitos::Kiito.count.must_equal count, 'A kiito was created'
       end
     end
   end
