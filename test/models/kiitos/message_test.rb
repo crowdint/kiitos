@@ -45,20 +45,6 @@ describe Kiitos::Message do
     end
   end
 
-  describe 'after create' do
-    it 'sends an email' do
-      ActionMailer::Base.deliveries = []
-      Kiitos::Message.create(
-        from: '1@example.com',
-        to: '2@example.com',
-        kiitos_kiito_id: 1,
-        message: '3 weeks ago',
-        created_at: 3.weeks.ago
-      )
-      ActionMailer::Base.deliveries.count.must_equal 1
-    end
-  end
-
   describe '.a_month_ago' do
     it 'returns messages sent up to a month ago' do
       Kiitos::Message.create(

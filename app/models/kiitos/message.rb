@@ -3,7 +3,6 @@ module Kiitos
     belongs_to :kiitos_kiito, class_name: 'Kiitos::Kiito'
     belongs_to :receiver, class_name: Kiitos.user_class.to_s, foreign_key: :to
     belongs_to :sender, class_name: Kiitos.user_class.to_s, foreign_key: :from
-    after_create :send_email
 
     validates :from, :kiitos_kiito_id, :message, presence: true
     validate :one_message_per_day, on: :create
@@ -36,10 +35,6 @@ module Kiitos
           end
         end
       end
-    end
-
-    def send_email
-      KiitosMailer.received_kiito_notification(to, self).deliver unless self.to == nil
     end
   end
 end
