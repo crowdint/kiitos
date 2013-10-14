@@ -13,6 +13,9 @@
   .anonymous {
     color: $h1;
     font-size: 13px;
+    label {
+      cursor: pointer;
+    }
   }
   .message-info{
     display: inline-block;
