@@ -3,7 +3,7 @@ require 'haml'
 require 'gravatar_image_tag'
 
 module Kiitos
-  mattr_accessor :user_class, :sign_in_path
+  mattr_accessor :user_class, :sign_in_path, :email_from, :email_subject
 
   class << self
     def user_class

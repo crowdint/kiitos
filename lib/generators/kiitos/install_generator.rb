@@ -26,6 +26,14 @@ module Kiitos
         end
       end
 
+      def determine_email_from
+        @email_from = ask(translate :email_from).presence || 'no-reply@crowdint.com'
+      end
+
+      def determine_email_subject
+        @email_subject = ask(translate :email_subject).presence || 'You have received a new Kiito'
+      end
+
       def determine_user_class
         @user_class = options['user-class'].presence ||
           ask(translate :user_name_class).presence || 'User'
