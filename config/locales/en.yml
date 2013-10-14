@@ -63,3 +63,5 @@ en:
         step6: "The engine was mounted in your config/routes.rb file using this line:\n\tmount Kiitos::Engine, at: 'kiitos' \n\tIf you want to change where the kiitos are located, just change the '/kiitos' path at the end of this line to whatever you want.\n"
         step7: "We told you that Kiitos has been successfully installed and walked you through the steps.\n\n"
         thanks: "Thanks for using Kiitos! :)"
+        email_from: 'Please provide the email that will be used in the "From" field in emails: '
+        email_subject: 'Please provide the email subject that will be used in emails: '
