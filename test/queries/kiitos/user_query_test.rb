@@ -9,11 +9,11 @@ describe Kiitos::UserQuery do
   end
 
   let(:current_user) { User.create name: 'Test1 Name', email: 'test1@example.com' }
+  let(:other_user) { User.create name: 'Test2 Name', email: 'test2@example.com' }
 
   describe '::all_except_user' do
 
     before do
-      User.create name: 'Test2 Name', email: 'test2@example.com'
       User.create name: 'Test3 Name', email: 'test3@example.com'
       User.create name: 'Test4 Name', email: 'test4@example.com'
     end
@@ -31,7 +31,7 @@ describe Kiitos::UserQuery do
       before do
         Kiitos::Message.create(
           from: current_user.id,
-          to: nil,
+          to: other_user.id,
           kiitos_kiito_id: 1,
           message: 'This is a message'
         )
@@ -48,7 +48,7 @@ describe Kiitos::UserQuery do
       before do
         Kiitos::Message.create(
           from: current_user.id,
-          to: nil,
+          to: other_user.id,
           kiitos_kiito_id: 1,
           message: 'This is a message',
           created_at: 1.day.ago

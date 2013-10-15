@@ -37,7 +37,6 @@ en:
         which: 'Which?'
       form:
         by: 'by'
-        optional: 'Optional'
         submit: 'Post it'
         to_who: 'To Who?'
         your_comment: 'Your comment here!'

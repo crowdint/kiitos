@@ -38,11 +38,3 @@ Feature: A user sends kiitos
   Scenario: A user cannot send a kiito to self
     When I sign in as "user1@test.com"
     Then I should not see the user "user1@test.com"
-
-  @javascript
-  Scenario: A user can broadcast a kiito
-    When I sign in as "user1@test.com"
-    When I fill in the send kiito form with:
-      |to               |message                         |kiito       |
-      |All              |Broadcast kiito                 |I am grateful|
-    Then The user "user2@test.com" should have the "I am grateful" kiito in his received messages
