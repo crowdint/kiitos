@@ -34,12 +34,12 @@ en:
         recent: 'Recent'
         received_kiitos: 'Kiitos Received'
         welcome_back: 'Welcome Back'
-        which: 'Which?'
       form:
         by: 'by'
         optional: 'Optional'
         submit: 'Post it'
         to_who: 'To Who?'
+        which: 'Which?'
         your_comment: 'Your comment here!'
 
     installer:
