@@ -17,10 +17,12 @@ Gem::Specification.new do |s|
   s.files = Dir['{app,config,db,lib,vendor}/**/*', 'MIT-LICENSE', 'Rakefile', 'README.rdoc']
   s.test_files = Dir['test/**/*']
 
+  s.add_dependency 'carrierwave'
   s.add_dependency 'fivemat'
   s.add_dependency 'gravatar_image_tag'
   s.add_dependency 'haml-rails'
   s.add_dependency 'jquery-rails'
+  s.add_dependency 'mini_magick'
   s.add_dependency 'pg'
   s.add_dependency 'rails', '~> 4.0.0'
   s.add_dependency 'sass-rails'
