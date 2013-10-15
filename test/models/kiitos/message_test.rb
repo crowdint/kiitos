@@ -13,9 +13,9 @@ describe Kiitos::Message do
   end
 
   describe 'validations' do
-    it 'is valid without a to' do
+    it 'is invalid without a to' do
       @subject.to = nil
-      @subject.valid?.must_equal true
+      @subject.valid?.must_equal false
     end
 
     it 'is invalid without a from' do
@@ -93,6 +93,7 @@ describe Kiitos::Message do
       )
       Kiitos::Message.create(
         from: 1,
+        to: user.id,
         kiitos_kiito_id: 1,
         message: '3 weeks ago',
       )
