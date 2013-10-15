@@ -15,8 +15,8 @@
         -#.add
         -#.remove
       .who
-        = t('.to_who')
-        %br
+        %p
+          = t('.to_who')
         %span.optional
           = t('.optional')
         %span.arrow-right
@@ -25,7 +25,8 @@
         +
       .which
         %span.arrow-left
-        = t('.which')
+        %p
+          = t('.which')
       .list-wrapper.hidden
         %ul
           - Kiitos::Kiito.all.map { |k| [k.title, k.id, k.image] }.each do |title, id, image|
