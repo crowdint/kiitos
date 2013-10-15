@@ -107,6 +107,8 @@
   }
   .send {
     display: inline-block;
+    float: right;
+    margin: 37px 17px 0 0;
     padding-left: 35px;
     .anonymous {
       input[type='checkbox'] {
