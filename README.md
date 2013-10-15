@@ -33,6 +33,13 @@ After installing, you can change the configuration in the file initializer that 
     # Set the sign in path used in your application
     Kiitos.sign_in_path = '/'
 
+## Uploader
+
+Kiitos uses [CarrierWave](https://github.com/carrierwaveuploader/) to handle uploads for Kiito avatars.
+It is up to the developer to configure the settings to use their storage
+method.
+[Here are the instructions for Amazon S3](https://github.com/carrierwaveuploader/carrierwave#using-amazon-s3) to handle uploads.
+
 ## Tests
 
 Tests are being writen using MiniTest. All tests are located at /test directory.
