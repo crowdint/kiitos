@@ -3,8 +3,7 @@
 class Kiitos::KiitoAvatarUploader < CarrierWave::Uploader::Base
 
   # Include RMagick or MiniMagick support:
-  # include CarrierWave::RMagick
-  # include CarrierWave::MiniMagick
+  include CarrierWave::MiniMagick
 
   # Choose what kind of storage to use for this uploader:
   storage Rails.env.production? ? :fog : :file
@@ -31,6 +30,8 @@ class Kiitos::KiitoAvatarUploader < CarrierWave::Uploader::Base
   # def scale(width, height)
   #   # do something
   # end
+  #
+  process resize_to_fit: [78, 78]
 
   # Create different versions of your uploaded files:
   # version :thumb do
