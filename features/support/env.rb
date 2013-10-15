@@ -31,5 +31,9 @@ end
 Before do
   DatabaseCleaner.start
 end
+ 
+at_exit do
+  FileUtils.rm_rf(Dir[Rails.root + 'public/uploads'])
+end
 
 Cucumber::Rails::Database.javascript_strategy = :truncation
