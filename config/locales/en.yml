@@ -36,7 +36,6 @@ en:
         welcome_back: 'Welcome Back'
       form:
         by: 'by'
-        optional: 'Optional'
         submit: 'Post it'
         to_who: 'To Who?'
         which: 'Which?'
