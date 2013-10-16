@@ -4,6 +4,7 @@ module Kiitos
       @message = Message.new message_params
       @message.from = kiitos_current_user.id
       if @message.save
+        Kiitos::EmailService.new(@message.to, @message.message).send_notification if @message.to
         redirect_to user_dashboard_path
       else
         @messages = Message.user_messages(kiitos_current_user).a_month_ago
