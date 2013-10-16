@@ -43,8 +43,7 @@
     - @messages.each do |message|
       %li
         .badge
-          /= message.kiitos_kiito.image
-          = image_tag 'kiitos/PNG/category.png'
+          = image_tag message.kiitos_kiito.image_url(:message_list)
         .message-info
           %p.title
             = message.kiitos_kiito.title

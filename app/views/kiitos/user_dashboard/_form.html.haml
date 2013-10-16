@@ -29,10 +29,10 @@
           = t('.which')
       .list-wrapper.hidden
         %ul
-          - Kiitos::Kiito.all.map { |k| [k.title, k.id, k.image] }.each do |title, id, image|
+          - Kiitos::Kiito.all.map { |k| [k.title, k.id, k.image_url(:kiitos_list)] }.each do |title, id, image|
             %li
               %span.badge
-                = image_tag 'kiitos/PNG/category.png'
+                = image_tag image
               = f.label "kiitos_kiito_id_#{id}", title
               = f.radio_button :kiitos_kiito_id, id
 
