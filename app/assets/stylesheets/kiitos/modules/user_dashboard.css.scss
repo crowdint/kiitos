@@ -1,18 +1,18 @@
 @import '../base/colors';
 
 #new-kiito {
-  .dialog-inverted{
-    font-size: 0;
+  .dialog-inverted {
+    font-size: 1px;
   }
   h3 {
     color: $secondary;
-    font-size: 20px;
+    font-size: 1.25em;
     font-weight: 300;
     margin: 0 0 10px;
   }
   .anonymous {
     color: $h1;
-    font-size: 13px;
+    font-size: 0.8125em;
     label {
       cursor: pointer;
     }
@@ -22,7 +22,7 @@
     margin-left: 10px;
     span{
       color: $h1;
-      font-size: 13px;
+      font-size: 0.8125em;
       font-weight: 300;
     }
     .by {
@@ -51,7 +51,7 @@
   }
   .kiitos-list {
     display: inline-block;
-    font: 15px 'Oswald';
+    font: 1em 'Oswald';
     overflow: hidden;
     padding: 17px 30px;
     text-transform: uppercase;
@@ -103,6 +103,10 @@
     .which {
       display: inline-block;
       margin: 25px 0 0 20px;
+      p {
+        display: inline;
+        font-size: 16em;
+      }
     }
   }
   .send {
@@ -131,7 +135,6 @@
   .users-list {
     display: inline-block;
     padding: 17px 30px;
-    vertical-align: top;
     width: 280px;
     .choose-secondary {
       float: right;
@@ -139,12 +142,15 @@
     .who {
       display: inline-block;
       float: right;
-      font-family: 'Oswald';
-      font-size: 15px;
+      p {
+        font-family: 'Oswald';
+        font-size: 16em;
+        margin: 0;
+        text-transform: uppercase;
+      }
       margin: 25px 20px 0 0;
       padding-right: 20px;
       position: relative;
-      text-transform: uppercase;
       .arrow-right{
         right: 0;
         position: absolute;
@@ -284,7 +290,7 @@
   }
   h1 {
     color: $h1;
-    font-size: 30px;
+    font-size: 1.875em;
     margin: 0;
   }
   &:after {
@@ -343,11 +349,11 @@
   text-align: center;
   h4 {
     color: $primary-light;
-    font-size: 14px;
+    font-size: 0.875em;
     margin: 0;
   }
   h2 {
-    font-size: 32px;
+    font-size: 2em;
     margin: 0;
   }
 }
@@ -355,6 +361,9 @@
 #user-widget {
   min-height: 250px;
   position: relative;
+  .current-user{
+    font-size: 2.1875em;
+  }
   .user-pic{
     display: block;
     position: absolute;

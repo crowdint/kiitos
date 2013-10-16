@@ -31,12 +31,19 @@ class Kiitos::KiitoAvatarUploader < CarrierWave::Uploader::Base
   #   # do something
   # end
   #
-  process resize_to_fit: [78, 78]
 
   # Create different versions of your uploaded files:
   # version :thumb do
   #   process :scale => [50, 50]
   # end
+
+  version :message_list do
+    process resize_to_fit: [75, 75]
+  end
+
+  version :kiitos_list do
+    process resize_to_fit: [60, 60]
+  end
 
   # Add a white list of extensions which are allowed to be uploaded.
   # For images you might use something like this:
