@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    kiitos (0.0.2)
+    kiitos (0.0.3)
       carrierwave
       fivemat
       gravatar_image_tag
