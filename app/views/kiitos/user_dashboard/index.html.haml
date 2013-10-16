@@ -17,12 +17,7 @@
             = image_tag 'kiitos/SVG/green.svg'
           %li{ class: 'user-pic' }
             = avatar
-        = javascript_include_tag 'parallax'
-        :coffee
-          scene = document.getElementById 'scene'
-          parallax = new Parallax(scene,
-            scalarY: 30
-          )
+
         .welcome-back
           %p
             = t('.welcome_back')
@@ -60,3 +55,10 @@
             = message.sender_name
           %span.message-date
             = pretty_date(message.created_at)
+
+:coffee
+  initialize_parallax()
+  scene = document.getElementById 'scene'
+  parallax = new Parallax(scene,
+    scalarY: 30
+  )

@@ -21,13 +21,16 @@ describe Kiitos::Admin::KiitosController do
   end
 
   describe 'POST :create' do
+
+    let(:image_path) { File.join(Rails.root, '../fixtures/images/category.png') }
+
     context 'with valid information' do
       it 'redirects to index' do
         post :create, kiito: {
           title: 'test',
           kiitos_category_id: 1,
           description: 'test',
-          image: 'test_image.png',
+          image: Rack::Test::UploadedFile.new(image_path, 'text/jpg'),
           state: 'enabled'
         }
         response.must_redirect_to admin_kiitos_path
@@ -39,7 +42,7 @@ describe Kiitos::Admin::KiitosController do
           title: 'test',
           kiitos_category_id: 1,
           description: 'test',
-          image: 'test_image.png',
+          image: Rack::Test::UploadedFile.new(image_path, 'text/jpg'),
           state: 'enabled'
         }
         Kiitos::Kiito.count.must_equal count + 1, 'A kiito was not created'
@@ -61,7 +64,7 @@ describe Kiitos::Admin::KiitosController do
         title: 'test',
         kiitos_category_id: 1,
         description: 'test',
-        image: 'test_image.png',
+        image: File.open(File.join(Rails.root, '../fixtures/images/category.png')),
         state: 'enabled'
       )
       get :edit, id: kiito.id
@@ -75,7 +78,7 @@ describe Kiitos::Admin::KiitosController do
         title: 'test',
         kiitos_category_id: 1,
         description: 'test',
-        image: 'test_image.png',
+        image: File.open(File.join(Rails.root, '../fixtures/images/category.png')),
         state: 'enabled'
       )
     end
@@ -85,7 +88,7 @@ describe Kiitos::Admin::KiitosController do
           title: 'test',
           kiitos_category_id: 1,
           description: 'test',
-          image: 'test_image.png',
+          image: File.open(File.join(Rails.root, '../fixtures/images/category.png')),
           state: 'enabled'
         }
         response.must_redirect_to edit_admin_kiito_path(@kiito)

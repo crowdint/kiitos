@@ -16,13 +16,14 @@ end
 
 Given(/^the following kiitos exist:$/) do |table|
   table.hashes.each do |value|
-    Kiitos::Kiito.create(
+    kiito = Kiitos::Kiito.create(
       title: value[:title],
       kiitos_category_id: value[:category],
       description: value[:description],
       state: value[:state],
-      image: value[:image]
+      image: File.open(File.join(Rails.root, '../fixtures/images/category.png'))
     )
+    kiito.valid?.must_equal true
   end
 end
 

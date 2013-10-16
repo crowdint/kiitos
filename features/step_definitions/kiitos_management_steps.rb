@@ -9,7 +9,7 @@ Then(/^I should be able to modify the "(.*?)" kiito with:$/) do |title, table|
     fill_in 'Title', with: kiito[:title]
     select kiito[:category], from: 'Category'
     fill_in 'Description', with: kiito[:description]
-    fill_in 'Image', with: kiito['image name']
+    attach_file('Image', File.join(Rails.root, '../fixtures/images/category.png'))
     select kiito[:state], from: 'State'
     click_button 'Update Kiito'
   end
@@ -30,7 +30,7 @@ Then(/^I should be able to create the following valid kiitos:$/) do |table|
       fill_in 'Title', with: value[:title]
       select value[:category], from: 'Category'
       fill_in 'Description', with: value[:description]
-      fill_in 'Image', with: value['image name']
+      attach_file('Image', File.join(Rails.root, '../fixtures/images/category.png'))
       select value[:state], from: 'State'
       click_button 'Create Kiito'
     end
