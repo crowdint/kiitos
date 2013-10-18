@@ -1,9 +1,4 @@
-@import '../base/colors';
-
 #new-kiito {
-  .dialog-inverted {
-    font-size: 1px;
-  }
   h3 {
     color: $secondary;
     font-size: 1.25em;
@@ -16,6 +11,11 @@
     label {
       cursor: pointer;
     }
+  }
+  .btn:disabled {
+    background: $dialog-dark;
+    color: #bbb;
+    pointer-events: none;
   }
   .message-info{
     display: inline-block;
@@ -50,12 +50,10 @@
     vertical-align: top;
   }
   .kiitos-list {
-    display: inline-block;
     font: 1em 'Oswald';
-    overflow: hidden;
-    padding: 17px 30px;
+    float: right;
     text-transform: uppercase;
-    width: 280px;
+    width: 350px;
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
@@ -102,10 +100,10 @@
     }
     .which {
       display: inline-block;
-      margin: 25px 0 0 20px;
+      margin: 12px 0 0 24px; 
       p {
         display: inline;
-        font-size: 16em;
+        font-size: 1.8em;
       }
     }
   }
@@ -133,28 +131,25 @@
     }
   }
   .users-list {
-    display: inline-block;
-    padding: 17px 30px;
+    position: relative;
     width: 280px;
     .choose-secondary {
       float: right;
+      margin-left: 9px;
     }
     .who {
-      display: inline-block;
-      float: right;
+      width: 315px;
+      float: left;
       p {
         font-family: 'Oswald';
-        font-size: 16em;
-        margin: 0;
+        font-size: 1.8em;
+        margin: 11px 10px 0px 101px;
         text-transform: uppercase;
+        float: left;
       }
-      margin: 25px 20px 0 0;
-      padding-right: 20px;
-      position: relative;
       .arrow-right{
-        right: 0;
-        position: absolute;
-        top: 0;
+        float: right;
+        margin: 23px 20px 0 0;
       }
     }
     .who-selection {
@@ -199,7 +194,7 @@
         display: inline-block;
         height: 28px;
         margin: 37px 21px;
-        width: 204px;
+        width: 210px;
         input[type='text'] {
           background: #fafafa;
           border: none;
@@ -340,7 +335,7 @@
   position: relative;
   .wrapper{
     float: right;
-    max-width: 560px;
+    width: 700px;
   }
 }
 
@@ -359,7 +354,7 @@
 }
 
 #user-widget {
-  min-height: 250px;
+  min-height: 196px;
   position: relative;
   .current-user{
     font-size: 2.1875em;
@@ -443,5 +438,91 @@
   }
   textarea {
     pointer-events: none;
+  }
+}
+#admin-options {
+  background: $dialog-dark;
+  display: none;
+  height: 83px;
+  margin-bottom: 20px;
+  padding: 21px 45px 0;
+
+  .manage-users {
+    float: left;
+    width: 50%;
+
+    .add-user {
+      margin-right: 30px;
+      background: #7cc3c2;
+      border: 2px solid #fff;
+      border-radius: 40px;
+      color: #fff;
+      float: right;
+      font: 300 2em 'Roboto';
+      height: 60px;
+      line-height: 60px;
+      cursor: pointer;
+      text-align: center;
+      width: 60px;
+      .image-icon {
+        position: relative;
+        bottom: 4px;
+        display: inline-block;
+        width: 29px;
+        height: 29px;
+        background: image-url('kiitos/SVG/manage-users.svg');
+      }
+    }
+
+    .title {
+      text-transform: uppercase;
+      font-size: 1.5em;
+      font-weight: bold;
+      p {
+        float: left;
+        font-family: 'Oswald';
+        margin: 0;
+        padding: 15px 0 0;
+      }
+      .arrow-right{
+        float: right;
+        margin: 24px 43px 0px 0px;
+      }
+    }
+  }
+  .manage-kiitos {
+    float: right;
+    width: 50%;
+
+    .add-kiito{
+      background: $secondary;
+      border: 2px solid #fff;
+      border-radius: 40px;
+      color: #fff;
+      float: left;
+      font: 300 1.875em 'Roboto';
+      height: 60px;
+      line-height: 60px;
+      margin-left: 30px;
+      cursor: pointer;
+      text-align: center;
+      width: 60px;
+    }
+
+    .title {
+      text-transform: uppercase;
+      font-size: 1.5em;
+      font-weight: bold;
+      p {
+        float: right;
+        font-family: 'Oswald';
+        margin: 0;
+        padding: 15px 0 0;
+      }
+      .arrow-left{
+        float: left;
+        margin: 25px 0px 0 40px;
+      }
+    }
   }
 }

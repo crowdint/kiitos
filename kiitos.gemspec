@@ -18,6 +18,7 @@ Gem::Specification.new do |s|
   s.test_files = Dir['test/**/*']
 
   s.add_dependency 'carrierwave'
+  s.add_dependency 'capybara_minitest_spec'
   s.add_dependency 'fivemat'
   s.add_dependency 'gravatar_image_tag'
   s.add_dependency 'haml-rails'

@@ -7,18 +7,25 @@ describe Kiitos::HomeController do
   end
 
   describe 'GET :show' do
+    it 'redirects to user dashboard' do
+      get :show
+      must_redirect_to user_dashboard_path
+    end
+
     context 'when successfully logged in and is the first user' do
-      it 'redirects to admin panel' do
+      it 'creates an admin' do
+        before = Kiitos::Administrator.count
         get :show
-        must_redirect_to admin_panel_path
+        (Kiitos::Administrator.count - before).must_equal 1
       end
     end
 
     context 'when successfully logged in and is not the first user' do
-      it "redirects to the user's dashboard" do
+      it 'does not create an admin' do
         Kiitos::Administrator.create user_id: 1
+        before = Kiitos::Administrator.count
         get :show
-        must_redirect_to user_dashboard_path
+        (Kiitos::Administrator.count - before).must_equal 0
       end
     end
   end

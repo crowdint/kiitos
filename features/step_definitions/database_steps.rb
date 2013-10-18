@@ -54,10 +54,6 @@ Given /^The user "(.*?)" is an administrator in the kiitos application$/ do |ema
   Kiitos::Administrator.create user_id: user.id
 end
 
-Then /^land in the administrator panel$/ do
-  page.current_path.must_equal '/kiitos/admin'
-end
-
 Then /^I should land in my user's dashboard$/ do
   page.current_path.must_equal '/kiitos/dashboard'
 end

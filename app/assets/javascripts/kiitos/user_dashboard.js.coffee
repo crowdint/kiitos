@@ -18,13 +18,41 @@ $(document).ready ->
 
   $('#search_to').on 'typeahead:autocompleted typeahead:selected', (e, data)->
     $('#message_to').val data.id
+    enableButton()
 
   # Counts how many characters remain for the message
   count = ->
     length = $('#message_message').val().length
     $('.count').text(140 - length)
 
-  count()
+  canEnableButton = ->
+    $('#message_to').val() isnt '' &&
+    # this is used for the selector name="message[kiitos_kiito_id]"
+    $("input[name = message\\[kiitos_kiito_id\\]]").is(':checked') &&
+    $('#message_message').val().length > 0
+
+  enableButton = ->
+    if canEnableButton()
+      $('#submit-kiito').removeAttr 'disabled'
+    else
+      $('#submit-kiito').attr 'disabled', 'disabled'
+
+  $('.list-wrapper ul li').click ->
+    enableButton()
 
   $('#message_message').keyup ->
+    enableButton()
     count()
+
+  $('#admin-option').click ->
+    $('#admin-options').show()
+    $('#new-kiito').hide()
+    $('#user-option').removeClass('active')
+    $('#admin-option').addClass('active')
+
+  $('#user-option').click ->
+    $('#admin-options').hide()
+    $('#user-option').addClass('active')
+    $('#admin-option').removeClass('active')
+    $('#new-kiito').show()
+

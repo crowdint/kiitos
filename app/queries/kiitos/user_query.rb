@@ -19,5 +19,10 @@ module Kiitos
     def self.received_messages(user)
       Kiitos::Message.where(to:  user.id)
     end
+
+    def self.is_admin?(user)
+      Kiitos::Administrator.exists?(user_id:  user.id) ? true : false
+    end
+
   end
 end
