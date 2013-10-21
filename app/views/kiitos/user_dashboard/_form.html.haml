@@ -2,23 +2,17 @@
   = hidden_field_tag 'message[to]'
   .dialog-inverted
     .users-list
-      %span.choose-secondary
-        +
       .who-selection.hidden
         .user-search
           .user-select
             = text_field_tag :search_to, nil, placeholder: 'Search here!'
-            /%span.name
-            /  Haro
-            /%span.email
-            /  jesus.haro@crowdint.com
         -#.add
         -#.remove
       .who
         %p
           = t('.to_who')
-        %span.optional
-          = t('.optional')
+        %span.choose-secondary
+          +
         %span.arrow-right
     .kiitos-list
       %span.choose
@@ -48,7 +42,7 @@
     %span.date-now
       = pretty_date Time.now
   .send
-    = f.submit t('.submit'), class: 'btn'
+    = f.submit t('.submit'), id: 'submit-kiito', disabled: 'disabled', class: 'btn'
     .anonymous
       = f.check_box :anonymous
       = f.label :anonymous

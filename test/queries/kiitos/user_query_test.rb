@@ -69,4 +69,18 @@ describe Kiitos::UserQuery do
       end
     end
   end
+
+  describe '::is_admin?' do
+    before do
+      Kiitos::Administrator.create user_id: current_user.id
+    end
+
+    it 'returns true when user is admin' do
+      Kiitos::UserQuery.is_admin?(current_user).must_equal true
+    end
+
+    it 'returns false when user is not admin' do
+      Kiitos::UserQuery.is_admin?(other_user).must_equal false
+    end
+  end
 end

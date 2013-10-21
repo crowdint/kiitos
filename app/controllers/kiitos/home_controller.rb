@@ -1,12 +1,11 @@
 module Kiitos
   class HomeController < ApplicationController
     def show
-      if Administrator.count > 0
-        redirect_to user_dashboard_path
-      else
+      unless Administrator.count > 0
         Administrator.create user_id: kiitos_current_user.id
-        redirect_to admin_panel_path
       end
+
+      redirect_to user_dashboard_path
     end
   end
 end

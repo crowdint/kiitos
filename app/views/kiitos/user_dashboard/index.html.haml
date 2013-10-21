@@ -22,6 +22,16 @@
           %p
             = t('.welcome_back')
           = format_user_name kiitos_current_user
+    - if is_admin?
+      #admin-menu
+        %ul
+          %li#admin-option
+            = t '.admin-option'
+          %li#user-option.active
+            = t '.user-option'
+      #admin-options
+        = render 'kiitos/user_dashboard/admin_options'
+
     #new-kiito{class: (can_send?)}
       = render 'kiitos/user_dashboard/form', message: @message
 

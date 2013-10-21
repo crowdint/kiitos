@@ -14,7 +14,7 @@ Feature: Users management
     And I am signed in on the host application as "user1@test.com"
     When I sign in on the kiitos application as "user1@test.com"
     Then the user "user1@test.com" should become an administrator
-    And land in the administrator panel
+    And I should land in my user's dashboard
 
   Scenario: A second logged in user does not become an administrator
     Given The user "user1@test.com" is an administrator in the kiitos application
