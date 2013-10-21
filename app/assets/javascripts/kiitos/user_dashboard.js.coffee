@@ -32,10 +32,7 @@ $(document).ready ->
     $('#message_message').val().length > 0
 
   enableButton = ->
-    if canEnableButton()
-      $('#submit-kiito').removeAttr 'disabled'
-    else
-      $('#submit-kiito').attr 'disabled', 'disabled'
+    $('#submit-kiito').attr 'disabled', !canEnableButton()
 
   $('.list-wrapper ul li').click ->
     enableButton()
