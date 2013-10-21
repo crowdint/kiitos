@@ -25,6 +25,8 @@ $(document).ready ->
     length = $('#message_message').val().length
     $('.count').text(140 - length)
 
+  count()
+
   canEnableButton = ->
     $('#message_to').val() isnt '' &&
     # this is used for the selector name="message[kiitos_kiito_id]"
@@ -32,10 +34,7 @@ $(document).ready ->
     $('#message_message').val().length > 0
 
   enableButton = ->
-    if canEnableButton()
-      $('#submit-kiito').removeAttr 'disabled'
-    else
-      $('#submit-kiito').attr 'disabled', 'disabled'
+    $('#submit-kiito').attr 'disabled', !canEnableButton()
 
   $('.list-wrapper ul li').click ->
     enableButton()
@@ -45,13 +44,13 @@ $(document).ready ->
     count()
 
   $('#admin-option').click ->
-    $('#admin-options').show()
+    $('#admin-options, #admin-manage-area').show()
     $('#new-kiito').hide()
     $('#user-option').removeClass('active')
     $('#admin-option').addClass('active')
 
   $('#user-option').click ->
-    $('#admin-options').hide()
+    $('#admin-options, #admin-manage-area').hide()
     $('#user-option').addClass('active')
     $('#admin-option').removeClass('active')
     $('#new-kiito').show()

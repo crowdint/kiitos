@@ -10,6 +10,35 @@
   box-shadow: -9px 11px 3px 1px rgba(224, 224, 211, .7);
 }
 
+.btn-blue {
+  background: $special;
+  border: none;
+  color: $btn-primary-color;
+  font-size: .90em;
+  padding: 8px 30px;
+  text-decoration: none;
+  font-family: 'Roboto', sans-serif;
+}
+.btn-promote {
+  background: $special;
+  border: none;
+  color: $btn-primary-color;
+  font-size: 1.6em;
+  padding: 8px 30px;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-family: 'Roboto', sans-serif;
+  -moz-box-shadow: -9px 11px 3px 1px rgba(224, 224, 211, .7);
+  -webkit-box-shadow: -9px 11px 3px 1px rgba(224, 224, 211, .7);
+  box-shadow: -9px 11px 3px 1px rgba(224, 224, 211, .7);
+}
+
+.cancel-promote {
+  font-size: 1.6em;
+  text-transform: uppercase;
+  color: #1d1d1d;
+  margin-right: 28px;
+}
 
 .choose, .choose-secondary{
   background: $secondary;

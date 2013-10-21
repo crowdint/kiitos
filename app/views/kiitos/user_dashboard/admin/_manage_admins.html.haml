@@ -1,0 +1,27 @@
+.manage-admins
+  .title
+    = t '.admins'
+  %ul
+    - @administrators.each do |administrator|
+      %li
+        = administrator.user.name
+        = link_to 'X', admin_administrator_path(administrator), id: "delete_admin_#{administrator.user.id}", class: 'delete-admin'
+
+  = link_to 'Add admin', '#', id: 'add-administrator', class: 'btn-blue'
+
+  .add-new-administrator
+    %h1
+      Promoting People
+    .users-tag
+      Users
+    .state-tag
+      State
+
+    .select-user
+      search autocomplete users goes here(copy here the same autocomplete)
+
+    .buttons
+      = link_to 'Cancel', '#', id: 'cancel-promote', class: 'cancel-promote'
+      = link_to 'Promote', '#', id: 'promote-administrator', class: 'btn-promote'
+
+

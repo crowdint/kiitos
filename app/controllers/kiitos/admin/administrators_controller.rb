@@ -7,7 +7,9 @@ module Kiitos
       end
 
       def destroy
-        Administrator.where(user_id: params[:id]).first.destroy
+        if Kiitos::UserQuery.is_admin?(kiitos_current_user)
+          Administrator.find(params[:id]).destroy
+        end
         redirect_to admin_users_path
       end
     end

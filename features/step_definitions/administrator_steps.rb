@@ -4,24 +4,31 @@ Given(/^I am an administrator "(.*?)"$/) do |email|
 end
 
 When(/^I go to the users management panel$/) do
-  visit kiitos.admin_users_path
+  visit kiitos.user_dashboard_path
+  find('#admin-option').click
+  find('.add-user').click
 end
 
 Then(/^I should be able to see the host application users pool$/) do
-  users = User.all
-  assert page.has_content?(users.first.email), 'The user is not present'
-  assert page.has_content?(users.last.email), 'The user is not present'
+  users = Kiitos::Administrator.all
+  within '.manage-admins' do
+    users.each do |user|
+      page.has_content?(user.user.name).must_equal true
+    end
+  end
 end
 
 Then(/^I should be able to promote a user to admin$/) do
   user = User.last
-  assert Kiitos::Administrator.last.user_id != user.id, 'User is already an admin'
+  Kiitos::Administrator.last.user_id.wont_equal user.id
   click_button 'Promote to Admin'
-  assert Kiitos::Administrator.last.user_id.must_equal(user.id), 'User is already an admin'
+  Kiitos::Administrator.last.user_id.must_equal user.id
 end
 
 Then(/^I should be able to degrade a user from admin$/) do
-  assert Kiitos::Administrator.count.must_equal(2), 'There are no Administrators'
-  first('li').click_button 'Demote from Admin'
-  assert Kiitos::Administrator.count.must_equal(1), "Administrator wasn't removed"
+  admin = Kiitos::Administrator.first
+  admins_before = Kiitos::Administrator.count
+  find("#delete_admin_#{admin.id}").click
+  wait_for_ajax
+  Kiitos::Administrator.count.must_equal admins_before - 1
 end

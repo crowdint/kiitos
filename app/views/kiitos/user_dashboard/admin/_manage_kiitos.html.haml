@@ -1,0 +1,9 @@
+.manage-kiitos
+  .title
+    = t 'kiitos.kiitos'
+  %ul
+    - @kiitos.each do |kiito|
+      %li
+        = kiito.title
+        = link_to 'X', '#', id: "delete_kiito_#{kiito.id}", class: 'delete-kiito'
+

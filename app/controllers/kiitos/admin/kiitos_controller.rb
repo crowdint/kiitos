@@ -1,8 +1,8 @@
 module Kiitos
   module Admin
     class KiitosController < ApplicationController
-
       before_filter :kiitos, only: [:create, :index]
+      before_filter :is_admin?
 
       def index
         @kiito = Kiito.new
@@ -30,6 +30,11 @@ module Kiitos
         end
       end
 
+      def destroy
+        @user = Kiitos::Kiito.find(params[:id]).destroy
+        render json: @user
+      end
+
       private
 
       def kiitos
@@ -44,6 +49,10 @@ module Kiitos
           :image,
           :state
         )
+      end
+
+      def is_admin?
+        render json: { error: true, message: "Error 403, you don't have permissions for this operation" }, status: 403 unless Kiitos::UserQuery.is_admin?(kiitos_current_user)
       end
     end
   end
