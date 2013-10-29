@@ -17,8 +17,9 @@
     .state-tag
       State
 
-    .select-user
-      search autocomplete users goes here(copy here the same autocomplete)
+    .user-search
+      .select-user
+        = text_field_tag :search_to, nil, placeholder: 'Name of the user you want to promote'
 
     .buttons
       = link_to 'Cancel', '#', id: 'cancel-promote', class: 'cancel-promote'

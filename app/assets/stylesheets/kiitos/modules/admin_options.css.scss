@@ -188,9 +188,32 @@
       .select-user {
         clear: both;
         margin: 20px 0;
-        width: 95%;
+        width: 93%;
         background: $dialog-dark;
         padding: 10px;
+
+        #search_to {
+          border: none;
+          background: $dialog-dark;
+          width: 300px;
+        }
+
+        .tt-dropdown-menu {
+          background: $light-gray-bg;
+          width: 300px;
+          margin-top: 10px;
+        }
+
+        .tt-suggestion {
+          &.tt-is-under-cursor {
+            background: $special;
+            color: white;
+          }
+          p {
+            margin: 10px 0;
+            line-height: 25px;
+          }
+        }
       }
       .buttons {
         width: 43%;

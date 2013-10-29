@@ -44,4 +44,8 @@ $(document).ready ->
 
   $('#promote-administrator').on 'click', (event) ->
     event.preventDefault()
-    alert 'this method is not yet implemented'
+    name = $('#search_to').val()
+    method = { _method: 'create' }
+    request = $.post "admin/administrators?name=#{name}", method
+    request.complete (response) ->
+      location.reload()
