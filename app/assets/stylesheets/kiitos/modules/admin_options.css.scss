@@ -196,6 +196,8 @@
           border: none;
           background: $dialog-dark;
           width: 300px;
+
+          &:focus { outline: none; }
         }
 
         .tt-dropdown-menu {
