@@ -46,10 +46,12 @@ $(document).ready ->
     $('#new-kiito').hide()
     $('#user-option').removeClass('active')
     $('#admin-option').addClass('active')
+    $('#admin-header-text, #user-header-text').toggleClass('hidden')
 
   $('#user-option').click ->
     $('#admin-options').hide()
     $('#user-option').addClass('active')
     $('#admin-option').removeClass('active')
     $('#new-kiito').show()
+    $('#admin-header-text, #user-header-text').toggleClass('hidden')
 

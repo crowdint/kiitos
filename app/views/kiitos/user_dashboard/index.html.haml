@@ -2,11 +2,11 @@
   .wrapper
     #user-info
       %h1#logo t('kiitos.title')
-      #header-text
-        %h4
-          = raw t(can_send?, scope: 'kiitos.user_dashboard.index.instructions')
-        %h2
-          = raw t(can_send?, scope: 'kiitos.user_dashboard.index.instructions_2')
+      #admin-header-text.hidden
+        = raw t(can_send?, scope: 'kiitos.user_dashboard.index.instructions.admin')
+      #user-header-text
+        = raw t(can_send?, scope: 'kiitos.user_dashboard.index.instructions.user')
+
       #user-widget
         %ul#scene
           %li{ class: 'layer', 'data-depth' => '-2.30' }
