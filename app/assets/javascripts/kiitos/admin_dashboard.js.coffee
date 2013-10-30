@@ -1,4 +1,12 @@
 $(document).ready ->
+
+  # Show/Hide respective buttons with a specific behavior
+  manageButtons = (el) ->
+    $(el).removeClass 'active'
+    $('.add-kiito').addClass 'active'
+    $('.manage-admins').show()
+    $('.manage-kiitos').hide()
+
   # Settings for typeahead.js
   $('#search_user').typeahead
     name: 'users'
@@ -10,17 +18,11 @@ $(document).ready ->
   # the needed binding for showing the manage admins area
   $('.add-user').on 'click', (event) ->
     event.preventDefault()
-    $(@).removeClass 'active'
-    $('.add-kiito').addClass 'active'
-    $('.manage-admins').show()
-    $('.manage-kiitos').hide()
+    manageButtons @
 
   $('.add-kiito').on 'click', (event) ->
     event.preventDefault()
-    $(@).removeClass 'active'
-    $('.add-user').addClass 'active'
-    $('.manage-kiitos').show()
-    $('.manage-admins').hide()
+    manageButtons @
 
   $('.delete-admin').on 'click', (event) ->
     event.preventDefault()

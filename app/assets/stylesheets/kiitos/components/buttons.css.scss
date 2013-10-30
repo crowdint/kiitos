@@ -1,4 +1,4 @@
-.btn{
+.btn {
   background: $primary;
   border: none;
   color: $btn-primary-color;
@@ -10,7 +10,7 @@
   box-shadow: -9px 11px 3px 1px rgba(224, 224, 211, .7);
 }
 
-.btn-blue {
+.btn-blue, .btn-promote {
   background: $special;
   border: none;
   color: $btn-primary-color;
@@ -20,14 +20,9 @@
   font-family: 'Roboto', sans-serif;
 }
 .btn-promote {
-  background: $special;
-  border: none;
-  color: $btn-primary-color;
+  padding: 8px 24px;
   font-size: 1.6em;
-  padding: 8px 30px;
-  text-decoration: none;
   text-transform: uppercase;
-  font-family: 'Roboto', sans-serif;
   -moz-box-shadow: -9px 11px 3px 1px rgba(224, 224, 211, .7);
   -webkit-box-shadow: -9px 11px 3px 1px rgba(224, 224, 211, .7);
   box-shadow: -9px 11px 3px 1px rgba(224, 224, 211, .7);
