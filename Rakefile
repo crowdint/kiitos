@@ -19,8 +19,6 @@ end
 APP_RAKEFILE = File.expand_path("../test/dummy/Rakefile", __FILE__)
 load 'rails/tasks/engine.rake'
 
-
-
 Bundler::GemHelper.install_tasks
 
 require 'rake/testtask'
@@ -35,6 +33,7 @@ end
 require "gitnesse/tasks"
 
 Cucumber::Rake::Task.new(:features) do |t|
+  t.profile = :default
   t.cucumber_opts = "features --format Fivemat"
 end
 

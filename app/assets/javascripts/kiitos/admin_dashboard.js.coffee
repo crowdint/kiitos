@@ -1,4 +1,11 @@
 $(document).ready ->
+  # Settings for typeahead.js
+  $('#search_user').typeahead
+    name: 'users'
+    valueKey: 'name'
+    prefetch:
+      url: '/kiitos/users'
+      ttl: 5000
 
   # the needed binding for showing the manage admins area
   $('.add-user').on 'click', (event) ->
@@ -32,7 +39,6 @@ $(document).ready ->
       $(event.currentTarget).parent().fadeOut()
 
   $('#add-administrator').on 'click', (event) ->
-    console.log 'here'
     event.preventDefault()
     $(@).hide()
     $('.add-new-administrator').show()
