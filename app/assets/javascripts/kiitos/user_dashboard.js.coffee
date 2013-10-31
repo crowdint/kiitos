@@ -25,8 +25,6 @@ $(document).ready ->
     length = $('#message_message').val().length
     $('.count').text(140 - length)
 
-  count()
-
   canEnableButton = ->
     $('#message_to').val() isnt '' &&
     # this is used for the selector name="message[kiitos_kiito_id]"
@@ -43,10 +41,13 @@ $(document).ready ->
     enableButton()
     count()
 
+  toggleOptions = (target) ->
+    $('#admin-menu li').removeClass('active')
+    target.addClass('active')
+    $('#admin-options, #admin-manage-area').toggle()
+    $('#new-kiito').toggle()
+
   $('#admin-menu li').click (e)->
     e.preventDefault()
     unless $(e.currentTarget).hasClass('active')
-      $('#admin-menu li').removeClass('active')
-      $(e.currentTarget).toggleClass('active')
-      $('#admin-options, #admin-manage-area').toggle()
-      $('#new-kiito').toggle()
+      toggleOptions $(e.target)

@@ -7,6 +7,13 @@ $(document).ready ->
     $('.manage-admins').show()
     $('.manage-kiitos').hide()
 
+  # Comun class to delete subjects
+  deleteSubject = (url, target) ->
+   method = { _method: 'delete' }
+   request = $.post url, method
+   request.complete  ->
+      $(target).parent().fadeOut()
+
   # Settings for typeahead.js
   $('#search_user').typeahead
     name: 'users'
@@ -27,18 +34,12 @@ $(document).ready ->
   $('.delete-admin').on 'click', (event) ->
     event.preventDefault()
     url = event.currentTarget.href
-    method = { _method: 'delete' }
-    request = $.post url, method
-    request.complete (response) ->
-      $(event.currentTarget).parent().fadeOut()
+    deleteSubject url, event.currentTarget
 
   $('.delete-kiito').on 'click', (event) ->
     event.preventDefault()
-    kiito_id = event.currentTarget.id
-    method = { _method: 'delete' }
-    request = $.post "admin/kiitos/#{kiito_id}", method
-    request.complete (response) ->
-      $(event.currentTarget).parent().fadeOut()
+    url = event.currentTarget.href
+    deleteSubject url, event.currentTarget
 
   $('#add-administrator').on 'click', (event) ->
     event.preventDefault()
@@ -52,8 +53,7 @@ $(document).ready ->
 
   $('#promote-administrator').on 'click', (event) ->
     event.preventDefault()
-    name = $('#search_to').val()
-    method = { _method: 'create' }
-    request = $.post "admin/administrators?name=#{name}", method
+    name = $('#search_user').val()
+    request = $.post "admin/administrators?name=#{name}"
     request.complete (response) ->
       location.reload()

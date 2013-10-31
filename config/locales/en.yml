@@ -29,6 +29,9 @@ en:
           manage-kiitos: 'Manage kiitos'
         manage_admins:
           admins: 'Admins'
+          promote_people: Promoting People
+          users: User
+          state: State
       index:
         admin-option: 'admin'
         user-option: 'user'
