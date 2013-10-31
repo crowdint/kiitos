@@ -2,10 +2,7 @@
   .title
     = t '.admins'
   %ul
-    - @administrators.each do |administrator|
-      %li
-        = administrator.user.name
-        = link_to 'X', admin_administrator_path(administrator), id: "delete_admin_#{administrator.user.id}", class: 'delete-admin'
+    = render partial: 'kiitos/user_dashboard/admin/administrator', collection: @administrators
 
   = link_to 'Add admin', '#', id: 'add-administrator', class: 'btn-blue'
 

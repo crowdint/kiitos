@@ -43,12 +43,10 @@ $(document).ready ->
     enableButton()
     count()
 
-  manageOptions = (el) ->
-    unless $(el).hasClass('active')
+  $('#admin-menu li').click (e)->
+    e.preventDefault()
+    unless $(e.currentTarget).hasClass('active')
       $('#admin-menu li').removeClass('active')
-      $(el).toggleClass('active')
+      $(e.currentTarget).toggleClass('active')
       $('#admin-options, #admin-manage-area').toggle()
       $('#new-kiito').toggle()
-
-  $('#admin-menu li').click (e)->
-    manageOptions e.currentTarget

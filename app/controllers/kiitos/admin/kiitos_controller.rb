@@ -52,7 +52,10 @@ module Kiitos
       end
 
       def is_admin?
-        render json: { error: true, message: "Error 403, you don't have permissions for this operation" }, status: 403 unless Kiitos::UserQuery.is_admin?(kiitos_current_user)
+        unless Kiitos::UserQuery.is_admin?(kiitos_current_user)
+          render json: { message: "Error 403, you don't have permissions for this operation" },
+            status: 403
+        end
       end
     end
   end
