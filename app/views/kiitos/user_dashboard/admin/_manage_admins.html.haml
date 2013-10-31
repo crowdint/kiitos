@@ -1,0 +1,25 @@
+.manage-admins
+  .title
+    = t '.admins'
+  %ul
+    = render partial: 'kiitos/user_dashboard/admin/administrator', collection: @administrators
+
+  = link_to 'Add admin', '#', id: 'add-administrator', class: 'btn-blue'
+
+  .add-new-administrator
+    %h1
+      = t '.promote_people'
+    .users-tag
+      = t '.user'
+    .state-tag
+      = t '.state'
+
+    .user-search
+      .select-user
+        = text_field_tag :search_user, nil, placeholder: 'Name of the user you want to promote'
+
+    .buttons
+      = link_to 'Cancel', '#', id: 'cancel-promote', class: 'cancel-promote'
+      = link_to 'Promote', '#', id: 'promote-administrator', class: 'btn-promote'
+
+

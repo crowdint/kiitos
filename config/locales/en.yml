@@ -12,6 +12,7 @@ en:
     edit: 'Edit'
     enabled: 'Enabled'
     kiito: 'Kiito'
+    kiitos: 'Kiitos'
     one_kiito_per_day: 'You can only send one Kiito per day'
     title: 'Kiitos'
 
@@ -22,12 +23,18 @@ en:
           promote: 'Promote to Admin'
 
     user_dashboard:
-      admin_options:
-        manage-users: 'Manage users'
-        manage-kiitos: 'Manage kiitos'
+      admin:
+        options_menu:
+          manage-users: 'Manage users'
+          manage-kiitos: 'Manage kiitos'
+        manage_admins:
+          admins: 'Admins'
+          promote_people: Promoting People
+          users: User
+          state: State
       index:
-        admin-option: admin
-        user-option: user
+        admin-option: 'admin'
+        user-option: 'user'
         instructions:
           form-enabled: 'You only have 1 Kiito to give each day'
           form-disabled: "You don't have <strong> anymore Kiitos </strong> to give today"

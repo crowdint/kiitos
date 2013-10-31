@@ -41,15 +41,13 @@ $(document).ready ->
     enableButton()
     count()
 
-  $('#admin-option').click ->
-    $('#admin-options').show()
-    $('#new-kiito').hide()
-    $('#user-option').removeClass('active')
-    $('#admin-option').addClass('active')
+  toggleOptions = (target) ->
+    $('#admin-menu li').removeClass('active')
+    target.addClass('active')
+    $('#admin-options, #admin-manage-area').toggle()
+    $('#new-kiito').toggle()
 
-  $('#user-option').click ->
-    $('#admin-options').hide()
-    $('#user-option').addClass('active')
-    $('#admin-option').removeClass('active')
-    $('#new-kiito').show()
-
+  $('#admin-menu li').click (e)->
+    e.preventDefault()
+    unless $(e.currentTarget).hasClass('active')
+      toggleOptions $(e.target)

@@ -83,4 +83,10 @@ describe Kiitos::UserQuery do
       Kiitos::UserQuery.is_admin?(other_user).must_equal false
     end
   end
+
+  describe '::find_user' do
+    it 'returns the user' do
+      Kiitos::UserQuery.find_user(current_user.name).must_equal current_user
+    end
+  end
 end

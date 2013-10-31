@@ -1,9 +1,11 @@
 require 'test_helper'
+require 'carrierwave/test/matchers'
 
 describe Kiitos::Admin::KiitosController do
   before do
     @routes = Kiitos::Engine.routes
-    User.create name: 'User Name', email: 'test@example.com'
+    user = User.create name: 'User Name', email: 'test@example.com'
+    Kiitos::Administrator.create user_id: user.id
   end
 
   describe 'GET :index' do

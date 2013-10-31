@@ -29,8 +29,7 @@
             = t '.admin-option'
           %li#user-option.active
             = t '.user-option'
-      #admin-options
-        = render 'kiitos/user_dashboard/admin_options'
+      = render 'kiitos/user_dashboard/admin/manage_content', administrators: @administrators
 
     #new-kiito{class: (can_send?)}
       = render 'kiitos/user_dashboard/form', message: @message
