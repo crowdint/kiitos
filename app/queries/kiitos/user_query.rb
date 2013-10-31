@@ -24,5 +24,9 @@ module Kiitos
       Kiitos::Administrator.exists?(user_id:  user.id) ? true : false
     end
 
+    def self.find_user(name)
+      Kiitos.user_class.find_by name: name
+    end
+
   end
 end
