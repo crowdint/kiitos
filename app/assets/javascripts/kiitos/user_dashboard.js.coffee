@@ -43,20 +43,12 @@ $(document).ready ->
     enableButton()
     count()
 
-  manageOptions = (admin=false) ->
-    if admin is false
-      $('#admin-options, #admin-manage-area').hide()
-      $('#user-option').addClass('active')
-      $('#admin-option').removeClass('active')
-      $('#new-kiito').show()
-    else
-      $('#admin-options, #admin-manage-area').show()
-      $('#new-kiito').hide()
-      $('#user-option').removeClass('active')
-      $('#admin-option').addClass('active')
+  manageOptions = (el) ->
+    unless $(el).hasClass('active')
+      $('#admin-menu li').removeClass('active')
+      $(el).toggleClass('active')
+      $('#admin-options, #admin-manage-area').toggle()
+      $('#new-kiito').toggle()
 
-  $('#admin-option').click ->
-    manageOptions true
-
-  $('#user-option').click ->
-    manageOptions()
+  $('#admin-menu li').click (e)->
+    manageOptions e.currentTarget
