@@ -339,7 +339,7 @@
   }
 }
 
-#header-text {
+#admin-header-text, #user-header-text {
   color: $header-text;
   text-align: center;
   h4 {
@@ -350,6 +350,9 @@
   h2 {
     font-size: 2em;
     margin: 0;
+  }
+  strong {
+    color: $primary;
   }
 }
 

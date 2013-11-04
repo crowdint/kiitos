@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    kiitos (0.0.3)
+    kiitos (0.0.4)
       carrierwave
       gravatar_image_tag
       haml-rails

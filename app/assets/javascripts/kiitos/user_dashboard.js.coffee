@@ -46,6 +46,7 @@ $(document).ready ->
     target.addClass('active')
     $('#admin-options, #admin-manage-area').toggle()
     $('#new-kiito').toggle()
+    $('#admin-header-text, #user-header-text').toggleClass('hidden')
 
   $('#admin-menu li').click (e)->
     e.preventDefault()
