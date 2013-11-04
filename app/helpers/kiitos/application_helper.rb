@@ -12,10 +12,8 @@ module Kiitos
       end
     end
 
-    def format_user_name(current_user)
-      full_name = current_user.name.split ' '
-      name = content_tag(:span, content_tag(:p, full_name[0]), :class => "current-user")
-      name + content_tag(:span, content_tag(:p, full_name[1]), :class => "last_name") if full_name[1]
+    def format_user_name
+      "#{kiitos_current_user.name}" + content_tag(:span, "#{kiitos_current_user.last_name}", :class => "last_name")
     end
 
     def can_send?
