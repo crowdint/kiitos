@@ -10,11 +10,14 @@ module Kiitos
 
       def create
         @kiito = Kiito.new kiito_params
+
         if @kiito.save
-          redirect_to action: :index
+          flash[:notice] = 'Your kiito was created sucessfuly'
         else
-          render :index
+          flash[:error] = 'Something were wrong, please try again'
         end
+
+        redirect_to user_dashboard_path
       end
 
       def edit
@@ -44,10 +47,10 @@ module Kiitos
       def kiito_params
         params.require(:kiito).permit(
           :title,
-          :kiitos_category_id,
           :description,
           :image,
-          :state
+          :state,
+          :kiitos_category_id,
         )
       end
 

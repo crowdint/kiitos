@@ -1,11 +1,12 @@
 $(document).ready ->
 
   # Show/Hide respective buttons with a specific behavior
-  manageButtons = (el) ->
-    $(el).removeClass 'active'
-    $('.add-kiito').addClass 'active'
-    $('.manage-admins').show()
-    $('.manage-kiitos').hide()
+  manageButtons = (el, content) ->
+    unless !el.hasClass 'active'
+      $('.add-user, .add-kiito').addClass 'active'
+      el.removeClass 'active'
+      $('.manage-admins, .manage-kiitos').hide()
+      content.show()
 
   # Comun class to delete subjects
   deleteSubject = (url, target) ->
@@ -25,11 +26,11 @@ $(document).ready ->
   # the needed binding for showing the manage admins area
   $('.add-user').on 'click', (event) ->
     event.preventDefault()
-    manageButtons @
+    manageButtons $(@), $('.manage-admins')
 
   $('.add-kiito').on 'click', (event) ->
     event.preventDefault()
-    manageButtons @
+    manageButtons $(@), $('.manage-kiitos')
 
   $('.delete-admin').on 'click', (event) ->
     event.preventDefault()
@@ -46,10 +47,16 @@ $(document).ready ->
     $(@).hide()
     $('.add-new-administrator').show()
 
-  $('#cancel-promote').on 'click', (event) ->
+  $('#add-kiito').on 'click', (event) ->
     event.preventDefault()
-    $('.add-new-administrator').hide()
-    $('#add-administrator').show()
+    $(@).hide()
+    $('.add-new-kiito').show()
+
+  $('#cancel-kiito').on 'click', (event) ->
+    event.preventDefault()
+    $('.add-new-kiito').hide()
+    $('#form-new-kiito').trigger('reset')
+    $('#add-kiito').show()
 
   $('#promote-administrator').on 'click', (event) ->
     event.preventDefault()
@@ -57,3 +64,30 @@ $(document).ready ->
     request = $.post "admin/administrators?name=#{name}"
     request.complete (response) ->
       location.reload()
+
+  previewImage = (el) ->
+    if el.files.length > 0
+      $('.preview span').toggle()
+      loadImage el
+    else
+      $('.preview').find('img').remove()
+      $('.preview span').toggle()
+
+  loadImage = (obj) ->
+    reader = new FileReader()
+    target = null
+
+    reader.onload = (e) ->
+      target = e.target or e.srcElement
+      content = $('.preview')
+      content.append "<img src='" + target.result + "' class='thumbnail'></img>"
+
+    reader.readAsDataURL obj.files[0]
+
+  $('#kiito_image').on 'change', (e) ->
+    e.preventDefault()
+    previewImage @
+
+  $('.upload').on 'click', (e) ->
+    e.preventDefault()
+    $('#kiito_image').trigger 'click'
