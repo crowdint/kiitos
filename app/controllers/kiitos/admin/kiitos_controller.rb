@@ -2,6 +2,7 @@ module Kiitos
   module Admin
     class KiitosController < ApplicationController
       before_filter :kiitos, only: [:create, :index]
+      before_filter :find_kiito, only: [:edit, :update]
       before_filter :is_admin?
 
       def index
@@ -18,11 +19,9 @@ module Kiitos
       end
 
       def edit
-        @kiito = Kiito.find(params[:id])
       end
 
       def update
-        @kiito = Kiito.find(params[:id])
         if @kiito.update kiito_params
           redirect_to action: :edit
         else
@@ -36,6 +35,10 @@ module Kiitos
       end
 
       private
+
+      def find_kiito
+        @kiito = Kiito.find(params[:id])
+      end
 
       def kiitos
         @kiitos = Kiito.all
