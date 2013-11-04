@@ -3,6 +3,7 @@ When(/^I go to kiitos management panel$/) do
 end
 
 Then(/^I should be able to modify the "(.*?)" kiito with:$/) do |title, table|
+  visit kiitos.admin_kiitos_path
   kiito = table.hashes.first
   page.find(:xpath, "//li[contains(., '#{title}')]/a[@class='edit-kiito']").click
   within '#edit-kiito' do
@@ -26,13 +27,13 @@ end
 
 Then(/^I should be able to create the following valid kiitos:$/) do |table|
   table.hashes.each do |value|
-    within '#new-kiito' do
-      fill_in 'Title', with: value[:title]
-      select value[:category], from: 'Category'
-      fill_in 'Description', with: value[:description]
-      attach_file('Image', File.join(Rails.root, '../fixtures/images/category.png'))
-      select value[:state], from: 'State'
-      click_button 'Create Kiito'
+    within '#form-new-kiito' do
+      fill_in 'kiito_title', with: value[:title]
+      select value[:category], from: 'kiito_kiitos_category_id'
+      fill_in 'kiito_description', with: value[:description]
+      attach_file('kiito_image', File.join(Rails.root, '../fixtures/images/category.png'))
+      select value[:state], from: 'kiito_state'
+      click_button 'Create'
     end
   end
 end
@@ -52,6 +53,7 @@ Then(/^I should not be able to create the following invalid kiitos:$/) do |table
 end
 
 Given(/^the following kiitos were sent:$/) do |table|
+  visit kiitos.admin_kiitos_path
   table.hashes.each do |value|
     from = User.where(email: value['From Email']).first
     to = User.where(email: value['To Email']).first

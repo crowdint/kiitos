@@ -10,7 +10,7 @@
   box-shadow: -9px 11px 3px 1px rgba(224, 224, 211, .7);
 }
 
-.btn-blue, .btn-promote {
+.btn-blue, .btn-promote, .btn-orange {
   background: $special;
   border: none;
   color: $btn-primary-color;
@@ -19,16 +19,24 @@
   text-decoration: none;
   font-family: 'Oswald', sans-serif;
 }
-.btn-promote {
+
+.btn-promote, .btn-kiito {
   padding: 8px 24px;
   font-size: 1.6em;
   text-transform: uppercase;
+  font-family: 'oswald';
   -moz-box-shadow: -9px 11px 3px 1px rgba(224, 224, 211, .7);
   -webkit-box-shadow: -9px 11px 3px 1px rgba(224, 224, 211, .7);
   box-shadow: -9px 11px 3px 1px rgba(224, 224, 211, .7);
 }
 
-.cancel-promote {
+.btn-kiito, .btn-orange {
+  @extend .btn-blue;
+
+  background: $secondary
+}
+
+.cancel-promote, .cancel-kiito {
   font-size: 1.6em;
   text-transform: uppercase;
   color: #1d1d1d;

@@ -3,3 +3,40 @@
     = t 'kiitos.kiitos'
   %ul
     = render partial: 'kiitos/user_dashboard/admin/kiito', collection: @kiitos
+
+  = link_to 'Add kiito', '#', id: 'add-kiito', class: 'btn-orange'
+
+  .add-new-kiito
+    %h1
+      = t '.new'
+
+    = form_for :kiito, url: admin_kiitos_path, method: :post, html: { id: 'form-new-kiito', multipart: true } do |f|
+
+      .title
+        = f.label :title
+        = f.text_field :title, placeholder: t('.placeholders.title')
+
+      .category
+        = f.label :category
+        = f.select :kiitos_category_id, options_for_select(Kiitos::Category.all.map{ |category| [category.name, category.id] })
+
+      .state
+        = f.label :state
+        = f.select :state, options_for_select(['Enabled', 'Disabled'])
+
+      .description
+        = f.label :description
+        = f.text_field :description, placeholder: t('.placeholders.description')
+
+      .preview
+        %span= t '.preview'
+
+      .image
+        = f.label :image
+        .upload
+          %span= t '.choose'
+        = f.file_field :image
+
+      .buttons
+        = link_to 'Cancel', '#', id: 'cancel-kiito', class: 'cancel-kiito'
+        = f.submit 'Create', id: 'create-kiito', class: 'btn-kiito'
