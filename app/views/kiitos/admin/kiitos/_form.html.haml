@@ -1,4 +1,4 @@
-= form_for [:admin, kiito] do |f|
+= form_for [:admin, kiito], html: { id: 'form-new-kiito'} do |f|
   = f.label :title
   = f.text_field :title
   = f.label :kiitos_category_id

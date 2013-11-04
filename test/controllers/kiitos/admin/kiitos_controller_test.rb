@@ -35,7 +35,7 @@ describe Kiitos::Admin::KiitosController do
           image: Rack::Test::UploadedFile.new(image_path, 'text/jpg'),
           state: 'enabled'
         }
-        response.must_redirect_to admin_kiitos_path
+        response.must_redirect_to user_dashboard_path
       end
 
       it 'creates a new Kiito' do
