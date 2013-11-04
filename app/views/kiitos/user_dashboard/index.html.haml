@@ -3,7 +3,7 @@
     #user-info
       %h1#logo t('kiitos.title')
       #admin-header-text.hidden
-        = raw t(can_send?, scope: 'kiitos.user_dashboard.index.instructions.admin')
+        = raw t('kiitos.user_dashboard.index.instructions.admin.form-enabled')
       #user-header-text
         = raw t(can_send?, scope: 'kiitos.user_dashboard.index.instructions.user')
 
@@ -21,7 +21,8 @@
         .welcome-back
           %p
             = t('.welcome_back')
-          = format_user_name kiitos_current_user
+          %p.current-user
+            = raw format_user_name
     - if is_admin?
       #admin-menu
         %ul
