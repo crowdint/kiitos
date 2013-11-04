@@ -38,11 +38,11 @@ class Kiitos::KiitoAvatarUploader < CarrierWave::Uploader::Base
   # end
 
   version :message_list do
-    process resize_to_fit: [75, 75]
+    process resize_to_fill: [75, 75]
   end
 
   version :kiitos_list do
-    process resize_to_fit: [60, 60]
+    process resize_to_fill: [60, 60]
   end
 
   # Add a white list of extensions which are allowed to be uploaded.

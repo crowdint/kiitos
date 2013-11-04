@@ -13,7 +13,7 @@ describe Kiitos::UsersController do
 
     it 'returns JSON of existing users except kiitos_current_user' do
       json = JSON.parse(response.body)
-      json.length.must_equal 3
+      json.length.must_equal 4
     end
   end
 end

@@ -32,6 +32,18 @@ en:
           promote_people: Promoting People
           users: User
           state: State
+        manage_kiitos:
+          new: New kiito
+          title: Title
+          category: Category
+          state: State
+          description: Description
+          image: Image
+          choose: Choose file
+          preview: Preview
+          placeholders:
+            title: Add the title of the new kiito
+            description: Add the description of the new kiito
       index:
         admin-option: 'admin'
         user-option: 'user'
