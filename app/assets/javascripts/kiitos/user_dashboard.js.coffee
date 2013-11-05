@@ -5,7 +5,7 @@ $(document).ready ->
     $('.kiitos-list .choose').toggleClass 'btn-active'
 
   $('.users-list').delegate '.choose-secondary', 'click', ->
-    $('.users-list .who-selection').toggleClass 'hidden'
+    $('.users-list .whom-selection').toggleClass 'hidden'
     $('.users-list .choose-secondary').toggleClass 'btn-active'
 
   # Settings for typeahead.js
