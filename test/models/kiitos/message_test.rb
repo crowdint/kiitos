@@ -13,11 +13,6 @@ describe Kiitos::Message do
   end
 
   describe 'validations' do
-    it 'is invalid without a to' do
-      @subject.to = nil
-      @subject.valid?.must_equal false
-    end
-
     it 'is invalid without a from' do
       @subject.from = nil
       @subject.valid?.must_equal false
