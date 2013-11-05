@@ -52,6 +52,11 @@ $(document).ready ->
     $(@).hide()
     $('.add-new-kiito').show()
 
+  $('#cancel-promote').on 'click', (event) ->
+    event.preventDefault()
+    $('.add-new-administrator').hide()
+    $('#add-administrator').show()
+
   $('#cancel-kiito').on 'click', (event) ->
     event.preventDefault()
     $('.add-new-kiito').hide()
