@@ -2,14 +2,15 @@ module Kiitos
 	class MessageDecorator
 		include Kiitos::ApplicationHelper
 
-		attr_reader :message_object
+		attr_reader :message_object, :current_user
 
-		def initialize message
+		def initialize message, kiitos_current_user
 			@message_object = message
+			@current_user = kiitos_current_user
 		end
 
-		def color_class user
-			user_is_owner?(user) ? 'owner-color' : ''
+		def color_class
+			user_is_owner?(current_user) ? 'owner-color' : ''
 		end
 
 		def creation_date
@@ -20,8 +21,8 @@ module Kiitos
 			end
 		end
 
-		def sender_name user
-			name = user_is_owner?(user) ? 'Me' : message_object.sender.name
+		def sender_name
+			name = user_is_owner?(current_user) ? 'Me' : message_object.sender.name
       message_object.anonymous ? 'Anonymous' : name
     end
 

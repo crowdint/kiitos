@@ -10,7 +10,7 @@ module Kiitos
         @messages = Message.user_messages(kiitos_current_user).a_month_ago
       end
 
-      @messages.map! {|m| MessageDecorator.new m }
+      @messages.map! {|m| MessageDecorator.new(m, kiitos_current_user) }
 
       @message = Message.new
     end

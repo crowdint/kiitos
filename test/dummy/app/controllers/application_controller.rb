@@ -10,5 +10,4 @@ class ApplicationController < ActionController::Base
   def kiitos_user_logged?
     true
   end
-
 end
