@@ -1,0 +1,13 @@
+%li
+  .badge
+    = image_tag message.kiitos_kiito.image_url(:message_list)
+  .message-info
+    %p{ class: message.color_class(kiitos_current_user) }
+      = message.kiitos_kiito.title
+    .dialog
+      = message.message
+    %span.sender{ class: message.color_class(kiitos_current_user) }
+      by
+      = message.sender_name(kiitos_current_user)
+    %span.message-date{ class: message.color_class(kiitos_current_user) }
+      = message.creation_date

@@ -100,7 +100,7 @@
     }
     .which {
       display: inline-block;
-      margin: 12px 0 0 24px; 
+      margin: 12px 0 0 24px;
       p {
         display: inline;
         font-size: 1.8em;
@@ -303,9 +303,11 @@
     display: inline-block;
     p {
       margin: 0 0 10px 0;
-      &.title {
-        color: $secondary;
-        font-size: 20px;
+      font-size: 20px;
+      font-weight: bolder;
+      color: $primary;
+      &.owner-color {
+        color: $special;
       }
       &.sender {
         font-size: 12px;
@@ -316,6 +318,9 @@
     color: $h1;
     font-size: 12px;
     font-weight: 400;
+    &.owner-color {
+      color: $special;
+    }
   }
   .message-date{
     float: right;
@@ -411,6 +416,7 @@
   @extend .welcome_back;
   text-transform: uppercase;
 }
+
 #new-kiito.form-disabled {
   .btn {
     background: $dialog-dark;

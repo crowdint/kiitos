@@ -15,10 +15,6 @@ module Kiitos
       self.anonymous ? 'Anonymous' : self.sender.email
     end
 
-    def sender_name
-      self.anonymous ? 'Anonymous' : self.sender.name
-    end
-
     def self.user_messages(user)
       where('kiitos_messages.to is NULL OR kiitos_messages.to = ?', user.id)
     end

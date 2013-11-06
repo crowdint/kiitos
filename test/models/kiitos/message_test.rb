@@ -107,24 +107,4 @@ describe Kiitos::Message do
       end
     end
   end
-
-  describe '#sender_name' do
-    before do
-      user = User.create name: 'test', email: '1@example.com'
-      @message = @kiito = Kiitos::Message.create from: user.id, to: 2, kiitos_kiito_id: 1, message: '3 weeks ago', created_at: 3.weeks.ago
-    end
-
-    context 'when anonymous' do
-      it 'does not return the sender name' do
-        @message.anonymous = true
-        @message.sender_name.must_equal 'Anonymous'
-      end
-    end
-
-    context 'when not anonymous' do
-      it 'returns the sender name' do
-        @message.sender_name.must_equal @message.sender.name
-      end
-    end
-  end
 end
