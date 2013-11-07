@@ -2,13 +2,13 @@
   = hidden_field_tag 'message[to]'
   .dialog-inverted
     .users-list
-      .who-selection.hidden
+      .whom-selection.hidden
         .user-search
           .user-select
             = text_field_tag :search_to, nil, placeholder: 'Search here!'
         -#.add
         -#.remove
-      .who
+      .whom
         %p
           = t('.to_who')
         %span.choose-secondary

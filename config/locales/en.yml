@@ -61,7 +61,7 @@ en:
       form:
         by: 'by'
         submit: 'Post it'
-        to_who: 'To Who?'
+        to_who: 'To Whom?'
         which: 'Which?'
         your_comment: 'Your comment here!'
 
