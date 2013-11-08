@@ -1,8 +1,11 @@
 require 'test_helper'
 
 describe Kiitos::UserQuery do
-  before :each do
+  before do
     DatabaseCleaner.start
+  end
+
+  after do
     DatabaseCleaner.clean
   end
 
