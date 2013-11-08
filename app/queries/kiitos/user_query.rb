@@ -28,5 +28,9 @@ module Kiitos
       Kiitos.user_class.find_by name: name
     end
 
+    def self.find_user_by_id(id)
+      Kiitos.user_class.find id
+    end
+
   end
 end

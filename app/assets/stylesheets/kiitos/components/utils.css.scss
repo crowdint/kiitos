@@ -69,6 +69,14 @@
   .color-10{
     background-color: #272727;
   }
+
+  &.left {
+    display: block;
+    float: right;
+    width: 330px;
+    margin-top: 50px;
+    clear: both;
+  }
 }
 .list-group{
   padding: 0;

@@ -22,6 +22,10 @@ module Kiitos
       Kiitos::UserQuery.allow_send_message?(kiitos_current_user) ? 'form-enabled' : 'form-disabled'
     end
 
+    def user_can_send?
+      Kiitos::UserQuery.allow_send_message?(kiitos_current_user)
+    end
+
     def is_admin?
       Kiitos::UserQuery.is_admin?(kiitos_current_user)
     end

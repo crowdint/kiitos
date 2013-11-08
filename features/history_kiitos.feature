@@ -1,9 +1,9 @@
-Feature: User Dashboard
+Feature: History kiitos section
   As a signed up user
-  I want to have a dashboard
-  So I can see all my received kiitos
+  I want to see the history dashboard
+  So I can see all the kiitos sent through me
 
-  Scenario: A user sees his received kiitos
+  Scenario: "The user should be able to see all the kiitos"
     Given an administrator user exists
     And the following categories are predefined:
       |category name|
@@ -24,6 +24,8 @@ Feature: User Dashboard
       |luis@test.com |paco@test.com | You are a gentleman        |My customized message 2 | 1.day.ago    |
       |luis@test.com |hugo@test.com | You are a gentleman        |My customized message 3 | 1.day.ago    |
       |luis@test.com |hugo@test.com | I'm grateful               |My customized message 4 | 2.months.ago |
-
-    When I sign in as "luis@test.com"
-    Then I should have "0" kiitos
+    When I sign in as "paco@test.com"
+    Then I go to kiitos history dashboard
+    Then I should have "2" kiitos
+    When I click on the first received kiito
+    Then I should see "2 times received"

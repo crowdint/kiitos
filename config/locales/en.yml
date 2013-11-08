@@ -45,8 +45,6 @@ en:
             title: Add the title of the new kiito
             description: Add the description of the new kiito
       index:
-        admin-option: 'admin'
-        user-option: 'user'
         instructions:
           user:
             form-enabled: "<h4>You only have <strong>1 Kiito</strong> to give each day</h4><h2>Who deserves it?</h2>"
@@ -58,12 +56,25 @@ en:
         recent: 'Recent'
         received_kiitos: 'Kiitos Received'
         welcome_back: 'Welcome Back'
+        count: "%{count}x"
       form:
         by: 'by'
         submit: 'Post it'
         to_who: 'To Whom?'
         which: 'Which?'
         your_comment: 'Your comment here!'
+      history:
+        subtitle: only great things could happen
+        title: To people like you
+        return: Give a Kiito
+        can_send: You still have a kiito to give today
+        modal:
+          by: "by %{user}"
+          date: "%{date} ago"
+          times: "%{count} times received"
+    shared:
+      admin-option: 'admin'
+      user-option: 'user'
 
     installer:
       messages:
