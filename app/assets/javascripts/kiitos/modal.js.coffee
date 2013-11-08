@@ -15,4 +15,13 @@ window.showModal = (container) ->
       $('#layout').removeClass 'custom-overlay'
   })
 
+  $('#close-dialog a').on 'click', (e) ->
+    e.preventDefault()
+    $(container).dialog 'close'
+
+  $('#modal-scroll-down').on 'click', (e) ->
+    e.preventDefault()
+    height = $('#modal-messages-content ul').scrollTop()
+    $('#modal-messages-content ul').scrollTop(height + 20)
+
   $(container).dialog('open')
