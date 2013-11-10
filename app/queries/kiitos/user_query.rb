@@ -13,11 +13,11 @@ module Kiitos
     end
 
     def self.sent_messages(user)
-      Kiitos::Message.where(from:  user.id)
+      Kiitos::Message.where(from: user.id)
     end
 
     def self.received_messages(user)
-      Kiitos::Message.where(to:  user.id)
+      Kiitos::Message.where(to: user.id)
     end
 
     def self.is_admin?(user)

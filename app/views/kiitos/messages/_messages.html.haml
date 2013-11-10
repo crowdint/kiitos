@@ -1,0 +1,14 @@
+%h1
+  = t('kiitos.user_dashboard.index.received_kiitos')
+  = render 'shared/message_options'
+
+%ul.list-group
+  - messages.each do |kiito, count|
+    %li{ data: { id: kiito.id }}
+      .badge
+        = image_tag kiito.image_url(:message_list)
+      .message-info
+        %p= kiito.kiitos_category.name
+      = kiitos_count count
+
+#message-modal

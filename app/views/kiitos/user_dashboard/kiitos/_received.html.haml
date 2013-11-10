@@ -1,24 +1,19 @@
 %h1
   = t('kiitos.user_dashboard.index.received_kiitos')
-= form_tag user_dashboard_path, method: :get, class: 'nav-tabs' do
-  %ul
-    %li
-      = link_to t('kiitos.user_dashboard.index.all'), history_index_path, id: 'all_kiitos'
-    %li
-      = link_to t('kiitos.user_dashboard.index.recent'), user_dashboard_path
-%ul.list-group
+  = render 'shared/message_options'
 
+%ul.list-group
   - messages.each do |message|
     %li
       .badge
-        -# = image_tag message.kiitos_kiito.image_url(:message_list)
+        = image_tag message.kiitos_kiito.image_url(:message_list)
       .message-info
         %p.title
-          -# s= message.kiitos_kiito.title
+          = message.kiitos_kiito.title
         .dialog
-          -# = message.message
+          = message.message
         %span.sender
           by
-          -#= message.sender_name
+          = message.sender_name
         %span.message-date
-          -#= pretty_date(message.created_at)
+          = pretty_date(message.created_at)

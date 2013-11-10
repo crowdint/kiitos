@@ -71,7 +71,9 @@ en:
         modal:
           by: "by %{user}"
           date: "%{date} ago"
-          times: "%{count} times received"
+          times:
+            one: "%{count} time received"
+            other: "%{count} times received"
     shared:
       admin-option: 'admin'
       user-option: 'user'

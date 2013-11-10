@@ -3,13 +3,27 @@ require 'test_helper'
 describe Kiitos::MessagesController do
   before do
     @routes = Kiitos::Engine.routes
-    User.create name: 'test user', email: 'user1@example.com'
+    @current_user = User.create name: 'test user', email: 'user@example.com'
+    @test_user = User.create name: 'test1 user', email: 'user1@example.com'
+    @category = Kiitos::Category.create name: 'Test'
+    @kiito = Kiitos::Kiito.create title: 'Chido', kiitos_category_id: @category.id, description: 'kiito test',
+        image: Rack::Test::UploadedFile.new(File.join(Rails.root, '../fixtures/images/category.png'), 'text/jpg'),
+        state: 'Enabled'
+    @message = Kiitos::Message.create to: @current_user.id, from: @test_user.id, kiitos_kiito_id: @kiito.id,
+        message: 'Msg test'
   end
 
   describe 'GET :index' do
     it 'renders the index template' do
       get :index
       must_render_template :index
+    end
+  end
+
+  describe 'GET :show' do
+    it 'renders the show template' do
+      get :show, { id: @kiito.id, format: :js }
+      must_render_template :show
     end
   end
 

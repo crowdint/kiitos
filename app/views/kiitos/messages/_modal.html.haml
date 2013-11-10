@@ -1,12 +1,10 @@
 #close-dialog
   = link_to '', '#', id: 'modal-close-icon'
 
-#history-modal-content
+#messages-modal-content
   %header
     = image_tag @base.image_url(:message_list)
-    - if @messages.count > 1
-      .times
-        %span= t 'kiitos.user_dashboard.index.count', count: @messages.count
+    = kiitos_count @messages.count
     .title
       %h3= @base.kiitos_category.name
     .qty

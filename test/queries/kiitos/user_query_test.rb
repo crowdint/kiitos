@@ -87,4 +87,10 @@ describe Kiitos::UserQuery do
       Kiitos::UserQuery.find_user(current_user.name).must_equal current_user
     end
   end
+
+  describe '::find_user_by_id' do
+    it 'returns the user' do
+      Kiitos::UserQuery.find_user_by_id(current_user.id).must_equal current_user
+    end
+  end
 end

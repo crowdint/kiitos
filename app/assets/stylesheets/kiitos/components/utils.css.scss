@@ -1,37 +1,44 @@
-.nav-tabs{
+.nav-tabs {
   font-family: 'Oswald';
   border-top: 1px solid $h1;
   margin: 20px 0;
   overflow: hidden;
   padding: 10px 0;
-  ul{
+
+  ul {
     list-style-type: none;
     margin: 0;
     padding: 0;
   }
-  a, button{
+
+  a, button {
     color: $paragraph;
     padding: 0;
     text-transform: uppercase;
   }
-  li{
+
+  li {
     border-left: 1px solid $h1;
     float: left;
     padding: 0 10px;
-    &:first-child{
+
+    &:first-child {
       border: none;
       padding-left: 0;
     }
+
     a, a:hover, a:visited {
       text-decoration: none;
     }
   }
-  button{
+
+  button {
     background: none;
     border: none;
   }
 }
-.separator-colors{
+
+.separator-colors {
   height: 69px;
   margin-top: 30px;
   > div{
@@ -71,11 +78,9 @@
   }
 
   &.left {
-    display: block;
-    float: right;
+    @include set-left;
     width: 330px;
     margin-top: 50px;
-    clear: both;
   }
 }
 .list-group{
