@@ -8,7 +8,7 @@
     .title
       %h3= @base.kiitos_category.name
     .qty
-      %h4= t('kiitos.user_dashboard.history.modal.times', count: @messages.count)
+      %h4= t('kiitos.user_dashboard.messages.modal.times', count: @messages.count)
 
   %hr
 
@@ -21,9 +21,9 @@
           .message
             %p= message.message
           .by
-            %span= t('kiitos.user_dashboard.history.modal.by', user: Kiitos::UserQuery.find_user_by_id(message.from).name)
+            %span= t('kiitos.user_dashboard.messages.modal.by', user: Kiitos::UserQuery.find_user_by_id(message.from).name)
           .date
-            %span= t('kiitos.user_dashboard.history.modal.date', date: time_ago_in_words(message.created_at))
+            %span= t('kiitos.user_dashboard.messages.modal.date', date: time_ago_in_words(message.created_at))
           %hr
 
   %footer

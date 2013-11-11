@@ -30,7 +30,7 @@ en:
         manage_admins:
           admins: 'Admins'
           promote_people: Promoting People
-          users: User
+          user: User
           state: State
         manage_kiitos:
           new: New kiito
@@ -47,11 +47,8 @@ en:
       index:
         instructions:
           user:
-            true: "<h4>You only have <strong>1 Kiito</strong> to give each day</h4><h2>Who deserves it?</h2>"
-            false: "<h4>You don't have <strong> anymore Kiitos </strong> to give today</h4><h2>Think about it tomorrow!</h2>"
-          class:
-            true: 'form-enabled'
-            false: 'form-disabled'
+            form-enabled: "<h4>You only have <strong>1 Kiito</strong> to give each day</h4><h2>Who deserves it?</h2>"
+            form-disabled: "<h4>You don't have <strong> anymore Kiitos </strong> to give today</h4><h2>Think about it tomorrow!</h2>"
           admin:
             form-enabled: "<h4>A kiito is a very powerful tool</h4><h2>Give it to who really have earned</h2>"
         months_2: '2 months'
@@ -66,11 +63,13 @@ en:
         to_who: 'To Whom?'
         which: 'Which?'
         your_comment: 'Your comment here!'
-      history:
+      messages:
         subtitle: only great things could happen
         title: To people like you
         return: Give a Kiito
-        can_send: You still have a kiito to give today
+        can_send:
+          form-enabled: You still have a kiito to give today
+          form-disabled: ''
         modal:
           by: "by %{user}"
           date: "%{date} ago"

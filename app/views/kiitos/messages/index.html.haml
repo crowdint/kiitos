@@ -3,8 +3,8 @@
     #message-info
       #message-header-text
         #logo
-        %h4= t 'kiitos.user_dashboard.history.subtitle'
-        %h2= t 'kiitos.user_dashboard.history.title'
+        %h4= t 'kiitos.user_dashboard.messages.subtitle'
+        %h2= t 'kiitos.user_dashboard.messages.title'
 
       #user-widget
         = render 'shared/parallax'
@@ -13,17 +13,16 @@
           %p
           = format_user_name kiitos_current_user
 
-        - if can_send?
-          .send_kiito
-            %p= t 'kiitos.user_dashboard.history.can_send'
+        .send_kiito
+          %p= t(can_send?, scope: 'kiitos.user_dashboard.messages.can_send')
 
-    = link_to t('kiitos.user_dashboard.history.return'), user_dashboard_path, class: 'return'
+    = link_to t('kiitos.user_dashboard.messages.return'), user_dashboard_path, class: 'return'
 
     = render 'shared/separator', type: 'left'
 
     = render 'shared/footer', type: 'left'
 
-#messages-kiitos.pure-u-5-12.history
+#messages-kiitos.pure-u-5-12
   = render 'kiitos/messages/messages', messages: @messages
 
 :coffee
