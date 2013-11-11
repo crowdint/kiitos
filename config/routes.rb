@@ -10,6 +10,5 @@ Kiitos::Engine.routes.draw do
 
   resources :users, only: :index
   resources :messages, only: [:index, :show, :create]
-  resources :history, only: [:index, :show]
   get '/dashboard', to: 'user_dashboard#index', as: 'user_dashboard'
 end
