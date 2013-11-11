@@ -13,15 +13,7 @@ describe Kiitos::ApplicationHelper do
   describe :can_send? do
     context 'the user can send msg' do
       it 'should return true' do
-        can_send?.must_equal 'form-enabled'
-      end
-    end
-  end
-
-  describe :user_can_send? do
-    context 'the user can send msg' do
-      it 'should return true' do
-        user_can_send?.must_equal true
+        can_send?.must_equal true
       end
     end
   end

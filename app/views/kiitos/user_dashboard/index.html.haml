@@ -20,7 +20,7 @@
 
     = render 'kiitos/user_dashboard/admin/manage_content', administrators: @administrators
 
-    #new-kiito{class: (can_send?)}
+    #new-kiito{ class: (t(can_send?, scope: 'kiitos.user_dashboard.index.instructions.class')) }
       = render 'kiitos/user_dashboard/form', message: @message
 
     = render 'shared/separator', type: ''
