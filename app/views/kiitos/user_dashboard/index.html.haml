@@ -48,8 +48,12 @@
           = t('.all')
       %li
         = link_to t('.recent'), user_dashboard_path
-  %ul.list-group
-    = render partial: "message", collection: @messages
+  #messages
+    %ul.list-group
+      = render partial: "message", collection: @messages
+  #arrow
+    = image_tag 'kiitos/SVG/arrow-more-kiitos-01.svg', { id: 'load-more' }
+    = paginate @messages
 
 :coffee
   initialize_parallax()

@@ -15,3 +15,4 @@
 //= require_tree .
 //= require typeahead.min
 //= require parallax
+//= require jquery.infinitescroll

@@ -325,6 +325,19 @@
   .message-date{
     float: right;
   }
+  #messages {
+    height: 434px;
+    overflow: scroll;
+  }
+  #arrow {
+    text-align: center;
+    #load-more {
+      cursor: pointer;
+    }
+    nav.pagination {
+      display: none;
+    }
+  }
 }
 
 #scene {
