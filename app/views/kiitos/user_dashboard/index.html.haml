@@ -49,20 +49,7 @@
       %li
         = link_to t('.recent'), user_dashboard_path
   %ul.list-group
-    - @messages.each do |message|
-      %li
-        .badge
-          = image_tag message.kiitos_kiito.image_url(:message_list)
-        .message-info
-          %p.title
-            = message.kiitos_kiito.title
-          .dialog
-            = message.message
-          %span.sender
-            by
-            = message.sender_name
-          %span.message-date
-            = pretty_date(message.created_at)
+    = render partial: "message", collection: @messages
 
 :coffee
   initialize_parallax()
