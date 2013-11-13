@@ -43,8 +43,9 @@ showModal.setDefault = (->
   setDefault::scrollDown = ->
     $('#modal-scroll-down').on 'click', (e) =>
       e.preventDefault()
-      height = $('#modal-messages-content ul').scrollTop()
-      $('#modal-messages-content ul').scrollTop(height + 20)
+      modalMsg = $('#modal-message-content ul')
+      height = modalMsg.scrollTop()
+      modalMsg.scrollTop(height + 20)
 
   setDefault::execute = ->
     $(@content).dialog 'open'
