@@ -1,7 +1,8 @@
 module Kiitos
   class UserDashboardController < ApplicationController
+    before_filter :get_administrators, only: :index
+
     def index
-      get_administrators
       @kiitos = Kiitos::Kiito.all
 
       if params[:search_span]

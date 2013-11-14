@@ -6,6 +6,7 @@ describe Kiitos::Admin::KiitosController do
     @routes = Kiitos::Engine.routes
     user = User.create name: 'User Name', email: 'test@example.com'
     Kiitos::Administrator.create user_id: user.id
+    @category = Kiitos::Category.create name: 'Test'
   end
 
   describe 'GET :index' do
@@ -27,10 +28,11 @@ describe Kiitos::Admin::KiitosController do
     let(:image_path) { File.join(Rails.root, '../fixtures/images/category.png') }
 
     context 'with valid information' do
+
       it 'redirects to index' do
         post :create, kiito: {
           title: 'test',
-          kiitos_category_id: 1,
+          kiitos_category_id: @category.id,
           description: 'test',
           image: Rack::Test::UploadedFile.new(image_path, 'text/jpg'),
           state: 'enabled'
@@ -42,20 +44,12 @@ describe Kiitos::Admin::KiitosController do
         count = Kiitos::Kiito.count
         post :create, kiito: {
           title: 'test',
-          kiitos_category_id: 1,
+          kiitos_category_id: @category.id,
           description: 'test',
           image: Rack::Test::UploadedFile.new(image_path, 'text/jpg'),
           state: 'enabled'
         }
         Kiitos::Kiito.count.must_equal count + 1, 'A kiito was not created'
-      end
-    end
-
-    context 'with invalid information' do
-      it 'should not create a new kiito' do
-        count = Kiitos::Kiito.count
-        post :create, kiito: { title: '' }
-        assert Kiitos::Kiito.count.must_equal count, 'A kiito was created'
       end
     end
   end
@@ -64,7 +58,7 @@ describe Kiitos::Admin::KiitosController do
     it 'renders the edit template' do
       kiito = Kiitos::Kiito.create(
         title: 'test',
-        kiitos_category_id: 1,
+        kiitos_category_id: @category.id,
         description: 'test',
         image: File.open(File.join(Rails.root, '../fixtures/images/category.png')),
         state: 'enabled'
@@ -78,7 +72,7 @@ describe Kiitos::Admin::KiitosController do
     before do
       @kiito = Kiitos::Kiito.create(
         title: 'test',
-        kiitos_category_id: 1,
+        kiitos_category_id: @category.id,
         description: 'test',
         image: File.open(File.join(Rails.root, '../fixtures/images/category.png')),
         state: 'enabled'
@@ -88,7 +82,7 @@ describe Kiitos::Admin::KiitosController do
       it 'redirects to edit page' do
         put :update, id: @kiito.id, kiito: {
           title: 'test',
-          kiitos_category_id: 1,
+          kiitos_category_id: @category.id,
           description: 'test',
           image: File.open(File.join(Rails.root, '../fixtures/images/category.png')),
           state: 'enabled'

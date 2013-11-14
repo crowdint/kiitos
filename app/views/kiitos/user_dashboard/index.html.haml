@@ -8,52 +8,27 @@
         = raw t(can_send?, scope: 'kiitos.user_dashboard.index.instructions.user')
 
       #user-widget
-        %ul#scene
-          %li{ class: 'layer', 'data-depth' => '-2.30' }
-            = image_tag 'kiitos/SVG/orange.svg'
-          %li{ class: 'layer', 'data-depth' => '-5.60' }
-            = image_tag 'kiitos/SVG/blue.svg'
-          %li{ class: 'layer', 'data-depth' => '1.50' }
-            = image_tag 'kiitos/SVG/green.svg'
-          %li{ class: 'user-pic' }
-            = avatar
+        = render 'shared/parallax'
 
         .welcome-back
           %p
             = t('.welcome_back')
           = format_user_name kiitos_current_user
-    - if is_admin?
-      #admin-menu
-        %ul
-          %li#admin-option
-            = t '.admin-option'
-          %li#user-option.active
-            = t '.user-option'
-      = render 'kiitos/user_dashboard/admin/manage_content', administrators: @administrators
 
-    #new-kiito{class: (can_send?)}
+    - if is_admin?
+      = render 'shared/admin_menu'
+
+    = render 'kiitos/user_dashboard/admin/manage_content', administrators: @administrators
+
+    #new-kiito{ class: can_send? }
       = render 'kiitos/user_dashboard/form', message: @message
 
-    = render 'shared/separator'
+    = render 'shared/separator', type: ''
 
-    = render 'shared/footer'
+    = render 'shared/footer', type: ''
 
 #received-kiitos.pure-u-5-12
-  %h1
-    = t('.received_kiitos')
-  = form_tag user_dashboard_path, method: :get, class: 'nav-tabs' do
-    %ul
-      %li
-        %button{name: 'search_span'}
-          = t('.all')
-      %li
-        = link_to t('.recent'), user_dashboard_path
-  #messages
-    %ul.list-group
-      = render partial: "message", collection: @messages
-  #arrow
-    = image_tag 'kiitos/SVG/arrow-more-kiitos-01.svg', { id: 'load-more' }
-    = paginate @messages
+  = render 'kiitos/user_dashboard/kiitos/received', messages: @messages
 
 :coffee
   initialize_parallax()

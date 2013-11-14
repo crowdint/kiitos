@@ -27,20 +27,3 @@ Feature: User Dashboard
 
     When I sign in as "luis@test.com"
     Then I should have "0" kiitos
-
-    When I sign in as "hugo@test.com"
-    Then I should have the following ordered kiitos:
-      | Order | Greeting Card Title        |
-      | 1     | You are a gentleman        |
-
-    When I increase the search span to "All"
-    Then I should have the following ordered kiitos:
-      | Order | Greeting Card Title        |
-      | 1     | You are a gentleman        |
-      | 2     | I'm grateful               |
-
-    When I sign in as "paco@test.com"
-    Then I should have the following ordered kiitos:
-      | Order | Greeting Card Title        |
-      | 1     | I'm grateful               |
-      | 2     | You are a gentleman        |
