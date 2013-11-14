@@ -8,6 +8,8 @@ module Kiitos
         redirect_to user_dashboard_path
       else
         @messages = Message.user_messages(kiitos_current_user).a_month_ago
+        @messages = @messages.page(params[:page])
+        @messages.map! {|m| MessageDecorator.new(m, kiitos_current_user) }
         render 'kiitos/user_dashboard/index'
       end
     end
