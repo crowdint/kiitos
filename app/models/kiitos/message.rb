@@ -4,7 +4,7 @@ module Kiitos
     belongs_to :receiver, class_name: Kiitos.user_class.to_s, foreign_key: :to
     belongs_to :sender, class_name: Kiitos.user_class.to_s, foreign_key: :from
 
-    validates :to, :from, :kiitos_kiito_id, :message, presence: true
+    validates :from, :kiitos_kiito_id, :message, presence: true
     validate :one_message_per_day, on: :create
 
     def self.a_month_ago

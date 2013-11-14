@@ -25,6 +25,7 @@ Gem::Specification.new do |s|
   s.add_dependency 'pg'
   s.add_dependency 'rails', '~> 4.0.0'
   s.add_dependency 'sass-rails'
+  s.add_dependency 'kaminari'
 
   s.add_development_dependency 'capybara'
   s.add_development_dependency 'capybara_minitest_spec'
