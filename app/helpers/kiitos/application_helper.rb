@@ -32,5 +32,9 @@ module Kiitos
       end
       times if count > 1
     end
+
+    def is_mobile?
+      request.user_agent =~ /Mobile|webOS/
+    end
   end
 end
