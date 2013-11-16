@@ -82,6 +82,13 @@
     width: 330px;
     margin-top: 50px;
   }
+
+  &.mobile {
+    @include set-left;
+    width: 100%;
+    bottom: 0;
+    position: absolute;
+  }
 }
 .list-group{
   padding: 0;

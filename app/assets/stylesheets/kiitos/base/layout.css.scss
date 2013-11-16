@@ -8,9 +8,11 @@ footer {
 
   ul {
     padding-left: 0;
+
     li {
       display: inline-block;
       margin-right: 5px;
+
       &.info {
         bottom: 4px;
         position: relative;
@@ -19,10 +21,15 @@ footer {
   }
 
   &.left {
+    @include set-left;
     position: relative;
-    float: right;
     width: 335px;
-    display: block;
-    clear: both;
+  }
+
+  &.mobile {
+    @include set-left;
+    position: absolute;
+    width: 400px;
+    bottom: 5%;
   }
 }

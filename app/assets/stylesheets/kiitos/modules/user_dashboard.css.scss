@@ -364,16 +364,16 @@
     color: $h1;
     margin: 0;
   }
-  &:after {
+  .open {
     background: #ededdf;
     border-radius: 35px;
-    content: '';
     display: inline-block;
     height: 70px;
     left: -35px;
     position: absolute;
     top: 75px;
     width: 70px;
+    cursor: default;
   }
   .message-info {
     display: inline-block;
@@ -426,16 +426,18 @@
 #scene {
   text-align: center;
   z-index: -100;
+  height: 200px;
+
   li{
     pointer-events: none;
   }
 }
 
 #user-dashboard{
-  padding-top: 60px;
   position: relative;
 
   .wrapper{
+    padding-top: 60px;
     float: right;
     width: 700px;
 
