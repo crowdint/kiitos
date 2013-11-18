@@ -9,10 +9,8 @@ webNotification.create = (->
 
   create::newAlert = ->
     engine = new webNotification.getEngine()
-    notification = if engine.name is 'webkit'
-      window.webkitNotifications.createNotification @icon, @title, @message
-    else
-      Notification.call @title, @message
+    notification =
+      new Notification @title, { title: @title, icon: @icon, body: @message }
     notification.show()
     setInterval (-> notification.cancel()), 5000
 
