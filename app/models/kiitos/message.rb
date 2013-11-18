@@ -4,7 +4,7 @@ module Kiitos
     belongs_to :receiver, class_name: Kiitos.user_class.to_s, foreign_key: :to
     belongs_to :sender, class_name: Kiitos.user_class.to_s, foreign_key: :from
 
-    validates :to, :from, :kiitos_kiito_id, :message, presence: true
+    validates :from, :kiitos_kiito_id, :message, presence: true
     validate :one_message_per_day, on: :create
 
     def self.a_month_ago
@@ -17,6 +17,15 @@ module Kiitos
 
     def sender_name
       self.anonymous ? 'Anonymous' : self.sender.name
+    end
+
+    def self.group_all user_id
+      joins(:kiitos_kiito).where(to: user_id).select(:kiitos_kiitos)
+        .group(:kiitos_kiito).count
+    end
+
+    def self.group_by_category user_id, kiito_id
+      where to: user_id, kiitos_kiito_id: kiito_id
     end
 
     def self.user_messages(user)

@@ -25,5 +25,12 @@ module Kiitos
     def is_admin?
       Kiitos::UserQuery.is_admin?(kiitos_current_user)
     end
+
+    def kiitos_count count
+      times = content_tag :div, class: 'times' do
+        content_tag :span, "#{count}x"
+      end
+      times if count > 1
+    end
   end
 end

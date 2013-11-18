@@ -1,0 +1,30 @@
+#close-dialog
+  = link_to '', '#', id: 'modal-close-icon'
+
+#messages-modal-content
+  %header
+    = image_tag @base.image_url(:message_list)
+    = kiitos_count @messages.count
+    .title
+      %h3= @base.kiitos_category.name
+    .qty
+      %h4= t('kiitos.user_dashboard.messages.modal.times', count: @messages.count)
+
+  %hr
+
+  #modal-messages-content
+    %ul
+      - @messages.each_with_index do |message, index|
+        %li
+          .index
+            %span= index + 1
+          .message
+            %p= message.message
+          .by
+            %span= t('kiitos.user_dashboard.messages.modal.by', user: Kiitos::UserQuery.find_user_by_id(message.from).name)
+          .date
+            %span= t('kiitos.user_dashboard.messages.modal.date', date: time_ago_in_words(message.created_at))
+          %hr
+
+  %footer
+    = link_to '', '#', id: 'modal-scroll-down'

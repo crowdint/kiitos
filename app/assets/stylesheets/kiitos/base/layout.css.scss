@@ -5,6 +5,7 @@ html, body, #layout{
 footer {
   position: absolute;
   bottom: 0;
+
   ul {
     padding-left: 0;
     li {
@@ -15,6 +16,14 @@ footer {
         position: relative;
       }
     }
+  }
+
+  &.left {
+    position: relative;
+    float: right;
+    width: 335px;
+    display: block;
+    clear: both;
   }
 }
 

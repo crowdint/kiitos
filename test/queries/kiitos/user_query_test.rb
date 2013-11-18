@@ -1,8 +1,11 @@
 require 'test_helper'
 
 describe Kiitos::UserQuery do
-  before :each do
+  before do
     DatabaseCleaner.start
+  end
+
+  after do
     DatabaseCleaner.clean
   end
 
@@ -85,6 +88,12 @@ describe Kiitos::UserQuery do
   describe '::find_user' do
     it 'returns the user' do
       Kiitos::UserQuery.find_user(current_user.name).must_equal current_user
+    end
+  end
+
+  describe '::find_user_by_id' do
+    it 'returns the user' do
+      Kiitos::UserQuery.find_user_by_id(current_user.id).must_equal current_user
     end
   end
 end

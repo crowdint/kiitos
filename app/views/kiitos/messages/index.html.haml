@@ -1,3 +1,33 @@
-.pure-u
-  %ul
-    = render partial: 'message', collection: @messages
+#messages-dashboard.pure-u-7-12.left
+  .wrapper
+    #message-info
+      #message-header-text
+        #logo
+        %h4= t 'kiitos.user_dashboard.messages.subtitle'
+        %h2= t 'kiitos.user_dashboard.messages.title'
+
+      #user-widget
+        = render 'shared/parallax'
+
+        .username
+          %p
+          = format_user_name kiitos_current_user
+
+        .send_kiito
+          %p= t(can_send?, scope: 'kiitos.user_dashboard.messages.can_send')
+
+    = link_to t('kiitos.user_dashboard.messages.return'), user_dashboard_path, class: 'return'
+
+    = render 'shared/separator', type: 'left'
+
+    = render 'shared/footer', type: 'left'
+
+#messages-kiitos.pure-u-5-12
+  = render 'kiitos/messages/messages', messages: @messages
+
+:coffee
+  initialize_parallax()
+  scene = document.getElementById 'scene'
+  parallax = new Parallax(scene,
+    scalarY: 30
+  )

@@ -13,11 +13,11 @@ module Kiitos
     end
 
     def self.sent_messages(user)
-      Kiitos::Message.where(from:  user.id)
+      Kiitos::Message.where(from: user.id)
     end
 
     def self.received_messages(user)
-      Kiitos::Message.where(to:  user.id)
+      Kiitos::Message.where(to: user.id)
     end
 
     def self.is_admin?(user)
@@ -26,6 +26,10 @@ module Kiitos
 
     def self.find_user(name)
       Kiitos.user_class.find_by name: name
+    end
+
+    def self.find_user_by_id(id)
+      Kiitos.user_class.find id
     end
 
   end

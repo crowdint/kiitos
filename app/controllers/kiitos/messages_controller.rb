@@ -1,5 +1,18 @@
 module Kiitos
   class MessagesController < ApplicationController
+
+    def index
+      @messages = Message.group_all kiitos_current_user.id
+    end
+
+    def show
+      respond_to do |format|
+        @base = Kiitos::Kiito.find params[:id]
+        @messages = Message.group_by_category kiitos_current_user.id, params[:id]
+        format.js
+      end
+    end
+
     def create
       @message = Message.new message_params
       @message.from = kiitos_current_user.id
@@ -8,12 +21,10 @@ module Kiitos
         redirect_to user_dashboard_path
       else
         @messages = Message.user_messages(kiitos_current_user).a_month_ago
+        @messages = @messages.page(params[:page])
+        @messages.map! {|m| MessageDecorator.new(m, kiitos_current_user) }
         render 'kiitos/user_dashboard/index'
       end
-    end
-
-    def index
-      @messages = Message.a_month_ago
     end
 
     private

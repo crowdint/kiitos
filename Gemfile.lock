@@ -1,11 +1,12 @@
 PATH
   remote: .
   specs:
-    kiitos (0.0.4)
+    kiitos (0.0.5)
       carrierwave
       gravatar_image_tag
       haml-rails
       jquery-rails
+      kaminari
       mini_magick
       pg
       rails (~> 4.0.0)
@@ -115,6 +116,9 @@ GEM
       railties (>= 3.0, < 5.0)
       thor (>= 0.14, < 2.0)
     json (1.8.1)
+    kaminari (0.14.1)
+      actionpack (>= 3.0.0)
+      activesupport (>= 3.0.0)
     launchy (2.3.0)
       addressable (~> 2.3)
     mail (2.5.4)
@@ -249,6 +253,7 @@ DEPENDENCIES
   gitnesse
   haml-rails
   jquery-rails
+  kaminari
   kiitos!
   launchy
   minitest-colorize

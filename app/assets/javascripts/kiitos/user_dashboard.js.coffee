@@ -20,6 +20,26 @@ $(document).ready ->
     $('#message_to').val data.id
     enableButton()
 
+  $('#messages ul.list-group').infinitescroll
+    loading:
+      finishedMsg: ''
+      msgText:     ''
+      img:         '../assets/kiitos/GIF/progress.gif'
+    navSelector:   'nav.pagination' # selector for the paged navigation (it will be hidden)
+    nextSelector:  'nav.pagination a[rel=next]' # selector for the NEXT link (to page 2)
+    itemSelector:  '#messages ul.list-group li.message' # selector for all items you'll retrieve
+    appendCallback: true,
+    ->
+      updateScroll()
+
+  $('#messages ul.list-group').infinitescroll('pause')
+
+  $('#arrow #load-more').on 'click', (event) ->
+    $('#messages ul.list-group').infinitescroll('retrieve')
+
+  updateScroll = ->
+    $('#messages').scrollTop($('#messages').get(0).scrollHeight)
+
   # Counts how many characters remain for the message
   count = ->
     length = $('#message_message').val().length
