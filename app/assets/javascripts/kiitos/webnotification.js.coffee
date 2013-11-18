@@ -1,0 +1,1 @@
+window.webNotification or (window.webNotification = {})
