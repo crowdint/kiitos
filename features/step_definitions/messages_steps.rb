@@ -16,7 +16,9 @@ end
 
 Then(/^I should see the following kiitos:$/) do |table|
   visit kiitos.messages_path
-  table.hashes.each do |value|
-    assert page.has_content?(value['message-info']), 'Did not find kiito'
+  within '#messages-kiitos' do
+    table.hashes.each do |value|
+      assert page.has_content?(value['message-info']), 'Did not find kiito'
+    end
   end
 end
