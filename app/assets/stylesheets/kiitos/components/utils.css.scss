@@ -78,7 +78,7 @@
   }
 
   &.left {
-    @include set-left;
+    @extend .set-left;
     width: 330px;
     margin-top: 50px;
   }
