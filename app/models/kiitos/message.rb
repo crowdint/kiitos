@@ -12,11 +12,11 @@ module Kiitos
     end
 
     def sender_email
-      self.anonymous ? 'Anonymous' : self.sender.email
+      self.sender.email
     end
 
     def sender_name
-      self.anonymous ? 'Anonymous' : self.sender.name
+      self.sender.name
     end
 
     def self.group_all user_id

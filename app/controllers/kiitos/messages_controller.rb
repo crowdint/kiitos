@@ -30,7 +30,7 @@ module Kiitos
     private
 
     def message_params
-      params.require('message').permit(:to, :kiitos_kiito_id, :message, :anonymous)
+      params.require('message').permit(:to, :kiitos_kiito_id, :message)
     end
   end
 end
