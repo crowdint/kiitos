@@ -46,31 +46,6 @@ describe Kiitos::MessageDecorator do
   	end
   end
 
-  describe '#sender_name' do
-  	context 'when the sender is anonymous' do
-  		it 'returns Anonymous text' do
-  			Kiitos::Message.any_instance.stubs(:anonymous).returns true
-
-  			@subject.sender_name.must_equal 'Anonymous'
-  		end
-  	end
-
-  	context 'when the sender is the current user' do
-  		it 'returns Me text' do
-  			@subject.sender_name.must_equal 'Me'
-  		end
-  	end
-
-  	context 'when the sender is another known user' do
-  		it 'returns the name of the sender' do
-  			@subject.stubs(:user_is_owner?).returns false
-  			User.any_instance.stubs(:name).returns 'José Perez León'
-
-  			@subject.sender_name.must_equal 'José Perez León'
-  		end
-  	end
-  end
-
   describe '#user_is_owner?' do
   	context 'when the user is owner' do
   		it 'returns true' do
