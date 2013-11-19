@@ -4,13 +4,6 @@
     font-weight: 300;
     margin: 0 0 10px;
   }
-  .anonymous {
-    color: $h1;
-
-    label {
-      cursor: pointer;
-    }
-  }
 
   .btn:disabled {
     background: $dialog-dark;
@@ -62,15 +55,6 @@
       margin: 37px 17px 0 0;
       padding-left: 0;
       width: 210px;
-
-      .anonymous {
-        input[type='checkbox'] {
-          display: none;
-        }
-        input[type="checkbox"]:checked+label:before {
-          background: #84c04a;
-        }
-      }
     }
   }
 
@@ -79,16 +63,6 @@
     float: right;
     margin: 37px 17px 0 0;
     padding-left: 35px;
-
-    .anonymous {
-      input[type='checkbox'] {
-        display: none;
-      }
-
-      input[type="checkbox"]:checked+label:before {
-        background: #84c04a;
-      }
-    }
 
     label:before {
       background: #ebebeb;
