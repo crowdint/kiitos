@@ -293,7 +293,7 @@
         background: #fff;
         max-height: 500px;
         overflow-y: scroll;
-        padding: 0 20px;
+        padding: 0;
         width: 280px;
         -webkit-box-sizing: border-box;
         -moz-box-sizing: border-box;
@@ -301,33 +301,37 @@
         list-style: none;
 
         li {
+          padding: 5px;
+
           input[type='radio'] {
               display: none;
           }
 
           label {
             display: inline-block;
-            height: 100%;
-            padding: 30px 0 0 75px;
-            width: 100%;
+            line-height: 60px;
+            margin-left: 8px;
+            padding: 0;
+            width: 70%;
             -webkit-box-sizing: border-box;
             -moz-box-sizing: border-box;
             box-sizing: border-box;
-
-            label {
-              display: inline-block;
-              height: 100%;
-              padding: 30px 0 0 75px;
-              width: 100%;
-              -webkit-box-sizing: border-box;
-              -moz-box-sizing: border-box;
-              box-sizing: border-box;
-            }
 
             &:last-child {
               border: none;
             }
           }
+
+          &:hover {
+            background: $primary;
+
+            label { color: white }
+          }
+
+          &.selected {
+            border: 1px solid $primary;
+          }
+
         }
 
         .badge{
