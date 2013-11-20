@@ -55,10 +55,10 @@ $(document).ready ->
     $('#submit-kiito').attr 'disabled', !canEnableButton()
 
   selectOption = (event) ->
-    $('.list-wrapper ul li').removeClass 'selected'
+    $('.list-wrapper ul li').find('.selected').remove()
     $('.list-wrapper ul li input[type=radio]').attr 'checked', false
     $(event.currentTarget).find('input[type=radio]').attr 'checked', true
-    $(event.currentTarget).addClass 'selected'
+    $(event.currentTarget).append "<span class='selected'></span>"
 
   $('.list-wrapper ul li').on 'click', (event) ->
     event.preventDefault()

@@ -299,6 +299,7 @@
         -moz-box-sizing: border-box;
         box-sizing: border-box;
         list-style: none;
+        padding: 0 10px;
 
         li {
           padding: 5px;
@@ -309,10 +310,11 @@
 
           label {
             display: inline-block;
-            line-height: 60px;
+            line-height: 65px;
             margin-left: 8px;
             padding: 0;
-            width: 70%;
+            width: 62%;
+            color: $light-orange-text;
             -webkit-box-sizing: border-box;
             -moz-box-sizing: border-box;
             box-sizing: border-box;
@@ -323,15 +325,24 @@
           }
 
           &:hover {
-            background: $primary;
+            background: $hover-badge-bg;
+            margin: 0px -10px;
+            padding: 5px 15px;
 
-            label { color: white }
+            label { color: black }
           }
 
-          &.selected {
-            border: 1px solid $primary;
+          .selected {
+            @include border-radius(10px);
+            position: relative;
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            background: url('PNG/check.png') no-repeat $orange-bg;
+            background-size: 80%;
+            background-position: 50%;
+            top: 5px;
           }
-
         }
 
         .badge{
