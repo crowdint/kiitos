@@ -15,6 +15,9 @@
             = t('.welcome_back')
           = format_user_name kiitos_current_user
 
+        .send_kiito
+          %p= t(can_send?, scope: 'kiitos.user_dashboard.messages.can_send') if is_mobile?
+
     - if is_admin?
       = render 'shared/admin_menu'
 
@@ -23,11 +26,15 @@
     #new-kiito{ class: can_send? }
       = render 'kiitos/user_dashboard/form', message: @message
 
+    - if is_mobile?
+      = link_to t('kiitos.user_dashboard.messages.return'), user_dashboard_path, class: 'return'
+
     = render 'shared/separator', type: ''
 
     = render 'shared/footer', type: ''
 
 #received-kiitos.pure-u-5-12
+  = link_to '', '#', class: 'open'
   = render 'kiitos/user_dashboard/kiitos/received', messages: @messages
 
 :coffee

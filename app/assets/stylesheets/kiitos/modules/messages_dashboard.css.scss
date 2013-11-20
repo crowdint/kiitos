@@ -69,7 +69,7 @@
   }
 
  &.left {
-    @include set-left;
+    @extend .set-left;
     width: 30%;
 
     .wrapper {
@@ -97,7 +97,7 @@
 }
 
 #messages-kiitos{
-  @include box-sizing;
+  @extend .box-sizing;
 
   background: $container-secondary;
   padding: 60px;
