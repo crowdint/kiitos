@@ -15,10 +15,10 @@ When(/^I fill in the send kiito form with:$/) do |table|
   end
 end
 
-Then(/^The user "(.*?)" should have the "(.*?)" kiito in his received messages$/) do |user, kiito|
+Then(/^The user "(.*?)" should have "(.*?)" kiito in his received messages$/) do |user, kiito|
   step "I sign in as \"#{user}\""
   within '#received-kiitos' do
-    assert page.has_content?(kiito), 'The kiito is not there'
+    page.has_css?('ul.list-group li', count: kiito)
   end
 end
 
