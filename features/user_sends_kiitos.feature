@@ -25,7 +25,7 @@ Feature: A user sends kiitos
     When I fill in the send kiito form with:
       |to               |message                         |kiito       |
       |User2            |Thanks for being the way you are|I am grateful|
-    Then The user "user2@test.com" should have the "I am grateful" kiito in his received messages
+    Then The user "user2@test.com" should have "1" kiito in his received messages
 
   Scenario: A user cannot send a kiito to self
     When I sign in as "user1@test.com"
