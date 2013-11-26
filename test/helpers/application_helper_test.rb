@@ -49,4 +49,23 @@ describe Kiitos::ApplicationHelper do
       end
     end
   end
+
+  describe :is_mobile? do
+    before do
+      @mock = MiniTest::Mock.new
+    end
+
+    context 'from mobile device' do
+      it 'should return true' do
+        @mock.expect(:is_mobile?, true, ['Mobile'])
+      end
+    end
+
+    context 'from another agent' do
+      it 'should return false' do
+        @mock.expect(:is_mobile?, false, ['Safari'])
+      end
+    end
+  end
+
 end

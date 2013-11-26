@@ -35,7 +35,7 @@
     .message-info
       %h3= t('kiitos.kiito')
       .dialog-dark
-        = f.text_area :message, placeholder: "#{t('.your_comment')}"
+        = f.text_area :message, placeholder: "#{t('.your_comment')}", maxlength: '140'
       %span.by
         = t('.by')
         = kiitos_current_user.name

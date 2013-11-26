@@ -1,0 +1,280 @@
+@include ipad {
+  #user-dashboard {
+    width: 95%;
+    float: left;
+    position: relative;
+    height: 100%;
+
+    .wrapper {
+      width: 100%;
+      float: none;
+
+      .separator-colors {
+        &.mobile {
+          width: 100%;
+          bottom: 1%;
+        }
+      }
+
+      #user-info {
+        #logo {
+          width: 200px;
+          height: 87px;
+          background-size: 200px;
+        }
+
+        h2 { font-size: 3em; }
+        h4 { font-size: 2em; }
+
+        #user-widget {
+          min-height: 350px;
+
+          #scene {
+            height: 150px;
+          }
+
+          .welcome-back {
+            width: 200px;
+            position: relative;
+            left: 43%;
+            font-size: 1.5em;
+            top: 55px;
+          }
+
+          .send_kiito {
+            top: 80px;
+            display: none;
+            position: relative;
+
+            p {
+              color: #c9664a;
+              font-size: 1.5em;
+              text-align: center;
+            }
+          }
+        }
+
+        .user-pic {
+          width: 200px;
+          height: 200px;
+          right: 40%;
+
+          img {
+            height: 190px;
+            width: 190px;
+            border: none;
+          }
+        }
+
+        &.mobile {
+          #user-header-text {
+            display: none;
+          }
+
+          .user-pic {
+            right: 30%;
+          }
+
+          #user-widget {
+            .welcome-back {
+              left: 35%;
+            }
+          }
+        }
+      }
+
+      #admin-menu {
+        font-size: 1.5em;
+
+        #admin-option, #user-option {
+          position: relative;
+          right: 30px;
+          width: auto;
+          padding: 0 20px;
+          line-height: 22px;
+        }
+      }
+
+      .return {
+        display: none;
+        background: url('PNG/icons_sprite.png') no-repeat;
+        background-position: -2px -47px;
+        position: absolute;
+        top: 88%;
+        left: 45%;
+        font-size: 2.5em;
+        text-align: right;
+        color: $light-gray-text;
+        font-family: 'Roboto';
+        width: 230px;
+        vertical-align: text-top;
+        clear: both;
+        text-decoration: none;
+        line-height: 30px;
+      }
+
+      #new-kiito-section {
+        padding: 0 50px;
+
+        .message-info, .send {
+          font-size: 1.3em;
+        }
+
+        .dialog-dark {
+          width: 400px;
+        }
+
+        #submit-kiito {
+          width: 200px;
+        }
+      }
+
+      #select-section {
+        width: 500px;
+      }
+
+      footer {
+        position: absolute;
+        bottom: 0;
+        float: left;
+      }
+    }
+  }
+
+  #received-kiitos {
+    position: relative;
+    width: 5%;
+    height: 100%;
+    float: right;
+    padding: 0;
+
+    form, .list-group, h1 { display: none; }
+
+    &.mobile {
+      padding: 60px;
+
+      form, .list-group, h1 { display: block; }
+    }
+  }
+}
+
+@include ipad-landscape {
+  html, body {
+    position: absolute;
+    width: 100%;
+    height: 643px;
+    overflow: hidden;
+    top: 0;
+    left: 0;
+  }
+
+  #user-dashboard {
+    width: 95%;
+    float: left;
+    height: 672px;
+    overflow: auto;
+
+    .wrapper {
+      .separator-colors {
+        &.mobile {
+          position: relative;
+          width: 100%;
+          height: 30px;
+          margin-top: 90px;
+        }
+      }
+
+      #user-info {
+        #logo {
+          width: 140px;
+          height: 57px;
+          background-size: 140px;
+          margin-bottom: 30px;
+        }
+
+        h2 { font-size: 2em; }
+        h4 { font-size: 1.5em; }
+
+        #user-widget {
+          min-height: 300px;
+
+          #scene {
+            height: 150px;
+          }
+
+          .welcome-back {
+            top: 45px;
+            left: 45%;
+            font-size: 1em;
+          }
+
+          .send_kiito {
+            top: 60px;
+            display: none;
+            position: relative;
+
+            p {
+              color: #c9664a;
+              font-size: 1.3em;
+              text-align: center;
+            }
+          }
+        }
+
+        .user-pic {
+          width: 170px;
+          height: 170px;
+          right: 42%;
+
+          img {
+            height: 170px;
+            width: 170px;
+            border: none;
+          }
+        }
+
+        &.mobile {
+          #user-header-text {
+            display: none;
+          }
+
+          .user-pic {
+            right: 30%;
+          }
+
+          #user-widget {
+            .welcome-back {
+              top: 45px;
+              left: 43%;
+            }
+          }
+        }
+      }
+
+      .return {
+        background-position: 80px -47px;
+        font-size: 1.5em;
+        top: 77%;
+      }
+
+      footer {
+        position: relative;
+        width: 200px;
+        top: -30px;
+        left: 10px;
+        float: left;
+      }
+    }
+  }
+
+  #received-kiitos {
+    width: 5%;
+    float: right;
+    padding: 0;
+
+    .list-group {
+      height: 400px;
+      overflow: auto;
+    }
+  }
+}
