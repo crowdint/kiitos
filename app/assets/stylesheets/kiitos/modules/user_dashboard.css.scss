@@ -292,11 +292,14 @@
         background: #fff;
         max-height: 500px;
         overflow-y: scroll;
-        padding: 0 20px;
+        padding: 0;
         width: 280px;
         list-style: none;
+        padding: 0 10px;
 
         li {
+          padding: 5px;
+
           input[type='radio'] {
               display: none;
           }
@@ -321,6 +324,26 @@
             &:last-child {
               border: none;
             }
+          }
+
+          &:hover {
+            background: $hover-badge-bg;
+            margin: 0px -10px;
+            padding: 5px 15px;
+
+            label { color: black }
+          }
+
+          .selected {
+            @include border-radius(10px);
+            position: relative;
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            background: url('PNG/check.png') no-repeat $orange-bg;
+            background-size: 80%;
+            background-position: 50%;
+            top: 5px;
           }
         }
 
