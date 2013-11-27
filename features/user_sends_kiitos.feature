@@ -27,14 +27,6 @@ Feature: A user sends kiitos
       |User2            |Thanks for being the way you are|I am grateful|
     Then The user "user2@test.com" should have "1" kiito in his received messages
 
-  @javascript
-  Scenario: A user can send a kiito anonymously
-    When I sign in as "user1@test.com"
-    When I fill in the send kiito form anonymously with:
-      |to               |message                         |kiito       |
-      |User2            |Thanks for being the way you are|I am grateful|
-    Then The user "user2@test.com" should not see the sender name "user1@test.com" for the "I am grateful" kiito
-
   Scenario: A user cannot send a kiito to self
     When I sign in as "user1@test.com"
     Then I should not see the user "user1@test.com"

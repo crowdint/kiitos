@@ -21,11 +21,6 @@ module Kiitos
 			end
 		end
 
-		def sender_name
-			name = user_is_owner?(current_user) ? 'Me' : message_object.sender.name
-      message_object.anonymous ? 'Anonymous' : name
-    end
-
 		def user_is_owner? user
 			message_object.from == user.id
 		end

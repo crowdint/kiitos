@@ -172,10 +172,6 @@
   }
 }
 
-.ui-dialog-titlebar {
-  display: none;
-}
-
 .custom-overlay {
   @include filter-blur(6px);
 
