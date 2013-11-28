@@ -5,6 +5,7 @@ ENV['RAILS_ROOT'] ||= File.dirname(__FILE__) + '../../../test/dummy'
 require 'debugger'
 require 'minitest/spec'
 require 'capybara/poltergeist'
+require 'coffee_script'
 
 Capybara.javascript_driver = :poltergeist
 
