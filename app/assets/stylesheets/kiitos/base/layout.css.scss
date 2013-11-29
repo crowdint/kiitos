@@ -84,3 +84,41 @@ footer {
 .ui-dialog-titlebar {
   display: none;
 }
+
+.user-search {
+  input[type='text'] {
+    background: #fafafa;
+    border: none;
+    font-size: 12px;
+    height: 100%;
+    padding: 0;
+    width: 100%;
+    &:focus {
+      outline: none;
+    }
+  }
+
+  .user-select, .select-user {
+    display: inline-block;
+    height: 16px;
+    padding: 6px 10px;
+    width: 174px;
+
+    .tt-dropdown-menu {
+      background: #fafafa;
+      font-size: 8px;
+      left: -10px !important;
+      width: 174px;
+      padding: 0px 10px;
+      margin-top: 10px;
+    }
+
+    .twitter-typeahead {
+      bottom: 10px;
+    }
+
+    #search_to, .tt-hint, #search_user {
+      font-size: 1em;
+    }
+  }
+}

@@ -167,7 +167,7 @@
     .add-new-administrator {
       display: none;
       margin-bottom: 20px;
-      height: 202px;
+      height: 225px;
 
       h1:before {
         display: block;
@@ -201,41 +201,51 @@
         height: 23px
       }
 
-      .select-user {
-        clear: both;
-        margin: 20px 0;
-        width: 93%;
-        background: $dialog-dark;
-        padding: 10px;
+      #form-new-admin {
+        height: 165px;
 
-        #search_user {
-          border: none;
+        .select-user {
+          clear: both;
+          margin: 20px 0;
+          width: 93%;
           background: $dialog-dark;
-          width: 300px;
+          padding: 10px;
+          margin-top: 5px;
 
-          &:focus { outline: none; }
-        }
+          #search_user {
+            border: none;
+            background: $dialog-dark;
+            width: 300px;
+            height: 36px;
 
-        .tt-dropdown-menu {
-          background: $light-gray-bg;
-          width: 300px;
-          margin-top: 10px;
-        }
-
-        .tt-suggestion {
-          &.tt-is-under-cursor {
-            background: $special;
-            color: white;
+            &:focus { outline: none; }
           }
-          p {
-            margin: 10px 0;
-            line-height: 25px;
+
+          .tt-dropdown-menu {
+            background: $light-gray-bg;
+            width: 300px;
+            margin-top: 0;
+          }
+
+          .tt-suggestion {
+            &.tt-is-under-cursor {
+              background: $special;
+              color: white;
+              margin: 0 -9px;
+              padding: 0 9px;
+            }
+
+            p {
+              margin: 10px 0;
+              line-height: 25px;
+              font-size: 1.8em;
+            }
           }
         }
-      }
-      .buttons {
-        width: 39%;
-        float: right;
+        .buttons {
+          width: 39%;
+          float: right;
+        }
       }
     }
   }

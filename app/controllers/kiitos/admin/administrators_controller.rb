@@ -3,15 +3,21 @@ module Kiitos
     class AdministratorsController < ApplicationController
       def create
         user = Kiitos::UserQuery.find_user params[:name]
-        Administrator.create user_id: user.id
-        redirect_to admin_users_path
+        admin = Administrator.new user_id: user.id
+        message = if admin.save
+          'The admin was added successfully.'
+        else
+          "The admin wasn't added successfully, please try again."
+        end
+
+        redirect_to user_dashboard_path, notice: message
       end
 
       def destroy
         if Kiitos::UserQuery.is_admin?(kiitos_current_user)
           Administrator.find(params[:id]).destroy
         end
-        redirect_to admin_users_path
+        redirect_to user_dashboard_path
       end
     end
   end
