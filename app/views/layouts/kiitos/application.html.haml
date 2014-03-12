@@ -11,5 +11,9 @@
     #layout.pure-g-r
       = yield
 
+    - if notice
+      :coffeescript
+        new webNotification.create 'http://kiitos.dev/assets/kiitos/PNG/notification.png',  'Kiitos Notification', "#{notice}"
+
 :coffeescript
   new webNotification.checkPermission()

@@ -18,12 +18,12 @@ module Kiitos
       @message.from = kiitos_current_user.id
       if @message.save
         Kiitos::EmailService.new(@message.to, @message.message).send_notification if @message.to
-        redirect_to user_dashboard_path
+        redirect_to user_dashboard_path, notice: 'The kiito was sent successfully'
       else
         @messages = Message.user_messages(kiitos_current_user).a_month_ago
         @messages = @messages.page(params[:page])
         @messages.map! {|m| MessageDecorator.new(m, kiitos_current_user) }
-        render 'kiitos/user_dashboard/index'
+        render 'kiitos/user_dashboard/index', notice: "The kiito couldn't be sent, please try again"
       end
     end
 

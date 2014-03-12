@@ -14,12 +14,12 @@
     .state-tag
       = t '.state'
 
-    .user-search
-      .select-user
-        = text_field_tag :search_user, nil, placeholder: 'Name of the user you want to promote'
+    = form_for 'admin', url: admin_administrators_path, html: { id: 'form-new-admin'} do |f|
 
-    .buttons
-      = link_to 'Cancel', '#', id: 'cancel-promote', class: 'cancel-promote'
-      = link_to 'Promote', '#', id: 'promote-administrator', class: 'btn-promote'
+      .user-search
+        .select-user
+          = text_field_tag :search_user, nil, placeholder: 'Name of the user you want to promote', name: 'name'
 
-
+      .buttons
+        = link_to 'Cancel', '#', id: 'cancel-promote', class: 'cancel-promote'
+        = f.submit 'Promote', id: 'promote-administrator', class: 'btn-promote'

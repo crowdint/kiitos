@@ -19,7 +19,7 @@ describe Kiitos::Admin::AdministratorsController  do
 
     it 'redirects to the users management panel' do
       post :create, name: 'User2 Name'
-      response.must_redirect_to admin_users_path
+      response.must_redirect_to user_dashboard_path
     end
   end
 
@@ -39,7 +39,7 @@ describe Kiitos::Admin::AdministratorsController  do
 
     it 'redirects to the users management panel' do
       delete :destroy, id: user.id
-      response.must_redirect_to admin_users_path
+      response.must_redirect_to user_dashboard_path
     end
   end
 end

@@ -9,11 +9,12 @@ $(document).ready ->
       content.show()
 
   # Comun class to delete subjects
-  deleteSubject = (url, target) ->
+  deleteSubject = (url, target, msg) ->
    method = { _method: 'delete' }
    request = $.post url, method
    request.complete  ->
       $(target).parent().fadeOut()
+      sendNotification msg
 
   # Settings for typeahead.js
   $('#search_user').typeahead
@@ -22,6 +23,11 @@ $(document).ready ->
     prefetch:
       url: '/kiitos/users'
       ttl: 5000
+
+  # Create a notification
+  sendNotification = (message) ->
+    new webNotification.create 'http://kiitos.dev/assets/kiitos/PNG/notification.png',
+      'Kiitos Notification', "The #{message} was removed successfully"
 
   # the needed binding for showing the manage admins area
   $('.add-user').on 'click', (event) ->
@@ -35,12 +41,12 @@ $(document).ready ->
   $('.delete-admin').on 'click', (event) ->
     event.preventDefault()
     url = event.currentTarget.href
-    deleteSubject url, event.currentTarget
+    deleteSubject url, event.currentTarget, 'admin'
 
   $('.delete-kiito').on 'click', (event) ->
     event.preventDefault()
     url = event.currentTarget.href
-    deleteSubject url, event.currentTarget
+    deleteSubject url, event.currentTarget, 'kiito'
 
   $('#add-administrator').on 'click', (event) ->
     event.preventDefault()
@@ -62,13 +68,6 @@ $(document).ready ->
     $('.add-new-kiito').hide()
     $('#form-new-kiito').trigger('reset')
     $('#add-kiito').show()
-
-  $('#promote-administrator').on 'click', (event) ->
-    event.preventDefault()
-    name = $('#search_user').val()
-    request = $.post "admin/administrators?name=#{name}"
-    request.complete (response) ->
-      location.reload()
 
   previewImage = (el) ->
     if el.files.length > 0

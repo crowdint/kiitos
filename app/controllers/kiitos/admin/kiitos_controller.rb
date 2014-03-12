@@ -12,13 +12,13 @@ module Kiitos
       def create
         @kiito = Kiito.new kiito_params
 
-        if @kiito.save
-          flash[:notice] = 'Your kiito was created sucessfuly'
+        message = if @kiito.save
+          'Your kiito was created successfully'
         else
-          flash[:error] = 'Something were wrong, please try again'
+          'Something were wrong, please try again'
         end
 
-        redirect_to user_dashboard_path
+        redirect_to user_dashboard_path, notice: message
       end
 
       def edit
